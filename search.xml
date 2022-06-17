@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Codeforces1690D 滑动窗口</title>
+    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
+<p><a
+href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
+<span id="more"></span>
+<p>废话不多说，分析题目，题干比较简单，直接看例子</p>
+<p>input</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">5 3</span><br><span class="line">BBWBW</span><br><span class="line">5 5</span><br><span class="line">BBWBW</span><br><span class="line">5 1</span><br><span class="line">BBWBW</span><br><span class="line">1 1</span><br><span class="line">W</span><br></pre></td></tr></table></figure>
+<p>output</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
+BBBBW ”，有k个连续的B</p>
+<p>在第二个测试用例中，" BBWBW " 和k = 5. 重新着色就2个就足够了并得到“
+BBBBB ”，有k个连续的B</p>
+<p>在第三个测试用例中，" BBWBW " 和k = 1 无需重新着色就已满足有 k
+个连续的B</p>
+</blockquote>
+<p>典型的滑动窗口题，窗口大小就是 k (windowsize =
+k)。按常规的滑动窗口题目的做法应该都会需要弄个哈希表来搞，这题比较简单，只需记录一些窗口中
+W 的个数即可。 <span class="math display">\[
+\begin{gather}
+第一个测试用例\quad k=3 \\ \\
+\begin{array}{ccccc}
+    \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{ccccc}
+    &amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    \text{Out}
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{cccccc}
+    &amp;&amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    &amp;\text{Out}
+\end{array}\\
+\text{count}\_\text{W}=2
+\end{gather}
+\]</span></p>
+<blockquote>
+<p>整个滑动过程 最小的 count_W 即为答案。 为了更新 count_W
+的值，可以引入一个 Out 变量记着出去的字母</p>
+</blockquote>
+<p>整体C++代码实现如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> n, k;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> count_W = <span class="number">0</span>; <span class="comment">//记录窗口内 W 的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">&#x27;W&#x27;</span>)</span><br><span class="line">                count_W++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 滑动窗口 k  [leftIndex, rightIndex)</span></span><br><span class="line">        <span class="type">int</span> res = count_W;</span><br><span class="line">        <span class="type">int</span> leftIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> rightIndex = k - leftIndex;</span><br><span class="line">        <span class="comment">// Out 代表出去的字母， s[rightIndex - 1] 代表进来的字母</span></span><br><span class="line">        <span class="type">char</span> Out = s[leftIndex];</span><br><span class="line">        leftIndex++, rightIndex++;</span><br><span class="line">        <span class="keyword">for</span> (; rightIndex &lt;= n; rightIndex++, leftIndex++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 更新 count_W</span></span><br><span class="line">            <span class="keyword">if</span> (Out != s[rightIndex - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (Out == <span class="string">&#x27;W&#x27;</span>)</span><br><span class="line">                    count_W--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    count_W++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 更新出去的字母 以及 答案</span></span><br><span class="line">            Out = s[leftIndex];</span><br><span class="line">            res = res &lt; count_W ? res : count_W;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="写在最后">写在最后</h3>
+<p>大家好，这是我知乎的第一篇文章，希望多多支持，本人喜欢 <strong>打 注
+释</strong>
+，顺手发发文章。个人觉得这样能让自己以及他人能够更好地读懂自己代码，想必大家都能体会到心情激动地Google到别人的代码却完全看不懂TA写啥的那种感受，尤其这段代码还能完美解决你的问题的时候。。。</p>
+<p>还有 <a href="https://codeforces.com/">codefores</a>
+这个居然刷题网站可以查看别人的 submit
+的代码！！（点那串数字；不过常常不知道别人在写啥，但 CTRL C V 过来就是能
+AC ，可能是我太菜了 :joy:</p>
+]]></content>
+      <categories>
+        <category>OJ题</category>
+      </categories>
+      <tags>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/img/hello-world/image-20220617204500157.png"
+alt="image-20220617204500157" />
+<figcaption aria-hidden="true">image-20220617204500157</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
