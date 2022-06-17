@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/BlogLogo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/BlogLogo.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mortal-94.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="人口统计数据分析器 最近快考python了，上网找了个小项目来练习一下。 这个项目来自 freecodecamp 里面的 Python 和数据分析 这个教程。 项目链接： 人口统计数据分析器 github 题目要求：  你必须使用 Pandas 来回答以下问题：  这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas 系列。 （race 栏）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人口统计数据分析器">
+<meta property="og:url" content="https://mortal-94.github.io/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/index.html">
+<meta property="og:site_name" content="mortallyn&#39;s blog">
+<meta property="og:description" content="人口统计数据分析器 最近快考python了，上网找了个小项目来练习一下。 这个项目来自 freecodecamp 里面的 Python 和数据分析 这个教程。 项目链接： 人口统计数据分析器 github 题目要求：  你必须使用 Pandas 来回答以下问题：  这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas 系列。 （race 栏）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-17T13:48:24.898Z">
+<meta property="article:modified_time" content="2022-06-17T14:35:31.693Z">
+<meta property="article:author" content="mortallyn">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="pandas">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mortal-94.github.io/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/","path":"2022/06/17/人口统计数据分析器/","title":"人口统计数据分析器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>人口统计数据分析器 | mortallyn's blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">mortallyn's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">井底之蛙 欲观苍穹</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">人口统计数据分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="nav-number">1.1.</span> <span class="nav-text">题目要求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">整体代码：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">3.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mortallyn"
+      src="/images/BlogLogo.png">
+  <p class="site-author-name" itemprop="name">mortallyn</p>
+  <div class="site-description" itemprop="description">AI专业游走的小菜鸡</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/mortal-94" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mortal-94" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mortallyn@gmail.com" title="E-Mail → mailto:mortallyn@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/mortallyn" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;mortallyn" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/mortal-94" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/BlogLogo.png">
+      <meta itemprop="name" content="mortallyn">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mortallyn's blog">
+      <meta itemprop="description" content="AI专业游走的小菜鸡">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="人口统计数据分析器 | mortallyn's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          人口统计数据分析器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-06-17 21:48:24 / 修改时间：22:35:31" itemprop="dateCreated datePublished" datetime="2022-06-17T21:48:24+08:00">2022-06-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/pandas/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">练手小项目</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="人口统计数据分析器">人口统计数据分析器</h1>
+<p>最近快考python了，上网找了个小项目来练习一下。</p>
+<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
+和数据分析</strong> 这个教程。</p>
+<p>项目链接： <a
+target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
+<a
+target="_blank" rel="noopener" href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
+<h2 id="题目要求">题目要求：</h2>
+<blockquote>
+<p>你必须使用 Pandas 来回答以下问题：</p>
+<ol type="1">
+<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
+Pandas 系列。 （<code>race</code> 栏）</li>
+<li>男性的平均年龄是多少？</li>
+<li>拥有学士学位的人的百分比是多少？</li>
+<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
+<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
+<li>一个人每周最少工作多少小时？</li>
+<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
+<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
+<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
+</ol>
+</blockquote>
+<h2 id="分析">分析</h2>
+<ol type="1">
+<li><p>这个数据集中每个种族有多少人？
+这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
+栏）</p>
+<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
+<code>race</code> 栏各个值的数量。索引：<code>race</code>
+的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
+<li><p>男性的平均年龄是多少？</p>
+<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
+<code>age</code> 求 <code>mean</code> 便可</p></li>
+<li><p>拥有学士学位的人的百分比是多少？</p>
+<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
+和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
+<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
+<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
+<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
+<code>salary &gt;50k</code>
+的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
+<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
+<p>方法同 4。</p></li>
+<li><p>一个人每周最少工作多少小时？</p>
+<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
+<code>min()</code> 方法即可。</p></li>
+<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
+<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
+<code>salary &gt; 50k</code> ，满足这些的数量 除以
+定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
+的数量得到占比。（这题答案是比例值。。。</p></li>
+<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
+<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
+<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
+方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
+<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
+<p>定位：国家是印度，<code>salary &gt; 50k</code>
+。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
+<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
+</ol>
+<h1 id="整体代码">整体代码：</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">&#x27;adult.data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;利用value_counts()方法&quot;&quot;&quot;</span></span><br><span class="line">    race_count = df[<span class="string">&#x27;race&#x27;</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;df.loc[df[&#x27;sex&#x27;] == &#x27;Male&#x27;]直接取出所有性别为男性的行，再对其 age 求 mean 便可&#x27;&quot;&quot;&quot;</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">&#x27;sex&#x27;</span>] == <span class="string">&#x27;Male&#x27;</span>][<span class="string">&#x27;age&#x27;</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;df.loc[df[&#x27;education&#x27;] == &#x27;Bachelors&#x27;]直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可&quot;&quot;&quot;</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">&#x27;education&#x27;</span>] == <span class="string">&#x27;Bachelors&#x27;</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">&#x27;Bachelors&#x27;</span>, <span class="string">&#x27;Masters&#x27;</span>, <span class="string">&#x27;Doctorate&#x27;</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">&#x27;education&#x27;</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行&quot;&quot;&quot;</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">&#x27;education&#x27;</span>].isin(higher_education) &amp; (df[<span class="string">&#x27;salary&#x27;</span>] == <span class="string">&#x27;&gt;50K&#x27;</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">&#x27;education&#x27;</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">&#x27;education&#x27;</span>].isin(lower_education)) &amp; (df[<span class="string">&#x27;salary&#x27;</span>] == <span class="string">&#x27;&gt;50K&#x27;</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">&#x27;education&#x27;</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这个可以直接求&quot;&quot;&quot;</span></span><br><span class="line">    min_work_hours = df[<span class="string">&#x27;hours-per-week&#x27;</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;做法同上&quot;&quot;&quot;</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">&#x27;hours-per-week&#x27;</span>] == min_work_hours &amp; (df[<span class="string">&#x27;salary&#x27;</span>] == <span class="string">&#x27;&gt;50K&#x27;</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">&#x27;hours-per-week&#x27;</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    df1 = df.loc[df[&#x27;salary&#x27;] == &#x27;&gt;50K&#x27;] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1[&#x27;native-country&#x27;].value_counts() / df[&#x27;native-country&#x27;].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">&#x27;salary&#x27;</span>] == <span class="string">&#x27;&gt;50K&#x27;</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">&#x27;native-country&#x27;</span>].value_counts() / df[<span class="string">&#x27;native-country&#x27;</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">&quot;&quot;&quot;知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可&quot;&quot;&quot;</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">&#x27;native-country&#x27;</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">&#x27;native-country&#x27;</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;同上&quot;&quot;&quot;</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">&#x27;native-country&#x27;</span>] == <span class="string">&#x27;India&#x27;</span>) &amp; (df[<span class="string">&#x27;salary&#x27;</span>] == <span class="string">&#x27;&gt;50K&#x27;</span>)][<span class="string">&#x27;occupation&#x27;</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Number of each race:\n&quot;</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Average age of men:&quot;</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Percentage with Bachelors degrees: <span class="subst">&#123;percentage_bachelors&#125;</span>%&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Percentage with higher education that earn &gt;50K: <span class="subst">&#123;higher_education_rich&#125;</span>%&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Percentage without higher education that earn &gt;50K: <span class="subst">&#123;lower_education_rich&#125;</span>%&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Min work time: <span class="subst">&#123;min_work_hours&#125;</span> hours/week&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Percentage of rich among those who work fewest hours: <span class="subst">&#123;rich_percentage&#125;</span>%&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Country with highest percentage of rich:&quot;</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Highest percentage of rich people in country: <span class="subst">&#123;highest_earning_country_percentage&#125;</span>%&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Top occupations in India:&quot;</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;race_count&#x27;</span>: race_count,</span><br><span class="line">        <span class="string">&#x27;average_age_men&#x27;</span>: average_age_men,</span><br><span class="line">        <span class="string">&#x27;percentage_bachelors&#x27;</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">&#x27;higher_education_rich&#x27;</span>: higher_education_rich,</span><br><span class="line">        <span class="string">&#x27;lower_education_rich&#x27;</span>: lower_education_rich,</span><br><span class="line">        <span class="string">&#x27;min_work_hours&#x27;</span>: min_work_hours,</span><br><span class="line">        <span class="string">&#x27;rich_percentage&#x27;</span>: rich_percentage,</span><br><span class="line">        <span class="string">&#x27;highest_earning_country&#x27;</span>: highest_earning_country,</span><br><span class="line">        <span class="string">&#x27;highest_earning_country_percentage&#x27;</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">&#x27;top_IN_occupation&#x27;</span>: top_IN_occupation</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="写在最后">写在最后</h1>
+<p>最近折腾了好久，利用 Hexo + Github
+搭载了个个人博客，欢迎大家来玩啊。</p>
+<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
+<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/pandas/" rel="tag"># pandas</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="prev" title="Codeforces1690D 滑动窗口">
+                  <i class="fa fa-chevron-left"></i> Codeforces1690D 滑动窗口
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mortallyn</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"mortal-94","repo":"mortal-94.github.io","client_id":"e28636b5fcc36ec12dd2","client_secret":"2ef381bea3b99f9b5d7b64c2e80efefcbaed62d0","admin_user":"mortal-94","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"44e65ba0124670a4342badb422e34211"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
