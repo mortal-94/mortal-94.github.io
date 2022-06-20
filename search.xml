@@ -194,4 +194,228 @@ Pandas 系列。 （<code>race</code> 栏）</li>
         <tag>pandas</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<blockquote>
+<p>判断欧拉图</p>
+<p>判断哈密顿图</p>
+<p>判断可三角划分图</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="欧拉图">欧拉图</h2>
+<h2 id="哈密顿图">哈密顿图</h2>
+<p>原子命题定义 设有<span class="math inline">\(n^2\)</span>个原子命题
+<span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span>。 这里的 <span
+class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第 $a $
+个位置被节点 <span class="math inline">\(b\)</span> 占据。</p>
+<ol type="1">
+<li>每个节点 b 必须出现在路径中。</li>
+<li>路径中没有节点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被占用。</li>
+<li>非连通节点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个节点和最后一个节点视为相邻</li>
+</ol>
+<h3 id="构造命题逻辑简单合取范式公式">构造命题逻辑简单合取范式公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}
+\end{align*}
+\]</span></p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>定义：</p>
+<p>定义原子命题</p>
+<p>满足条件</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<h1 id="参考">参考</h1>
+]]></content>
+      <categories>
+        <category>草稿</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>雅可比行列式</title>
+    <url>/2022/06/18/%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="雅可比行列式">雅可比行列式</h1>
+<blockquote>
+<p>定义</p>
+<p>使用</p>
+<ul>
+<li>隐函数求导</li>
+<li>求空间曲线的切线</li>
+</ul>
+</blockquote>
+<h1 id="参考">参考</h1>
+]]></content>
+      <categories>
+        <category>数学</category>
+        <category>草稿</category>
+      </categories>
+      <tags>
+        <tag>雅可比行列式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>点到空间直线的距离公式</title>
+    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif"
+alt="来源参考2" />
+<figcaption aria-hidden="true">来源参考2</figcaption>
+</figure>
+<span id="more"></span>
+<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
+<span class="math display">\[
+\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
+\]</span> 下面看 <strong>空间</strong> 的</p>
+<hr />
+<p>对于 <strong>点到空间直线的距离公式</strong>
+，本文从<strong>向量</strong>的角度进行探讨。</p>
+<p>设某空间直线的方向向量为 <span
+class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span
+class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span
+class="math inline">\(P(x,y,z)\)</span> 。令 <span
+class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
+<span class="math inline">\(A\)</span> 指向点 <span
+class="math inline">\(P\)</span> 的向量。</p>
+<h3 id="法一">法一</h3>
+<p>观察 <span
+class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
+{\rm cos}\theta\)</span> ，</p>
+<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
+与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span
+class="math inline">\(|AP|\)</span> 即 <span
+class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
+<p>故 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-
+(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
+\]</span></p>
+<h3 id="法二">法二</h3>
+<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
+，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
+<p>而这个平行四边形的面积有等于 <span
+class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
+<p>故 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
+\]</span></p>
+<h2 id="例子">例子</h2>
+<p><span class="math display">\[
+求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
+\]</span></p>
+<p>对于该题，空间直线的方向向量为 <span
+class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span
+class="math inline">\(A(-1,2,1)\)</span> ；令 <span
+class="math inline">\(\vec{v}\)</span> 表示由点 <span
+class="math inline">\(A\)</span> 指向点 <span
+class="math inline">\(M_0\)</span> 的向量，则 <span
+class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
+<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
+|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
+<p>以及 <span class="math display">\[
+\vec{s}\times\vec{v}=
+\begin{vmatrix}
+\vec{i} &amp; \vec{j} &amp;\vec{k} \\
+1 &amp; 0 &amp; -1 \\
+3 &amp; 1 &amp; 1
+\end{vmatrix}=
+\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
+\]</span> 代入公式(1)计算得 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
+=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
+=\sqrt{9}=3
+\]</span> 代入公式(2)计算得 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
+=\frac{3\sqrt{2}}{\sqrt{2}}
+=3
+\]</span></p>
+<p>验证完毕</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><p><a
+href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
+- ZCC的回答 - 知乎</a></p></li>
+<li><p><a
+href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>向量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p>https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</p>
+<blockquote>
+<p>主要是不用自己配文件</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>草稿</category>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python大一下期末</title>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚会svc 建模</li>
+</ol>
+<p>series转dataframe</p>
+]]></content>
+      <categories>
+        <category>草稿</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>
