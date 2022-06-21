@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<blockquote>
+<p>判断欧拉图</p>
+<p>判断哈密顿图</p>
+<p>判断可三角划分图</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="欧拉图">欧拉图</h2>
+<h2 id="哈密顿图">哈密顿图</h2>
+<p>原子命题定义 设有<span class="math inline">\(n^2\)</span>个原子命题
+<span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span>。 这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第 $a $
+个位置被节点 <span class="math inline">\(b\)</span> 占据。</p>
+<ol type="1">
+<li>每个节点 b 必须出现在路径中。</li>
+<li>路径中没有节点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被占用。</li>
+<li>非连通节点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个节点和最后一个节点视为相邻</li>
+</ol>
+<h3 id="构造命题逻辑简单合取范式公式">构造命题逻辑简单合取范式公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}
+\end{align*}
+\]</span></p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>定义：</p>
+<p>定义原子命题</p>
+<p>满足条件</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<h1 id="参考">参考</h1>
+]]></content>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -76,101 +142,6 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<blockquote>
-<p>判断欧拉图</p>
-<p>判断哈密顿图</p>
-<p>判断可三角划分图</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="欧拉图">欧拉图</h2>
-<h2 id="哈密顿图">哈密顿图</h2>
-<p>原子命题定义 设有<span class="math inline">\(n^2\)</span>个原子命题
-<span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span>。 这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第 $a $
-个位置被节点 <span class="math inline">\(b\)</span> 占据。</p>
-<ol type="1">
-<li>每个节点 b 必须出现在路径中。</li>
-<li>路径中没有节点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被占用。</li>
-<li>非连通节点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个节点和最后一个节点视为相邻</li>
-</ol>
-<h3 id="构造命题逻辑简单合取范式公式">构造命题逻辑简单合取范式公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}
-\end{align*}
-\]</span></p>
-<h2 id="可三角划分图">可三角划分图</h2>
-<p>定义：</p>
-<p>定义原子命题</p>
-<p>满足条件</p>
-<ol type="1">
-<li>共有 n 个集合</li>
-<li>每个顶点都在要在一个集合中</li>
-<li>没有顶点同时在两个集合中</li>
-</ol>
-<p><span class="math display">\[
-\begin{align*}
-&amp;
-1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
-g_{ijkc}}
-\\
-&amp;
-2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
-\\
-&amp;
-3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
-g_{ijkc_1} \vee \neg g_{ijkc_2})}
-\end{align*}
-\]</span></p>
-<h1 id="参考">参考</h1>
-]]></content>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows PowerShell</title>
     <url>/2022/06/20/Windows%20PowerShell/</url>
     <content><![CDATA[<h1 id="windows-powershell">Windows PowerShell</h1>
@@ -211,8 +182,50 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
 <p>series转dataframe</p>
 ]]></content>
       <tags>
-        <tag>草稿</tag>
         <tag>python</tag>
+        <tag>草稿</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>youtube-dl和yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/youtube-dl%E5%92%8Cyt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-get使用体验</h1>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>草稿</tag>
+        <tag>视频下载</tag>
       </tags>
   </entry>
   <entry>
@@ -243,19 +256,6 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
         <tag>操作记录</tag>
         <tag>vscode</tag>
         <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>youtube-dl和yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/youtube-dl%E5%92%8Cyt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-get使用体验</h1>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>草稿</tag>
-        <tag>视频下载</tag>
       </tags>
   </entry>
   <entry>
