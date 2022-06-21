@@ -110,24 +110,6 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Windows PowerShell运行hexo命令</title>
-    <url>/2022/06/20/Windows%20PowerShell%E8%BF%90%E8%A1%8Chexo%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="windows-powershell运行hexo命令">Windows
-PowerShell运行hexo命令</h1>
-<p>用管理员权限打开 <code>Windows PowerShell</code> ，运行以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></table></figure>
-<p>在提示中输入 <code>Y</code></p>
-<p>解除对有安全隐患脚本的运行限制。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>草稿</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python大一下期末</title>
     <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
@@ -367,6 +349,7 @@ id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-g
 </ul>
 </blockquote>
 <h1 id="参考">参考</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>数学</category>
@@ -474,6 +457,30 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       <tags>
         <tag>草稿</tag>
         <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows PowerShell</title>
+    <url>/2022/06/20/Windows%20PowerShell/</url>
+    <content><![CDATA[<h1 id="windows-powershell">Windows PowerShell</h1>
+<p>选文件或桌面中 按下 <strong>shift + 右键</strong> ，就可以看到
+<strong>在此处打开 PowerShell窗口</strong> 这个选项。</p>
+<h2 id="运行hexo命令">运行hexo命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png" /></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>草稿</tag>
       </tags>
   </entry>
 </search>
