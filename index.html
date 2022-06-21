@@ -49,6 +49,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -340,7 +342,7 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-21 20:51:33" itemprop="dateModified" datetime="2022-06-21T20:51:33+08:00">2022-06-21</time>
+      <time title="修改时间：2022-06-21 21:06:57" itemprop="dateModified" datetime="2022-06-21T21:06:57+08:00">2022-06-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -359,7 +361,7 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>180</span>
+      <span>247</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -378,13 +380,15 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="windows-powershell">Windows PowerShell</h1>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是蓝屏和命令高亮看起来舒服。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
 <p>选文件或桌面中 按下 <strong>shift + 右键</strong> ，就可以看到
 <strong>在此处打开 PowerShell窗口</strong> 这个选项。</p>
 <h2 id="运行hexo命令">运行hexo命令</h2>
 <p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png" /></p>
+<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
 <p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
@@ -443,9 +447,15 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-06-20 16:32:32 / 修改时间：16:35:22" itemprop="dateCreated datePublished" datetime="2022-06-20T16:32:32+08:00">2022-06-20</time>
+      <time title="创建时间：2022-06-20 16:32:32" itemprop="dateCreated datePublished" datetime="2022-06-20T16:32:32+08:00">2022-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-21 20:51:50" itemprop="dateModified" datetime="2022-06-21T20:51:50+08:00">2022-06-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -482,8 +492,7 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1
-id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-get使用体验</h1>
+          <h1 id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-get使用体验</h1>
 
       
     </div>
@@ -586,17 +595,14 @@ id="youtube-dl和yt-dlp以及you-get使用体验">youtube-dl和yt-dlp以及you-g
           <h1 id="vscdoe使用">vscdoe使用</h1>
 <h2 id="搭载c环境">搭载C++环境</h2>
 <p>参考这个视频</p>
-<p><a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
 <blockquote>
 <p>把C++插件退回以前的版本(1.8.4)进行操作</p>
 <p>主要是不用自己配文件</p>
 </blockquote>
-<h2
-id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
 <p>参考这篇文章</p>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
 <blockquote>
 <p>问题在于 libstdc++ -6.dll
 动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
@@ -903,9 +909,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43700779/article/d
     <div class="post-body" itemprop="articleBody">
           <h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
 <figure>
-<img
-src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif"
-alt="来源参考2" />
+<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
 <figcaption aria-hidden="true">来源参考2</figcaption>
 </figure>
           <!--noindex-->
@@ -1024,7 +1028,7 @@ alt="来源参考2" />
 </ul>
 </blockquote>
 <h1 id="参考">参考</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -1132,10 +1136,8 @@ alt="来源参考2" />
 <p>最近快考python了，上网找了个小项目来练习一下。</p>
 <p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
 和数据分析</strong> 这个教程。</p>
-<p>项目链接： <a
-target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
-<a
-target="_blank" rel="noopener" href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
+<p>项目链接： <a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
+<a target="_blank" rel="noopener" href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/#more" rel="contents">
@@ -1243,8 +1245,7 @@ target="_blank" rel="noopener" href="https://github.com/freeCodeCamp/boilerplate
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
-<p><a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/#more" rel="contents">

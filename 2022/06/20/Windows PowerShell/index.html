@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mortal-94.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Windows PowerShell 选文件或桌面中 按下 shift + 右键 ，就可以看到 在此处打开 PowerShell窗口 这个选项。 运行hexo命令 搜索并用管理员权限打开 Windows PowerShell  运行以下命令： 1Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED  这是 解除对有安全隐患脚本的运行限">
+    <meta name="description" content="Windows PowerShell 我打算用其替代 cmd 和 Bash 来使用（主要是蓝屏和命令高亮看起来舒服。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。 选文件或桌面中 按下 shift + 右键 ，就可以看到 在此处打开 PowerShell窗口 这个选项。 运行hexo命令 搜索并用管理员权限打开 Windows PowerShell  运行以下命令： 1Set-E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows PowerShell">
 <meta property="og:url" content="https://mortal-94.github.io/2022/06/20/Windows%20PowerShell/index.html">
 <meta property="og:site_name" content="mortallyn&#39;s blog">
-<meta property="og:description" content="Windows PowerShell 选文件或桌面中 按下 shift + 右键 ，就可以看到 在此处打开 PowerShell窗口 这个选项。 运行hexo命令 搜索并用管理员权限打开 Windows PowerShell  运行以下命令： 1Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED  这是 解除对有安全隐患脚本的运行限">
+<meta property="og:description" content="Windows PowerShell 我打算用其替代 cmd 和 Bash 来使用（主要是蓝屏和命令高亮看起来舒服。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。 选文件或桌面中 按下 shift + 右键 ，就可以看到 在此处打开 PowerShell窗口 这个选项。 运行hexo命令 搜索并用管理员权限打开 Windows PowerShell  运行以下命令： 1Set-E">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mortal-94.github.io/img/Windows%20PowerShell/QQ截图20220621204203.png">
 <meta property="article:published_time" content="2022-06-20T11:38:39.212Z">
-<meta property="article:modified_time" content="2022-06-21T12:51:33.071Z">
+<meta property="article:modified_time" content="2022-06-21T13:06:57.890Z">
 <meta property="article:author" content="mortallyn">
 <meta property="article:tag" content="操作记录">
 <meta property="article:tag" content="草稿">
@@ -54,6 +54,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -257,7 +259,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-21 20:51:33" itemprop="dateModified" datetime="2022-06-21T20:51:33+08:00">2022-06-21</time>
+      <time title="修改时间：2022-06-21 21:06:57" itemprop="dateModified" datetime="2022-06-21T21:06:57+08:00">2022-06-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +285,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>180</span>
+      <span>247</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -302,13 +304,15 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="windows-powershell">Windows PowerShell</h1>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是蓝屏和命令高亮看起来舒服。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
 <p>选文件或桌面中 按下 <strong>shift + 右键</strong> ，就可以看到
 <strong>在此处打开 PowerShell窗口</strong> 这个选项。</p>
 <h2 id="运行hexo命令">运行hexo命令</h2>
 <p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png" /></p>
+<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
 <p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
