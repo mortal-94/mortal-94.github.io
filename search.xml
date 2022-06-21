@@ -181,6 +181,7 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
 来使用（主要是蓝屏和命令高亮看起来舒服。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
 <p>选文件或桌面中 按下 <strong>shift + 右键</strong> ，就可以看到
 <strong>在此处打开 PowerShell窗口</strong> 这个选项。</p>
+<!--mor-->
 <h2 id="运行hexo命令">运行hexo命令</h2>
 <p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
 <p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
@@ -196,7 +197,7 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       </categories>
       <tags>
         <tag>操作记录</tag>
-        <tag>草稿</tag>
+        <tag>PowerShell</tag>
       </tags>
   </entry>
   <entry>
@@ -242,7 +243,7 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
         <category>工具</category>
       </categories>
       <tags>
-        <tag>草稿</tag>
+        <tag>操作记录</tag>
         <tag>vscode</tag>
         <tag>持续更新</tag>
       </tags>
