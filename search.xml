@@ -151,9 +151,22 @@ PowerShell运行hexo命令</h1>
     <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
 <h2 id="搭载c环境">搭载C++环境</h2>
 <p>参考这个视频</p>
-<p>https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</p>
+<p><a
+href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
 <blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
 <p>主要是不用自己配文件</p>
+</blockquote>
+<h2
+id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a
+href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -446,6 +459,21 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+]]></content>
+      <tags>
+        <tag>草稿</tag>
+        <tag>高数</tag>
       </tags>
   </entry>
 </search>
