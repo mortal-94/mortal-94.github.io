@@ -199,18 +199,13 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <span id="more"></span>
 <h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
 <p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
 <p>运行以下命令：</p>
 <figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
 <p>在提示中输入 <code>Y</code></p>
-<h3 id="问题">问题</h3>
-<p>我发现用 terminal(尽管里面是powershell) 或者 bash 亦或者 cmd 在运行
-hexo d
-命令时总是不如意，很难连上GitHub；唯有直接用powershell运行的，直接就部署成功了。（非常疑惑，害我不能单纯使用terminal
-😫</p>
 <h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
 <p>参考这篇文章</p>
 <p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>

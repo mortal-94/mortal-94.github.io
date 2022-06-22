@@ -28,9 +28,9 @@
 <meta property="og:description" content="Terminal 超强终端。  我打算用其替代 cmd 和 Bash 来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mortal-94.github.io/img/terminal/image-20220622210445601.png">
-<meta property="og:image" content="https://mortal-94.github.io/img/Windows%20PowerShell/QQ截图20220621204203.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/terminal/QQ截图20220621204203.png">
 <meta property="article:published_time" content="2022-06-20T11:38:39.212Z">
-<meta property="article:modified_time" content="2022-06-22T13:17:51.815Z">
+<meta property="article:modified_time" content="2022-06-22T13:27:32.934Z">
 <meta property="article:author" content="mortallyn">
 <meta property="article:tag" content="操作记录">
 <meta property="article:tag" content="PowerShell">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#terminal"><span class="nav-number">1.</span> <span class="nav-text">Terminal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#powershell-%E8%BF%90%E8%A1%8C-hexo-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">PowerShell 运行 hexo 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#powershell-%E4%BD%BF%E7%94%A8where%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">PowerShell 使用where命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">conda配置</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#terminal"><span class="nav-number">1.</span> <span class="nav-text">Terminal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#powershell-%E8%BF%90%E8%A1%8C-hexo-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">PowerShell 运行 hexo 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#powershell-%E4%BD%BF%E7%94%A8where%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">PowerShell 使用where命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">conda配置</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -264,7 +264,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-22 21:17:51" itemprop="dateModified" datetime="2022-06-22T21:17:51+08:00">2022-06-22</time>
+      <time title="修改时间：2022-06-22 21:27:32" itemprop="dateModified" datetime="2022-06-22T21:27:32+08:00">2022-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>778</span>
+      <span>655</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -316,18 +316,13 @@
 <span id="more"></span>
 <h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
 <p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
 <p>运行以下命令：</p>
 <figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
 <p>在提示中输入 <code>Y</code></p>
-<h3 id="问题">问题</h3>
-<p>我发现用 terminal(尽管里面是powershell) 或者 bash 亦或者 cmd 在运行
-hexo d
-命令时总是不如意，很难连上GitHub；唯有直接用powershell运行的，直接就部署成功了。（非常疑惑，害我不能单纯使用terminal
-😫</p>
 <h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
 <p>参考这篇文章</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
