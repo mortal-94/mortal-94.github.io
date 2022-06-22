@@ -159,6 +159,18 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
 <p>在提示中输入 <code>Y</code></p>
+<h2 id="使用where命令">使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
 ]]></content>
       <categories>
         <category>工具</category>
