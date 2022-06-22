@@ -189,6 +189,63 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
+    <title>terminal</title>
+    <url>/2022/06/20/terminal/</url>
+    <content><![CDATA[<h1 id="terminal">Terminal</h1>
+<p>超强终端。</p>
+<p><img src="/img/terminal/image-20220622210445601.png"></p>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+<span id="more"></span>
+<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+<h3 id="问题">问题</h3>
+<p>我发现用 terminal(尽管里面是powershell) 或者 bash 亦或者 cmd 在运行
+hexo d
+命令时总是不如意，很难连上GitHub；唯有直接用powershell运行的，直接就部署成功了。（非常疑惑，害我不能单纯使用terminal
+😫</p>
+<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
+<h2 id="conda配置">conda配置</h2>
+<p>参考这篇文章</p>
+<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
+<blockquote>
+<p>输入命令<code>conda init powershell</code> 进入base环境</p>
+</blockquote>
+<p>顺便说下conda配置虚拟环境常用命令</p>
+<p>参考这篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
+<blockquote>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>PowerShell</tag>
+        <tag>终端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vscdoe使用</title>
     <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
@@ -314,29 +371,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>雅可比行列式</title>
-    <url>/2022/06/18/%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="雅可比行列式">雅可比行列式</h1>
-<blockquote>
-<p>定义</p>
-<p>使用</p>
-<ul>
-<li>隐函数求导</li>
-<li>求空间曲线的切线</li>
-</ul>
-</blockquote>
-<h1 id="参考">参考</h1>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>草稿</tag>
-        <tag>雅可比行列式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>点到空间直线的距离公式</title>
     <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
@@ -410,6 +444,29 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
+    <title>雅可比行列式</title>
+    <url>/2022/06/18/%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="雅可比行列式">雅可比行列式</h1>
+<blockquote>
+<p>定义</p>
+<p>使用</p>
+<ul>
+<li>隐函数求导</li>
+<li>求空间曲线的切线</li>
+</ul>
+</blockquote>
+<h1 id="参考">参考</h1>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>草稿</tag>
+        <tag>雅可比行列式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>高数大一下期末</title>
     <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
@@ -422,63 +479,6 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       <tags>
         <tag>草稿</tag>
         <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
-    <content><![CDATA[<h1 id="terminal">Terminal</h1>
-<p>超强终端。</p>
-<p><img src="/img/terminal/image-20220622210445601.png"></p>
-<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
-来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
-<span id="more"></span>
-<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
-<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/Windows%20PowerShell/QQ截图20220621204203.png"></p>
-<p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
-</blockquote>
-<p>在提示中输入 <code>Y</code></p>
-<h3 id="问题">问题</h3>
-<p>我发现用 terminal(尽管里面是powershell) 或者 bash 亦或者 cmd 在运行
-hexo d
-命令时总是不如意，很难连上GitHub；唯有直接用powershell运行的，直接就部署成功了。（非常疑惑，害我不能单纯使用terminal
-😫</p>
-<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
-<blockquote>
-<h2 id="总结">总结</h2>
-<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
-<ul>
-<li><code>where.exe 文件搜索字符串</code></li>
-<li><code>gcm 文件搜索字符串 -All</code></li>
-<li><code>get-command 文件搜索字符串 -All</code></li>
-</ul>
-</blockquote>
-<h2 id="conda配置">conda配置</h2>
-<p>参考这篇文章</p>
-<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
-<blockquote>
-<p>输入命令<code>conda init powershell</code> 进入base环境</p>
-</blockquote>
-<p>顺便说下conda配置虚拟环境常用命令</p>
-<p>参考这篇文章</p>
-<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
-<blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>PowerShell</tag>
-        <tag>终端</tag>
       </tags>
   </entry>
 </search>
