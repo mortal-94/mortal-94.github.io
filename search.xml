@@ -442,6 +442,11 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
 <p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
 </blockquote>
 <p>在提示中输入 <code>Y</code></p>
+<h3 id="问题">问题</h3>
+<p>我发现用 terminal(尽管里面是powershell) 或者 bash 亦或者 cmd 在运行
+hexo d
+命令时总是不如意，很难连上GitHub；唯有直接用powershell运行的，直接就部署成功了。（非常疑惑，害我不能单纯使用terminal
+😫</p>
 <h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
 <p>参考这篇文章</p>
 <p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
