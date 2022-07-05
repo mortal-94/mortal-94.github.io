@@ -196,7 +196,10 @@
   </div>
 
 
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
         </div>
       </div>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">
@@ -314,9 +317,9 @@
 <span id="more"></span>
 <p>废话不多说，分析题目，题干比较简单，直接看例子</p>
 <p>input</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">4</span><br><span class="line">5 3</span><br><span class="line">BBWBW</span><br><span class="line">5 5</span><br><span class="line">BBWBW</span><br><span class="line">5 1</span><br><span class="line">BBWBW</span><br><span class="line">1 1</span><br><span class="line">W</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">4</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">3</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">5</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">W</span></span><br></pre></td></tr></tbody></table></figure>
 <p>output</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
 <p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
 BBBBW ”，有k个连续的B</p>
@@ -507,6 +510,23 @@ setInterval("createtime()",250);
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"mortal-94","repo":"mortal-94.github.io","client_id":"e28636b5fcc36ec12dd2","client_secret":"2ef381bea3b99f9b5d7b64c2e80efefcbaed62d0","admin_user":"mortal-94","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"362393d53dfdea424cd2672a5cf8b0bc"}</script>

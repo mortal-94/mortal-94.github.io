@@ -197,7 +197,10 @@
   </div>
 
 
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
         </div>
       </div>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">
@@ -334,7 +337,7 @@
 <p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[[0.45641625 0.10475085 0.32116009] </span><br><span class="line">[0.48934644 0.62110783 0.08971943] </span><br><span class="line">[0.02103381 0.56598586 0.86895797]] </span><br><span class="line">       A         B         C </span><br><span class="line">a  0.456416  0.104751  0.321160 </span><br><span class="line">b  0.489346  0.621108  0.089719 </span><br><span class="line">c  0.021034  0.565986  0.868958</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
 </blockquote>
 <h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
 涉及后缀名的添加</h3>
@@ -343,7 +346,7 @@
 和 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">lkey  value_left rkey  value_right</span><br><span class="line">0  foo           1  foo            5</span><br><span class="line">1  foo           1  foo            8</span><br><span class="line">2  foo           5  foo            5</span><br><span class="line">3  foo           5  foo            8</span><br><span class="line">4  bar           2  bar            6</span><br><span class="line">5  baz           3  baz            7</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
 </blockquote>
 <h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
 <p>参考这个项目 <a target="_blank" rel="noopener" href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
@@ -486,6 +489,23 @@ setInterval("createtime()",250);
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"mortal-94","repo":"mortal-94.github.io","client_id":"e28636b5fcc36ec12dd2","client_secret":"2ef381bea3b99f9b5d7b64c2e80efefcbaed62d0","admin_user":"mortal-94","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"07e73eda5dd1112b8fd3e8e90e740a61"}</script>
