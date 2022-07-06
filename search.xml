@@ -552,21 +552,22 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
     <title>数据结构和算法的经典问题</title>
     <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<ul>
-<li><a href="https://www.zhihu.com/question/28062458">斐波那契数列</a></li>
-<li>计算多项式
-<ul>
-<li><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">简单版</a></li>
-<li><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">高级版</a></li>
-</ul></li>
-<li><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp">最大子列和问题</a></li>
-<li>KMP模式匹配
-<ul>
-<li><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></li>
-<li><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></li>
-</ul></li>
-<li><a href="https://zhuanlan.zhihu.com/p/121823910">线性表的定义与操作实现</a></li>
-</ul>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表的定义与操作实现">线性表的定义与操作实现</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章</a></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
