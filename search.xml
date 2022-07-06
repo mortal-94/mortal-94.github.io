@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++小抄</title>
+    <url>/2022/07/06/C++%E5%B0%8F%E6%8A%84/</url>
+    <content><![CDATA[<h1 id="c小抄">C++小抄</h1>
+<h2 id="如何知道一个指针所指或者预先开大些的数组有效大小">如何知道一个指针所指或者预先开大些的数组有效大小？</h2>
+<p>查阅了很多，尚未有方法可以做到，只能另行记录数组大小。</p>
+<h2 id="编译和运行">编译和运行</h2>
+<p>广义的编译，就是把代码，转换成可执行文件。</p>
+<p>把编译出来的可执行文件，在系统中运行的过程，称为程序的运行。</p>
+<blockquote>
+<p>编译可以检查语法错误。</p>
+<p>运行可以检查逻辑错误。</p>
+</blockquote>
+<h2 id="指针与数组小问题">指针与数组小问题</h2>
+<p>对于：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span> a[] = {<span class="number">5</span>, <span class="number">15</span>, <span class="number">34</span>, <span class="number">54</span>, <span class="number">14</span>, <span class="number">2</span>, <span class="number">52</span>, <span class="number">72</span>}; </span><br><span class="line"><span class="type">int</span> *p = &amp;a[<span class="number">5</span>];</span><br></pre></td></tr></tbody></table></figure>
+<p>则：p[-2]的值是 <strong>54</strong></p>
+<h2 id="throw关键字抛出异常">throw关键字抛出异常</h2>
+<p><a href="http://c.biancheng.net/cpp/biancheng/view/3027.html">C语言中文网文章</a></p>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -102,37 +130,6 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>vscode</tag>
-        <tag>持续更新</tag>
-        <tag>操作记录</tag>
       </tags>
   </entry>
   <entry>
@@ -240,6 +237,128 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+        <tag>操作记录</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表的实现">线性表的实现</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章</a></p>
+<h2 id="堆栈的实现">堆栈的实现</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -459,48 +578,6 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>离散数学大一下期末</title>
     <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
@@ -549,36 +626,45 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </tags>
   </entry>
   <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
 <blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
 </blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表的定义与操作实现">线性表的定义与操作实现</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-</ul>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
 ]]></content>
       <categories>
-        <category>cheatSheet</category>
+        <category>大学考试</category>
       </categories>
       <tags>
-        <tag>持续更新</tag>
+        <tag>高数</tag>
       </tags>
   </entry>
 </search>
