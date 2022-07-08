@@ -339,15 +339,23 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
 <p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
 </blockquote>
 <p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
 <h2 id="最大子列和问题">最大子列和问题</h2>
 <p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
 <h2 id="kmp模式匹配">KMP模式匹配</h2>
 <p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
 <p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表的实现">线性表的实现</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章</a></p>
-<h2 id="堆栈的实现">堆栈的实现</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">代码随想录-二叉树数的前中后遍历统一迭代</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">个人仿制-二叉树数的前中后遍历统一迭代</a></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
