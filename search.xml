@@ -133,6 +133,59 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
+    <title>python大一下期末</title>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<p>没复习，寄😊</p>
+<h2 id="当时不会的题">当时不会的题</h2>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚类svc 建模</li>
+</ol>
+<span id="more"></span>
+<h2 id="事后解答">事后解答</h2>
+<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
+<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<blockquote>
+<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
+</blockquote>
+<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
+<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
+<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
+<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
+<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
+涉及后缀名的添加</h3>
+<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
+<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
+和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
+<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
+<p>外加数据标准化</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -187,56 +240,34 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
-    <title>python大一下期末</title>
-    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
-<p>没复习，寄😊</p>
-<h2 id="当时不会的题">当时不会的题</h2>
-<ol type="1">
-<li>MindSpore最基础的数据结构</li>
-<li>R语言 （）型</li>
-<li>矩阵 自定义 索引 和 列名</li>
-<li>dataframe数据内连合并 后缀名</li>
-<li>sklearn wine数据 聚类svc 建模</li>
-</ol>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
 <span id="more"></span>
-<h2 id="事后解答">事后解答</h2>
-<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
-<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
 <blockquote>
-<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
-</blockquote>
-<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
-<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
-<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
-<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
-<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
-涉及后缀名的添加</h3>
-<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
-<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
-和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
-<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
-<p>外加数据标准化</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>大学考试</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>持续更新</tag>
+        <tag>操作记录</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -293,80 +324,6 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </categories>
       <tags>
         <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-        <tag>操作记录</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">代码随想录-二叉树数的前中后遍历统一迭代</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">个人仿制-二叉树数的前中后遍历统一迭代</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -449,6 +406,90 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">代码随想录-二叉树数的前中后遍历统一迭代</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">个人仿制-二叉树数的前中后遍历统一迭代</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -583,6 +624,29 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </categories>
       <tags>
         <tag>向量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>疑惑记录</title>
+    <url>/2022/07/08/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="疑惑记录">疑惑记录</h1>
+<h2 id="不知道叫啥1">不知道叫啥1</h2>
+<p><img src="/img/疑惑记录/image-20220708235436954.png"></p>
+<p><img src="/img/疑惑记录/image-20220708234911845.png"></p>
+<blockquote>
+<p>图片有误，修改如下：</p>
+<p>限制条件： <span class="math inline">\(y_i(\omega^Tx_i+b)\ge1,(i=1\sim N)\)</span></p>
+</blockquote>
+<p>一次项组成的向量，满足一个不等式；那么这个向量的模（即二次项）要么没有最小值，要么只有唯一的最小值。</p>
+<blockquote>
+<p>有个想法就是从空间几何上来看；该向量作为权重向量，那么它每个值（<span class="math inline">\(\omega^Tx+b\)</span>）对应一个空间上（超）平面。。。不知道了</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
