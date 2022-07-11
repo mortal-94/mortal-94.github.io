@@ -409,10 +409,16 @@ Pandas 系列。 （<code>race</code> 栏）</li>
 <h2 id="队列">队列</h2>
 <p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
 <h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
 <p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">代码随想录-二叉树数的前中后遍历统一迭代</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">个人仿制-二叉树数的前中后遍历统一迭代</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树看自己的仓库代码</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
