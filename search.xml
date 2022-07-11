@@ -424,6 +424,9 @@ Pandas 系列。 （<code>race</code> 栏）</li>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
 <li><p>大话数据结构 --程杰</p></li>
 </ul>
+<p><img src="https://img.shields.io/badge/Python-3.6.3-green.svg">
+<img src="https://img.shields.io/badge/requests-2.18.4-green.svg">
+<img src="https://img.shields.io/badge/moviepy-0.2.3.2-green.svg"></p>
 ]]></content>
       <categories>
         <category>cheatSheet</category>
