@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++小抄</title>
-    <url>/2022/07/06/C++%E5%B0%8F%E6%8A%84/</url>
-    <content><![CDATA[<h1 id="c小抄">C++小抄</h1>
-<h2 id="如何知道一个指针所指或者预先开大些的数组有效大小">如何知道一个指针所指或者预先开大些的数组有效大小？</h2>
-<p>查阅了很多，尚未有方法可以做到，只能另行记录数组大小。</p>
-<h2 id="编译和运行">编译和运行</h2>
-<p>广义的编译，就是把代码，转换成可执行文件。</p>
-<p>把编译出来的可执行文件，在系统中运行的过程，称为程序的运行。</p>
-<blockquote>
-<p>编译可以检查语法错误。</p>
-<p>运行可以检查逻辑错误。</p>
-</blockquote>
-<h2 id="指针与数组小问题">指针与数组小问题</h2>
-<p>对于：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span> a[] = {<span class="number">5</span>, <span class="number">15</span>, <span class="number">34</span>, <span class="number">54</span>, <span class="number">14</span>, <span class="number">2</span>, <span class="number">52</span>, <span class="number">72</span>}; </span><br><span class="line"><span class="type">int</span> *p = &amp;a[<span class="number">5</span>];</span><br></pre></td></tr></tbody></table></figure>
-<p>则：p[-2]的值是 <strong>54</strong></p>
-<h2 id="throw关键字抛出异常">throw关键字抛出异常</h2>
-<p><a href="http://c.biancheng.net/cpp/biancheng/view/3027.html">C语言中文网文章</a></p>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -632,29 +604,6 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </categories>
       <tags>
         <tag>向量</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>疑惑记录</title>
-    <url>/2022/07/08/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="疑惑记录">疑惑记录</h1>
-<h2 id="不知道叫啥1">不知道叫啥1</h2>
-<p><img src="/img/疑惑记录/image-20220708235436954.png"></p>
-<p><img src="/img/疑惑记录/image-20220708234911845.png"></p>
-<blockquote>
-<p>图片有误，修改如下：</p>
-<p>限制条件： <span class="math inline">\(y_i(\omega^Tx_i+b)\ge1,(i=1\sim N)\)</span></p>
-</blockquote>
-<p>一次项组成的向量，满足一个不等式；那么这个向量的模（即二次项）要么没有最小值，要么只有唯一的最小值。</p>
-<blockquote>
-<p>有个想法就是从空间几何上来看；该向量作为权重向量，那么它每个值（<span class="math inline">\(\omega^Tx+b\)</span>）对应一个空间上（超）平面。。。不知道了</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
