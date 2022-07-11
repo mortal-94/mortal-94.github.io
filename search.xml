@@ -260,6 +260,8 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
 文件，将其放到C:32目录下</p>
 </blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
 ]]></content>
       <categories>
         <category>工具</category>
@@ -438,6 +440,7 @@ Pandas 系列。 （<code>race</code> 栏）</li>
 <p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
 <p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">代码随想录-二叉树数的前中后遍历统一迭代</a></p>
 <p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">个人仿制-二叉树数的前中后遍历统一迭代</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树看自己的仓库代码</a></p>
 <h1 id="参考">参考</h1>
 <ul>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
@@ -475,6 +478,10 @@ vector machine</em> , <em>SVM</em></h2>
 <h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
 <p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
 <p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
 <h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
 <blockquote>
 <p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
@@ -490,6 +497,7 @@ vector machine</em> , <em>SVM</em></h2>
       </categories>
       <tags>
         <tag>持续更新</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
