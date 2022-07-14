@@ -901,11 +901,18 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
 <h3 id="问题描述-2">问题描述</h3>
 <p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span> 映射向更高维度的函数。</p>
 <p><img src="/img/支持向量机/image-20220713213401722.png"></p>
-<h2 id="非线性情况详解">非线性情况详解</h2>
-<p>我们遇到的数据大多都是非线性的，而非线性问题求解涉及高维向量运算，为此需引入如下知识点：</p>
+<h2 id="问题求解">问题求解</h2>
 <h3 id="前提定理和条件-2">前提定理和条件</h3>
-<h4 id="核函数">核函数</h4>
 <h4 id="原问题和对偶问题">原问题和对偶问题</h4>
+<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
+<strong>对偶问题</strong> ：</p>
+<p>知乎上有个非常好的回答： <a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
+lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
+<blockquote>
+<p>说白了就是原问题需要最小化的那个函数再加上限制条件非常难运算，咱找一个东西代替掉它（拉格朗日函数
+<em>Lagrange</em>）。</p>
+<p>而拉格朗日给出了</p>
+</blockquote>
 <h1 id="参考">参考</h1>
 <p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
