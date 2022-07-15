@@ -860,7 +860,7 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
   <entry>
     <title>支持向量机</title>
     <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="支持向量机">支持向量机</h1>
+    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
 <p><strong>一句话，找超平面。</strong>🍜</p>
 <span id="more"></span>
 <h2 id="线性可分的情况">线性可分的情况</h2>
@@ -906,15 +906,66 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
 <h4 id="原问题和对偶问题">原问题和对偶问题</h4>
 <p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
 <strong>对偶问题</strong> ：</p>
-<p>知乎上有个非常好的回答： <a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
-lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
+<p>一个原问题如下：</p>
+<p><img src="/img/支持向量机/image-20220715161055864.png"></p>
 <blockquote>
-<p>说白了就是原问题需要最小化的那个函数再加上限制条件非常难运算，咱找一个东西代替掉它（拉格朗日函数
-<em>Lagrange</em>）。</p>
-<p>而拉格朗日给出了</p>
+<p>说白了就是原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
+<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
+<p>拉格朗日函数：</p>
+<p><img src="/img/支持向量机/image-20220715160200792.png"></p>
+<p>❗❗❗
+注意：我不知道为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了还无法彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
+<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
+lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
 </blockquote>
+<p>然后其对偶问题就描述成如下：</p>
+<p><img src="/img/支持向量机/image-20220715161234404.png"></p>
+<blockquote>
+<p>inf ：求一个集合 最大 的 下界。</p>
+</blockquote>
+<p>这个描述有点意思了。</p>
+<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
+，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
+<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
+最大的那一组（细想挺绕的）。至于为什么这样取，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也说明了尚无法彻底理解支持向量机的工作原理</strong></p>
+<h3 id="最终的描述描述">最终的描述描述</h3>
+<p>直接看更具代表性的非线性问题。</p>
+<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。先将非线性问题的描述改成对应的形式：</p>
+<p><img src="/img/支持向量机/image-20220715165813142.png"></p>
+<blockquote>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span> 三个参数的函数</p>
+</blockquote>
+<p>然后写出对应的拉格朗日函数：</p>
+<p><img src="/img/支持向量机/464ABF4853B142A9855180B3271C8802.jpg"></p>
+<blockquote>
+<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
+<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
+</blockquote>
+<p><strong>最终问题描述成：</strong></p>
+<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
+L(\omega,\delta,b,\alpha,\beta)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
+<h3 id="求解">求解</h3>
+<p>竟然转成了对偶问题，那肯定是先求解对偶问题啦，然后再找对应关系。</p>
+<ol type="1">
+<li>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta,b\)</span>
+这三个参数的偏导，显然其要等于零。</li>
+</ol>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span>
+三个参数的函数，且两个限制条件都是线性的，满足<strong>强对偶定理</strong>
+： <span class="math display">\[
+f(\omega^*,\delta^*,b^*)=\theta(\alpha^*,\beta^*)
+\]</span></p>
+<blockquote>
+<p><span class="math inline">\(\omega^*,\delta^*,b^*,\alpha^*,\beta^*\)</span>
+是对应的解</p>
+<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。</p>
+</blockquote>
+<p>好了，现在我们用一个新的函数代替了原函数，且这个新的函数没有对原函数的变量进行限制。</p>
 <h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
 ]]></content>
       <categories>
         <category>机器学习</category>
