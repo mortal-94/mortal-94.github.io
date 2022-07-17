@@ -1,161 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<blockquote>
-<p>求解欧拉图</p>
-<p>求解哈密顿图</p>
-<p>求解可三角划分图</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="欧拉图">欧拉图</h2>
-<blockquote>
-<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
-具有欧拉回路的图称为欧拉图（Euler Graph）</p>
-<p>​ ---百度百科</p>
-</blockquote>
-<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
-<center>
-1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
-</center>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
-<ol type="1">
-<li>每条边 b 必须出现在路径中。</li>
-<li>路径中没有边 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一条边占用。</li>
-<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
-（在欧拉回路中第一条边和最后一条边视为相邻</li>
-</ol>
-<p>然后定义原子命题。设有 m 条边</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
-$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
-<h3 id="构造逻辑公式">构造逻辑公式、</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
-h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(h\)</span> 即可。</p>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题-1">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(e\)</span> 即可。</p>
-<h2 id="可三角划分图">可三角划分图</h2>
-<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
-个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
-<h3 id="定义原子命题-2">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
-<ol type="1">
-<li>共有 n 个集合</li>
-<li>每个顶点都在要在一个集合中</li>
-<li>没有顶点同时在两个集合中</li>
-</ol>
-<p>然后定义原子命题</p>
-<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
-<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp;
-1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
-g_{ijkc}}
-\\
-&amp;
-2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
-\\
-&amp;
-3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
-g_{ijkc_1} \vee \neg g_{ijkc_2})}
-\end{align*}
-\]</span></p>
-<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
-<li>百度百科</li>
-<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -231,35 +76,6 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python大一下期末</title>
     <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
@@ -310,6 +126,35 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -588,6 +433,242 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
+    <title>支持向量机</title>
+    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
+<p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>
+🍜 <span class="math display">\[
+\omega^T X + b = 0
+\]</span> 最后测试时判断测试数据在超平面那一边就行了。</p>
+<span id="more"></span>
+<h2 id="线性可分的情况">线性可分的情况</h2>
+<h3 id="目的">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
+<u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="前提定理和条件">前提定理和条件</h3>
+<p><img src="https://s2.loli.net/2022/07/17/14Z3JtckAHdhBWX.jpg"></p>
+<h3 id="问题描述">问题描述</h3>
+<p>若在 <strong>前提定理和条件</strong> 中那点为
+<strong>支持向量</strong>
+，则线性可分情况下划分两类数据可以描述成如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/FwXHTMz7RGbh1vW.jpg"></p>
+<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
+<p>❗❗❗
+<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
+即最终问题描述如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/rnySKJOhZ7mdELk.jpg"></p>
+<h2 id="线性不可分的情况">线性不可分的情况</h2>
+<h3 id="目的-1">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
+分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="问题描述-1">问题描述</h3>
+<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
+<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
+。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
+<p><img src="https://s2.loli.net/2022/07/17/rR4OqTHSejshlMZ.png"></p>
+<p>❗❗❗ 注意：这里有个
+<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
+<h2 id="非线性的情况">非线性的情况</h2>
+<h3 id="目的-2">目的</h3>
+<p><em>与线性不可分的情况一样</em></p>
+<p>❗❗❗
+注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
+<h3 id="前提定理和条件-1">前提定理和条件</h3>
+<p><img src="https://s2.loli.net/2022/07/17/1TbCNqsXG4BWpyi.png"></p>
+<blockquote>
+<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
+</blockquote>
+<h3 id="问题描述-2">问题描述</h3>
+<blockquote>
+<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span>
+映射向更高维度的函数，具体形式未知。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/17/9N7FxEzKfw2pRvY.png"></p>
+<h2 id="问题求解">问题求解</h2>
+<p>咱先整理一下思路。首先，训练数据（<span class="math inline">\(X,y\)</span>）是已知的； <span class="math inline">\(\varphi(X)\)</span> 函数的具体形式未知； <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
+未知；我们最终要确定一个超平面用来划分两类数据，超平面： <span class="math display">\[
+\omega^T\varphi(X)+b=0
+\]</span> 故确定了参数便确定了超平面。</p>
+<blockquote>
+<p>测试时判断测试数据在超平面那一边就行了。</p>
+</blockquote>
+<h3 id="前提定理和条件-2">前提定理和条件</h3>
+<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
+<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
+<strong>对偶问题</strong> ：</p>
+<p>一个原问题如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/FAafD8tY41ibg2P.png"></p>
+<blockquote>
+<p>原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
+<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
+<p>引入拉格朗日函数：</p>
+<p><img src="https://s2.loli.net/2022/07/17/CeqEHQG4kPiZvW8.png"></p>
+<p>❗❗❗
+注意：我不完全明白为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了未能彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
+<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
+lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
+<p>拉格朗日函数做了什么？Lagrange乘数法可以将原本的约束优化问题转换成等价的无约束优化问题。而其中又有很大的深意，我觉得知乎这边文章说得挺好的
+<a href="https://zhuanlan.zhihu.com/p/38163970">Karush-Kuhn-Tucker
+(KKT)条件 - Eureka的文章 - 知乎</a>。里面有这样一段：</p>
+<blockquote>
+<p><img src="https://s2.loli.net/2022/07/17/cDBuml6dLhApxRH.png"></p>
+</blockquote>
+<p>限制条件没有起作用，那么拉格朗日乘数值为零。限制条件起作用，限制函数值为零。</p>
+</blockquote>
+<p>然后其对偶问题就描述成如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/tzQ7RXgqFEd4lMh.png"></p>
+<blockquote>
+<p>inf ：求一个集合 最大 的 下界。</p>
+</blockquote>
+<p><strong>这个描述有点意思了。</strong></p>
+<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
+，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
+<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
+最大的那一组（细想挺绕的）。至于<strong>为什么这样取</strong>，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也表明了尚未能彻底理解支持向量机的工作原理</strong></p>
+<h4 id="核函数">核函数</h4>
+<p>这是由于直接计算高维的向量十分困难而引入。</p>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p>直接理解，知乎一遍文章： <a href="https://zhuanlan.zhihu.com/p/47541349">核函数粗浅的理解 -
+杨航锋的文章 - 知乎</a></p>
+<blockquote>
+<p>❗❗❗
+注意：这个东西我尚未完全理解。（<strong>这里再次表明未能彻底了解支持向量机工作原理</strong></p>
+</blockquote>
+<h3 id="最终的描述描述对偶问题">最终的描述描述（对偶问题</h3>
+<p>直接看更具代表性的非线性问题。</p>
+<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。<strong>先将非线性问题的描述改成对应的形式：</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/hvo7Aa21S8OBPUN.png"></p>
+<blockquote>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
+这几个参数的函数</p>
+</blockquote>
+<p><strong>然后写出对应的拉格朗日函数：</strong> <span class="math display">\[
+\begin{align}
+L(\omega,\delta_1,\cdots,\delta_N,b)=&amp;\cfrac{1}{2}\|\omega\|^2-C\sum_{i=1}^{N}\delta_i+\sum_{i=1}^{N}\beta_i\delta_i\\
+&amp;+\sum_{i=1}^{N}\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]
+\end{align}
+\]</span></p>
+<blockquote>
+<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
+<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
+</blockquote>
+<p><strong>最终对偶问题描述成：</strong></p>
+<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
+L(\omega,\delta_1,\cdots,\delta_N,b)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
+<blockquote>
+<p>❗❗❗ 注意：这里的为什么要求每个 <span class="math inline">\(\alpha_i\)</span> 要大于零也尚未完全明白</p>
+</blockquote>
+<h3 id="求解">求解</h3>
+<p>这里原问题的两个限制条件都是线性的，满足<strong>强对偶定理</strong>
+： <span class="math display">\[
+f(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*)=\theta(\alpha^*,\beta^*)
+\]</span></p>
+<blockquote>
+<p><span class="math inline">\(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*,\alpha^*,\beta^*\)</span>
+是对应的解</p>
+<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。证明貌似网上很多。</p>
+</blockquote>
+<p><strong>如此一来，求解对偶问题的同时，其对应的原问题参数便也是原问题目标函数的解！！</strong></p>
+<p>竟然前面转成了对偶问题且它较为容易求解，那肯定是先求解对偶问题啦，然后再找<strong>对应关系</strong>。</p>
+<ol type="1">
+<li><p>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta_i,b\)</span>
+这些参数的偏导，显然其要等于零是找最优解的必要条件。得出如下关系</p>
+<p><img src="https://s2.loli.net/2022/07/17/L6mnYuGhErse18W.png"></p>
+<blockquote>
+<p>特别留意这里找出了关系： <span class="math display">\[
+\omega=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\tag{*}
+\]</span></p>
+</blockquote></li>
+<li><p>把上面求导得来的关系代入拉格朗日函数，便得到 <span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p><img src="https://s2.loli.net/2022/07/17/gEcQtyLx9HKXnqz.png"></p>
+<p>上面用<strong>核函数</strong> <span class="math inline">\(K(X_i,X_j)\)</span> 代替掉 <span class="math inline">\(\varphi(X_i)^T\varphi(X_j)\)</span>
+后目标函数就只有一个未知参数 <span class="math inline">\(\alpha\)</span>
+，再根据下面简单的限制条件，很容易便可求出 <span class="math inline">\(\alpha\)</span> 。</p></li>
+<li><p>求出 <span class="math inline">\(\alpha\)</span> 后，根据关系 (*)
+，我们离求 <span class="math inline">\(\omega\)</span>
+更近了一些。不过由于 <span class="math inline">\(\varphi(X)\)</span>
+的具体形式我们不知道，所以仍需转换，我们的<strong>核函数</strong>再次登场。
+<span class="math display">\[
+\begin{align}
+\omega&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\\
+\Leftrightarrow\omega^T&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\\
+\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\varphi(X_j)\\
+\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)
+\end{align}
+\]</span></p></li>
+<li><p>走到这发现 <span class="math inline">\(\omega^T\varphi(X)\)</span>
+直接给求了出来，我们离求出超平面就差一个参数 <span class="math inline">\(b\)</span> 。根据 <em>KKT条件</em> ，对于限制条件
+<span class="math inline">\(\delta_i\le0,i=1,\cdots,N\)</span>
+和拉格朗日乘数 <span class="math inline">\(\beta\)</span> ，恒有 <span class="math inline">\(\beta_i\delta_i=0\)</span> 。所以，当 <span class="math inline">\(\beta_i\not=0\)</span> 即 <span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span>
+；而又看另一个限制条件和其对应的拉格朗日乘数，又有 <span class="math inline">\(\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0\)</span>
+恒成立。我们要求 <span class="math inline">\(b\)</span> ，故再找一个
+<span class="math inline">\(\alpha_i&gt;0\)</span> ，便有如下等式：
+<span class="math display">\[
+[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0
+\]</span> 其中 <span class="math inline">\(\alpha_i\)</span> 同时满足
+<span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span> 。显然我们可以找到这样的一个
+<span class="math inline">\(\alpha_i\)</span> ，满足 <span class="math inline">\(0&lt;\alpha_i&lt;C\)</span> ，然后求得参数 <span class="math inline">\(b\)</span> : <span class="math display">\[
+b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
+\]</span></p></li>
+</ol>
+<p>至此，超平面已得出。二分类问题的支持向量机完成。🎉</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>概率论大一下期末</title>
     <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
@@ -647,242 +728,6 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       <tags>
         <tag>概率论</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>支持向量机</title>
-    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
-<p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>🍜
-<span class="math display">\[
-\omega^T X + b = 0
-\]</span> 最后测试时判断测试数据在超平面那一边就行了。</p>
-<span id="more"></span>
-<h2 id="线性可分的情况">线性可分的情况</h2>
-<h3 id="目的">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
-<u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="前提定理和条件">前提定理和条件</h3>
-<p><img src="/img/支持向量机/scanner_20220713_204851-16577167263321.jpg"></p>
-<h3 id="问题描述">问题描述</h3>
-<p>若在 <strong>前提定理和条件</strong> 中那点为
-<strong>支持向量</strong>
-，则线性可分情况下划分两类数据可以描述成如下：</p>
-<p><img src="/img/支持向量机/scanner_20220713_205935.jpg"></p>
-<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
-<p>❗❗❗
-<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
-即最终问题描述如下：</p>
-<p><img src="/img/支持向量机/scanner_20220713_210828.jpg"></p>
-<h2 id="线性不可分的情况">线性不可分的情况</h2>
-<h3 id="目的-1">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
-分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="问题描述-1">问题描述</h3>
-<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
-<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
-。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
-<p><img src="/img/支持向量机/image-20220713211356210.png"></p>
-<p>❗❗❗ 注意：这里有个
-<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
-<h2 id="非线性的情况">非线性的情况</h2>
-<h3 id="目的-2">目的</h3>
-<p><em>与线性不可分的情况一样</em></p>
-<p>❗❗❗
-注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
-<h3 id="前提定理和条件-1">前提定理和条件</h3>
-<p><img src="/img/支持向量机/image-20220713212925129.png"></p>
-<blockquote>
-<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
-</blockquote>
-<h3 id="问题描述-2">问题描述</h3>
-<blockquote>
-<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span>
-映射向更高维度的函数，具体形式未知。</p>
-</blockquote>
-<p><img src="/img/支持向量机/image-20220713213401722.png"></p>
-<h2 id="问题求解">问题求解</h2>
-<p>咱先整理一下思路。首先，训练数据（<span class="math inline">\(X,y\)</span>）是已知的； <span class="math inline">\(\varphi(X)\)</span> 函数的具体形式未知； <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
-未知；我们最终要确定一个超平面用来划分两类数据，超平面： <span class="math display">\[
-\omega^T\varphi(X)+b=0
-\]</span> 故确定了参数便确定了超平面。</p>
-<blockquote>
-<p>测试时判断测试数据在超平面那一边就行了。</p>
-</blockquote>
-<h3 id="前提定理和条件-2">前提定理和条件</h3>
-<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
-<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
-<strong>对偶问题</strong> ：</p>
-<p>一个原问题如下：</p>
-<p><img src="/img/支持向量机/image-20220715161055864.png"></p>
-<blockquote>
-<p>原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
-<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
-<p>引入拉格朗日函数：</p>
-<p><img src="/img/支持向量机/image-20220715160200792.png"></p>
-<p>❗❗❗
-注意：我不完全明白为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了未能彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
-<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
-lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
-<p>拉格朗日函数做了什么？Lagrange乘数法可以将原本的约束优化问题转换成等价的无约束优化问题。而其中又有很大的深意，我觉得知乎这边文章说得挺好的
-<a href="https://zhuanlan.zhihu.com/p/38163970">Karush-Kuhn-Tucker
-(KKT)条件 - Eureka的文章 - 知乎</a>。里面有这样一段：</p>
-<blockquote>
-<p><img src="/img/支持向量机/image-20220717150354552.png"></p>
-</blockquote>
-<p>限制条件没有起作用，那么拉格朗日乘数值为零。限制条件起作用，限制函数值为零。</p>
-</blockquote>
-<p>然后其对偶问题就描述成如下：</p>
-<p><img src="/img/支持向量机/image-20220715161234404.png"></p>
-<blockquote>
-<p>inf ：求一个集合 最大 的 下界。</p>
-</blockquote>
-<p><strong>这个描述有点意思了。</strong></p>
-<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
-，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
-<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
-<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
-最大的那一组（细想挺绕的）。至于<strong>为什么这样取</strong>，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也表明了尚未能彻底理解支持向量机的工作原理</strong></p>
-<h4 id="核函数">核函数</h4>
-<p>这是由于直接计算高维的向量十分困难而引入。</p>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p>直接理解，知乎一遍文章： <a href="https://zhuanlan.zhihu.com/p/47541349">核函数粗浅的理解 -
-杨航锋的文章 - 知乎</a></p>
-<blockquote>
-<p>❗❗❗
-注意：这个东西我尚未完全理解。（<strong>这里再次表明未能彻底了解支持向量机工作原理</strong></p>
-</blockquote>
-<h3 id="最终的描述描述对偶问题">最终的描述描述（对偶问题</h3>
-<p>直接看更具代表性的非线性问题。</p>
-<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。<strong>先将非线性问题的描述改成对应的形式：</strong></p>
-<p><img src="/img/支持向量机/image-20220715165813142.png"></p>
-<blockquote>
-<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
-这几个参数的函数</p>
-</blockquote>
-<p><strong>然后写出对应的拉格朗日函数：</strong> <span class="math display">\[
-\begin{align}
-L(\omega,\delta_1,\cdots,\delta_N,b)=&amp;\cfrac{1}{2}\|\omega\|^2-C\sum_{i=1}^{N}\delta_i+\sum_{i=1}^{N}\beta_i\delta_i\\
-&amp;+\sum_{i=1}^{N}\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]
-\end{align}
-\]</span></p>
-<blockquote>
-<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
-<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
-</blockquote>
-<p><strong>最终对偶问题描述成：</strong></p>
-<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
-L(\omega,\delta_1,\cdots,\delta_N,b)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
-<blockquote>
-<p>❗❗❗ 注意：这里的为什么要求每个 <span class="math inline">\(\alpha_i\)</span> 要大于零也尚未完全明白</p>
-</blockquote>
-<h3 id="求解">求解</h3>
-<p>这里原问题的两个限制条件都是线性的，满足<strong>强对偶定理</strong>
-： <span class="math display">\[
-f(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*)=\theta(\alpha^*,\beta^*)
-\]</span></p>
-<blockquote>
-<p><span class="math inline">\(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*,\alpha^*,\beta^*\)</span>
-是对应的解</p>
-<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。证明貌似网上很多。</p>
-</blockquote>
-<p><strong>如此一来，求解对偶问题的同时，其对应的原问题参数便也是原问题目标函数的解！！</strong></p>
-<p>竟然前面转成了对偶问题且它较为容易求解，那肯定是先求解对偶问题啦，然后再找<strong>对应关系</strong>。</p>
-<ol type="1">
-<li><p>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta_i,b\)</span>
-这些参数的偏导，显然其要等于零是找最优解的必要条件。得出如下关系</p>
-<p><img src="/img/支持向量机/image-20220717135156936.png"></p>
-<blockquote>
-<p>特别留意这里找出了关系： <span class="math display">\[
-\omega=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\tag{*}
-\]</span></p>
-</blockquote></li>
-<li><p>把上面求导得来的关系代入拉格朗日函数，便得到 <span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
-<p><img src="/img/支持向量机/image-20220717135736279.png"></p>
-<p>上面用<strong>核函数</strong> <span class="math inline">\(K(X_i,X_j)\)</span> 代替掉 <span class="math inline">\(\varphi(X_i)^T\varphi(X_j)\)</span>
-后目标函数就只有一个未知参数 <span class="math inline">\(\alpha\)</span>
-，再根据下面简单的限制条件，很容易便可求出 <span class="math inline">\(\alpha\)</span> 。</p></li>
-<li><p>求出 <span class="math inline">\(\alpha\)</span> 后，根据关系 (*)
-，我们离求 <span class="math inline">\(\omega\)</span>
-更近了一些。不过由于 <span class="math inline">\(\varphi(X)\)</span>
-的具体形式我们不知道，所以仍需转换，我们的<strong>核函数</strong>再次登场。
-<span class="math display">\[
-\begin{align}
-\omega&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\\
-\Leftrightarrow\omega^T&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\\
-\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\varphi(X_j)\\
-\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)
-\end{align}
-\]</span></p></li>
-<li><p>走到这发现 <span class="math inline">\(\omega^T\varphi(X)\)</span>
-直接给求了出来，我们离求出超平面就差一个参数 <span class="math inline">\(b\)</span> 。根据 <em>KKT条件</em> ，对于限制条件
-<span class="math inline">\(\delta_i\le0,i=1,\cdots,N\)</span>
-和拉格朗日乘数 <span class="math inline">\(\beta\)</span> ，恒有 <span class="math inline">\(\beta_i\delta_i=0\)</span> 。所以，当 <span class="math inline">\(\beta_i\not=0\)</span> 即 <span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span>
-；而又看另一个限制条件和其对应的拉格朗日乘数，又有 <span class="math inline">\(\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0\)</span>
-恒成立。我们要求 <span class="math inline">\(b\)</span> ，故再找一个
-<span class="math inline">\(\alpha_i&gt;0\)</span> ，便有如下等式：
-<span class="math display">\[
-[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0
-\]</span> 其中 <span class="math inline">\(\alpha_i\)</span> 同时满足
-<span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span> 。显然我们可以找到这样的一个
-<span class="math inline">\(\alpha_i\)</span> ，满足 <span class="math inline">\(0&lt;\alpha_i&lt;C\)</span> ，然后求得参数 <span class="math inline">\(b\)</span> : <span class="math display">\[
-b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
-\]</span></p></li>
-</ol>
-<p>至此，超平面已得出。二分类问题的支持向量机完成。🎉</p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
   </entry>
   <entry>
     <title>点到空间直线的距离公式</title>
@@ -958,45 +803,148 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
 <blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+<p>求解欧拉图</p>
+<p>求解哈密顿图</p>
+<p>求解可三角划分图</p>
 </blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
+<span id="more"></span>
+<h2 id="欧拉图">欧拉图</h2>
+<blockquote>
+<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
+具有欧拉回路的图称为欧拉图（Euler Graph）</p>
+<p>​ ---百度百科</p>
+</blockquote>
+<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
+<center>
+1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
+</center>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
+<ol type="1">
+<li>每条边 b 必须出现在路径中。</li>
+<li>路径中没有边 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一条边占用。</li>
+<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
+（在欧拉回路中第一条边和最后一条边视为相邻</li>
+</ol>
+<p>然后定义原子命题。设有 m 条边</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
+$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
+<h3 id="构造逻辑公式">构造逻辑公式、</h3>
+<p><span class="math display">\[
 \begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
+h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
 \end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(h\)</span> 即可。</p>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
+<figure>
+<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题-1">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(e\)</span> 即可。</p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
+个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
+<h3 id="定义原子命题-2">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p>然后定义原子命题</p>
+<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
+<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
+<li>百度百科</li>
+<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>大学考试</category>
+        <category>练手小项目</category>
       </categories>
       <tags>
-        <tag>高数</tag>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
       </tags>
   </entry>
   <entry>
@@ -1046,5 +994,57 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       <tags>
         <tag>离散数学</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
 </search>
