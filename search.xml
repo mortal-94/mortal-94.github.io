@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<blockquote>
+<p>求解欧拉图</p>
+<p>求解哈密顿图</p>
+<p>求解可三角划分图</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="欧拉图">欧拉图</h2>
+<blockquote>
+<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
+具有欧拉回路的图称为欧拉图（Euler Graph）</p>
+<p>​ ---百度百科</p>
+</blockquote>
+<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
+<center>
+1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
+</center>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
+<ol type="1">
+<li>每条边 b 必须出现在路径中。</li>
+<li>路径中没有边 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一条边占用。</li>
+<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
+（在欧拉回路中第一条边和最后一条边视为相邻</li>
+</ol>
+<p>然后定义原子命题。设有 m 条边</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
+$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
+<h3 id="构造逻辑公式">构造逻辑公式、</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
+h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(h\)</span> 即可。</p>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
+<figure>
+<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题-1">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(e\)</span> 即可。</p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
+个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
+<h3 id="定义原子命题-2">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p>然后定义原子命题</p>
+<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
+<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
+<li>百度百科</li>
+<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -73,6 +228,35 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </categories>
       <tags>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -180,35 +364,6 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
         <tag>PowerShell</tag>
         <tag>终端</tag>
         <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -383,52 +538,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构和算法的经典问题</title>
     <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
@@ -540,322 +649,50 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </tags>
   </entry>
   <entry>
-    <title>点到空间直线的距离公式</title>
-    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
 <figure>
-<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
-<figcaption aria-hidden="true">来源参考2</figcaption>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
 </figure>
-<span id="more"></span>
-<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
-<span class="math display">\[
-\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
-\]</span> 下面看 <strong>空间</strong> 的</p>
-<hr>
-<p>对于 <strong>点到空间直线的距离公式</strong>
-，本文从<strong>向量</strong>的角度进行探讨。</p>
-<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
-<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
-<h3 id="法一">法一</h3>
-<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
-{\rm cos}\theta\)</span> ，</p>
-<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
-与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
-<p>故 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-
-(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
-\]</span></p>
-<h3 id="法二">法二</h3>
-<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
-，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
-<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
-<p>故 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
-\]</span></p>
-<h2 id="例子">例子</h2>
-<p><span class="math display">\[
-求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
-\]</span></p>
-<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
-<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
-|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
-<p>以及 <span class="math display">\[
-\vec{s}\times\vec{v}=
-\begin{vmatrix}
-\vec{i} &amp; \vec{j} &amp;\vec{k} \\
-1 &amp; 0 &amp; -1 \\
-3 &amp; 1 &amp; 1
-\end{vmatrix}=
-\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
-\]</span> 代入公式(1)计算得 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
-=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
-=\sqrt{9}=3
-\]</span> 代入公式(2)计算得 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
-=\frac{3\sqrt{2}}{\sqrt{2}}
-=3
-\]</span></p>
-<p>验证完毕</p>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
 <h1 id="参考">参考</h1>
-<ol type="1">
-<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
-- ZCC的回答 - 知乎</a></p></li>
-<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
-</ol>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
-        <category>数学</category>
+        <category>cheatSheet</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>向量</tag>
+        <tag>持续更新</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>离散数学大一下期末</title>
-    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
-\begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<blockquote>
-<p>求解欧拉图</p>
-<p>求解哈密顿图</p>
-<p>求解可三角划分图</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="欧拉图">欧拉图</h2>
-<blockquote>
-<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
-具有欧拉回路的图称为欧拉图（Euler Graph）</p>
-<p>​ ---百度百科</p>
-</blockquote>
-<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
-<center>
-1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
-</center>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
-<ol type="1">
-<li>每条边 b 必须出现在路径中。</li>
-<li>路径中没有边 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一条边占用。</li>
-<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
-（在欧拉回路中第一条边和最后一条边视为相邻</li>
-</ol>
-<p>然后定义原子命题。设有 m 条边</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
-$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
-<h3 id="构造逻辑公式">构造逻辑公式、</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
-h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(h\)</span> 即可。</p>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题-1">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(e\)</span> 即可。</p>
-<h2 id="可三角划分图">可三角划分图</h2>
-<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
-个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
-<h3 id="定义原子命题-2">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
-<ol type="1">
-<li>共有 n 个集合</li>
-<li>每个顶点都在要在一个集合中</li>
-<li>没有顶点同时在两个集合中</li>
-</ol>
-<p>然后定义原子命题</p>
-<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
-<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp;
-1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
-g_{ijkc}}
-\\
-&amp;
-2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
-\\
-&amp;
-3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
-g_{ijkc_1} \vee \neg g_{ijkc_2})}
-\end{align*}
-\]</span></p>
-<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
-<li>百度百科</li>
-<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
   </entry>
   <entry>
     <title>支持向量机</title>
@@ -1046,5 +883,168 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       <categories>
         <category>机器学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>点到空间直线的距离公式</title>
+    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
+<figure>
+<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
+<figcaption aria-hidden="true">来源参考2</figcaption>
+</figure>
+<span id="more"></span>
+<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
+<span class="math display">\[
+\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
+\]</span> 下面看 <strong>空间</strong> 的</p>
+<hr>
+<p>对于 <strong>点到空间直线的距离公式</strong>
+，本文从<strong>向量</strong>的角度进行探讨。</p>
+<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
+<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
+<h3 id="法一">法一</h3>
+<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
+{\rm cos}\theta\)</span> ，</p>
+<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
+与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
+<p>故 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-
+(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
+\]</span></p>
+<h3 id="法二">法二</h3>
+<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
+，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
+<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
+<p>故 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
+\]</span></p>
+<h2 id="例子">例子</h2>
+<p><span class="math display">\[
+求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
+\]</span></p>
+<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
+<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
+|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
+<p>以及 <span class="math display">\[
+\vec{s}\times\vec{v}=
+\begin{vmatrix}
+\vec{i} &amp; \vec{j} &amp;\vec{k} \\
+1 &amp; 0 &amp; -1 \\
+3 &amp; 1 &amp; 1
+\end{vmatrix}=
+\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
+\]</span> 代入公式(1)计算得 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
+=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
+=\sqrt{9}=3
+\]</span> 代入公式(2)计算得 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
+=\frac{3\sqrt{2}}{\sqrt{2}}
+=3
+\]</span></p>
+<p>验证完毕</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
+- ZCC的回答 - 知乎</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>向量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>离散数学大一下期末</title>
+    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>离散数学第二版 <strong>P131</strong></p>
+<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
+是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
+<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
+[x]_R=\{y\mid y\in A\wedge xRy\}
+\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
+<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
+<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
+<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
+<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
+R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
+\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p><span class="math display">\[
+\begin{gather}
+A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>根据上面的定义知 <span class="math display">\[
+R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
+\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
+\begin{align*}
+&amp;[a]_R=\{a,d\}\\
+&amp;[b]_R=\{b,c\}\\
+&amp;[c]_R=\{c,b\}\\
+&amp;[d]_R=\{d,a\}\\
+\end{align*}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+      </tags>
   </entry>
 </search>
