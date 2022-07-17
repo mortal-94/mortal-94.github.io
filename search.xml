@@ -146,6 +146,120 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       </tags>
   </entry>
   <entry>
+    <title>支持向量机</title>
+    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
+<p><strong>一句话，找超平面。</strong>🍜</p>
+<span id="more"></span>
+<h2 id="线性可分的情况">线性可分的情况</h2>
+<h3 id="目的">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
+<u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="前提定理和条件">前提定理和条件</h3>
+<p><img src="/img/支持向量机/scanner_20220713_204851-16577167263321.jpg"></p>
+<h3 id="问题描述">问题描述</h3>
+<p>若在 <strong>前提定理和条件</strong> 中那点为
+<strong>支持向量</strong>
+，则线性可分情况下划分两类数据可以描述成如下：</p>
+<p><img src="/img/支持向量机/scanner_20220713_205935.jpg"></p>
+<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
+<p>❗❗❗
+<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
+即最终问题描述如下：</p>
+<p><img src="/img/支持向量机/scanner_20220713_210828.jpg"></p>
+<h2 id="线性不可分的情况">线性不可分的情况</h2>
+<h3 id="目的-1">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
+分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="问题描述-1">问题描述</h3>
+<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
+<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
+。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
+<p><img src="/img/支持向量机/image-20220713211356210.png"></p>
+<p>❗❗❗ 注意：这里有个
+<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
+<h2 id="非线性的情况">非线性的情况</h2>
+<h3 id="目的-2">目的</h3>
+<p><em>与线性不可分的情况一样</em></p>
+<p>❗❗❗
+注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
+<h3 id="前提定理和条件-1">前提定理和条件</h3>
+<p><img src="/img/支持向量机/image-20220713212925129.png"></p>
+<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
+<h3 id="问题描述-2">问题描述</h3>
+<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span> 映射向更高维度的函数。</p>
+<p><img src="/img/支持向量机/image-20220713213401722.png"></p>
+<h2 id="问题求解">问题求解</h2>
+<h3 id="前提定理和条件-2">前提定理和条件</h3>
+<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
+<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
+<strong>对偶问题</strong> ：</p>
+<p>一个原问题如下：</p>
+<p><img src="/img/支持向量机/image-20220715161055864.png"></p>
+<blockquote>
+<p>说白了就是原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
+<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
+<p>拉格朗日函数：</p>
+<p><img src="/img/支持向量机/image-20220715160200792.png"></p>
+<p>❗❗❗
+注意：我不知道为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了还无法彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
+<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
+lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
+</blockquote>
+<p>然后其对偶问题就描述成如下：</p>
+<p><img src="/img/支持向量机/image-20220715161234404.png"></p>
+<blockquote>
+<p>inf ：求一个集合 最大 的 下界。</p>
+</blockquote>
+<p>这个描述有点意思了。</p>
+<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
+，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
+<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
+最大的那一组（细想挺绕的）。至于为什么这样取，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也说明了尚无法彻底理解支持向量机的工作原理</strong></p>
+<h3 id="最终的描述描述">最终的描述描述</h3>
+<p>直接看更具代表性的非线性问题。</p>
+<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。先将非线性问题的描述改成对应的形式：</p>
+<p><img src="/img/支持向量机/image-20220715165813142.png"></p>
+<blockquote>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span> 三个参数的函数</p>
+</blockquote>
+<p>然后写出对应的拉格朗日函数：</p>
+<p><img src="/img/支持向量机/464ABF4853B142A9855180B3271C8802.jpg"></p>
+<blockquote>
+<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
+<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
+</blockquote>
+<p><strong>最终问题描述成：</strong></p>
+<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
+L(\omega,\delta,b,\alpha,\beta)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
+<h3 id="求解">求解</h3>
+<p>竟然转成了对偶问题，那肯定是先求解对偶问题啦，然后再找对应关系。</p>
+<ol type="1">
+<li>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta,b\)</span>
+这三个参数的偏导，显然其要等于零。</li>
+</ol>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span>
+三个参数的函数，且两个限制条件都是线性的，满足<strong>强对偶定理</strong>
+： <span class="math display">\[
+f(\omega^*,\delta^*,b^*)=\theta(\alpha^*,\beta^*)
+\]</span></p>
+<blockquote>
+<p><span class="math inline">\(\omega^*,\delta^*,b^*,\alpha^*,\beta^*\)</span>
+是对应的解</p>
+<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。</p>
+</blockquote>
+<p>好了，现在我们用一个新的函数代替了原函数，且这个新的函数没有对原函数的变量进行限制。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>大一下总结</title>
     <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
@@ -360,43 +474,10 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
         <category>工具</category>
       </categories>
       <tags>
-        <tag>持续更新</tag>
         <tag>操作记录</tag>
         <tag>PowerShell</tag>
         <tag>终端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
         <tag>持续更新</tag>
-        <tag>操作记录</tag>
-        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -453,6 +534,39 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </categories>
       <tags>
         <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -626,8 +740,8 @@ vector machine</em> , <em>SVM</em></h2>
 <p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
-        <category>cheatSheet</category>
         <category>机器学习</category>
+        <category>cheatSheet</category>
       </categories>
       <tags>
         <tag>持续更新</tag>
@@ -856,119 +970,5 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       <tags>
         <tag>高数</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>支持向量机</title>
-    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
-<p><strong>一句话，找超平面。</strong>🍜</p>
-<span id="more"></span>
-<h2 id="线性可分的情况">线性可分的情况</h2>
-<h3 id="目的">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
-<u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="前提定理和条件">前提定理和条件</h3>
-<p><img src="/img/支持向量机/scanner_20220713_204851-16577167263321.jpg"></p>
-<h3 id="问题描述">问题描述</h3>
-<p>若在 <strong>前提定理和条件</strong> 中那点为
-<strong>支持向量</strong>
-，则线性可分情况下划分两类数据可以描述成如下：</p>
-<p><img src="/img/支持向量机/scanner_20220713_205935.jpg"></p>
-<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
-<p>❗❗❗
-<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
-即最终问题描述如下：</p>
-<p><img src="/img/支持向量机/scanner_20220713_210828.jpg"></p>
-<h2 id="线性不可分的情况">线性不可分的情况</h2>
-<h3 id="目的-1">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
-分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="问题描述-1">问题描述</h3>
-<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
-<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
-。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
-<p><img src="/img/支持向量机/image-20220713211356210.png"></p>
-<p>❗❗❗ 注意：这里有个
-<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
-<h2 id="非线性的情况">非线性的情况</h2>
-<h3 id="目的-2">目的</h3>
-<p><em>与线性不可分的情况一样</em></p>
-<p>❗❗❗
-注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
-<h3 id="前提定理和条件-1">前提定理和条件</h3>
-<p><img src="/img/支持向量机/image-20220713212925129.png"></p>
-<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
-<h3 id="问题描述-2">问题描述</h3>
-<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span> 映射向更高维度的函数。</p>
-<p><img src="/img/支持向量机/image-20220713213401722.png"></p>
-<h2 id="问题求解">问题求解</h2>
-<h3 id="前提定理和条件-2">前提定理和条件</h3>
-<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
-<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
-<strong>对偶问题</strong> ：</p>
-<p>一个原问题如下：</p>
-<p><img src="/img/支持向量机/image-20220715161055864.png"></p>
-<blockquote>
-<p>说白了就是原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
-<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
-<p>拉格朗日函数：</p>
-<p><img src="/img/支持向量机/image-20220715160200792.png"></p>
-<p>❗❗❗
-注意：我不知道为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了还无法彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
-<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
-lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
-</blockquote>
-<p>然后其对偶问题就描述成如下：</p>
-<p><img src="/img/支持向量机/image-20220715161234404.png"></p>
-<blockquote>
-<p>inf ：求一个集合 最大 的 下界。</p>
-</blockquote>
-<p>这个描述有点意思了。</p>
-<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
-，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
-<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
-<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
-最大的那一组（细想挺绕的）。至于为什么这样取，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也说明了尚无法彻底理解支持向量机的工作原理</strong></p>
-<h3 id="最终的描述描述">最终的描述描述</h3>
-<p>直接看更具代表性的非线性问题。</p>
-<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。先将非线性问题的描述改成对应的形式：</p>
-<p><img src="/img/支持向量机/image-20220715165813142.png"></p>
-<blockquote>
-<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span> 三个参数的函数</p>
-</blockquote>
-<p>然后写出对应的拉格朗日函数：</p>
-<p><img src="/img/支持向量机/464ABF4853B142A9855180B3271C8802.jpg"></p>
-<blockquote>
-<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
-<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
-</blockquote>
-<p><strong>最终问题描述成：</strong></p>
-<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
-L(\omega,\delta,b,\alpha,\beta)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
-<h3 id="求解">求解</h3>
-<p>竟然转成了对偶问题，那肯定是先求解对偶问题啦，然后再找对应关系。</p>
-<ol type="1">
-<li>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta,b\)</span>
-这三个参数的偏导，显然其要等于零。</li>
-</ol>
-<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta,b\)</span>
-三个参数的函数，且两个限制条件都是线性的，满足<strong>强对偶定理</strong>
-： <span class="math display">\[
-f(\omega^*,\delta^*,b^*)=\theta(\alpha^*,\beta^*)
-\]</span></p>
-<blockquote>
-<p><span class="math inline">\(\omega^*,\delta^*,b^*,\alpha^*,\beta^*\)</span>
-是对应的解</p>
-<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。</p>
-</blockquote>
-<p>好了，现在我们用一个新的函数代替了原函数，且这个新的函数没有对原函数的变量进行限制。</p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
   </entry>
 </search>
