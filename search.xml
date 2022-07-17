@@ -146,6 +146,16 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       </tags>
   </entry>
   <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>支持向量机</title>
     <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
@@ -260,16 +270,6 @@ f(\omega^*,\delta^*,b^*)=\theta(\alpha^*,\beta^*)
       </categories>
   </entry>
   <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -374,59 +374,6 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
-    <title>python大一下期末</title>
-    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
-<p>没复习，寄😊</p>
-<h2 id="当时不会的题">当时不会的题</h2>
-<ol type="1">
-<li>MindSpore最基础的数据结构</li>
-<li>R语言 （）型</li>
-<li>矩阵 自定义 索引 和 列名</li>
-<li>dataframe数据内连合并 后缀名</li>
-<li>sklearn wine数据 聚类svc 建模</li>
-</ol>
-<span id="more"></span>
-<h2 id="事后解答">事后解答</h2>
-<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
-<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
-<blockquote>
-<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
-</blockquote>
-<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
-<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
-<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
-<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
-<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
-涉及后缀名的添加</h3>
-<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
-<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
-和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
-<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
-<p>外加数据标准化</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -478,6 +425,59 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
         <tag>PowerShell</tag>
         <tag>终端</tag>
         <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python大一下期末</title>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<p>没复习，寄😊</p>
+<h2 id="当时不会的题">当时不会的题</h2>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚类svc 建模</li>
+</ol>
+<span id="more"></span>
+<h2 id="事后解答">事后解答</h2>
+<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
+<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<blockquote>
+<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
+</blockquote>
+<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
+<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
+<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
+<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
+<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
+涉及后缀名的添加</h3>
+<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
+<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
+和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
+<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
+<p>外加数据标准化</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -652,52 +652,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构和算法的经典问题</title>
     <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
@@ -745,6 +699,125 @@ vector machine</em> , <em>SVM</em></h2>
       </categories>
       <tags>
         <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>点到空间直线的距离公式</title>
+    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
+<figure>
+<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
+<figcaption aria-hidden="true">来源参考2</figcaption>
+</figure>
+<span id="more"></span>
+<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
+<span class="math display">\[
+\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
+\]</span> 下面看 <strong>空间</strong> 的</p>
+<hr>
+<p>对于 <strong>点到空间直线的距离公式</strong>
+，本文从<strong>向量</strong>的角度进行探讨。</p>
+<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
+<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
+<h3 id="法一">法一</h3>
+<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
+{\rm cos}\theta\)</span> ，</p>
+<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
+与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
+<p>故 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-
+(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
+\]</span></p>
+<h3 id="法二">法二</h3>
+<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
+，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
+<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
+<p>故 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
+\]</span></p>
+<h2 id="例子">例子</h2>
+<p><span class="math display">\[
+求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
+\]</span></p>
+<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
+<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
+|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
+<p>以及 <span class="math display">\[
+\vec{s}\times\vec{v}=
+\begin{vmatrix}
+\vec{i} &amp; \vec{j} &amp;\vec{k} \\
+1 &amp; 0 &amp; -1 \\
+3 &amp; 1 &amp; 1
+\end{vmatrix}=
+\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
+\]</span> 代入公式(1)计算得 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
+=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
+=\sqrt{9}=3
+\]</span> 代入公式(2)计算得 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
+=\frac{3\sqrt{2}}{\sqrt{2}}
+=3
+\]</span></p>
+<p>验证完毕</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
+- ZCC的回答 - 知乎</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>向量</tag>
       </tags>
   </entry>
   <entry>
@@ -854,79 +927,6 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </categories>
       <tags>
         <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>点到空间直线的距离公式</title>
-    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
-<figure>
-<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
-<figcaption aria-hidden="true">来源参考2</figcaption>
-</figure>
-<span id="more"></span>
-<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
-<span class="math display">\[
-\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
-\]</span> 下面看 <strong>空间</strong> 的</p>
-<hr>
-<p>对于 <strong>点到空间直线的距离公式</strong>
-，本文从<strong>向量</strong>的角度进行探讨。</p>
-<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
-<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
-<h3 id="法一">法一</h3>
-<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
-{\rm cos}\theta\)</span> ，</p>
-<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
-与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
-<p>故 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-
-(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
-\]</span></p>
-<h3 id="法二">法二</h3>
-<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
-，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
-<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
-<p>故 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
-\]</span></p>
-<h2 id="例子">例子</h2>
-<p><span class="math display">\[
-求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
-\]</span></p>
-<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
-<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
-|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
-<p>以及 <span class="math display">\[
-\vec{s}\times\vec{v}=
-\begin{vmatrix}
-\vec{i} &amp; \vec{j} &amp;\vec{k} \\
-1 &amp; 0 &amp; -1 \\
-3 &amp; 1 &amp; 1
-\end{vmatrix}=
-\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
-\]</span> 代入公式(1)计算得 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
-=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
-=\sqrt{9}=3
-\]</span> 代入公式(2)计算得 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
-=\frac{3\sqrt{2}}{\sqrt{2}}
-=3
-\]</span></p>
-<p>验证完毕</p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
-- ZCC的回答 - 知乎</a></p></li>
-<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>向量</tag>
       </tags>
   </entry>
   <entry>
