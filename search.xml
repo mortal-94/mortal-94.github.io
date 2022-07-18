@@ -1,190 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<blockquote>
-<p>求解欧拉图</p>
-<p>求解哈密顿图</p>
-<p>求解可三角划分图</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="欧拉图">欧拉图</h2>
-<blockquote>
-<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
-具有欧拉回路的图称为欧拉图（Euler Graph）</p>
-<p>​ ---百度百科</p>
-</blockquote>
-<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
-<center>
-1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
-</center>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
-<ol type="1">
-<li>每条边 b 必须出现在路径中。</li>
-<li>路径中没有边 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一条边占用。</li>
-<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
-（在欧拉回路中第一条边和最后一条边视为相邻</li>
-</ol>
-<p>然后定义原子命题。设有 m 条边</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
-$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
-<h3 id="构造逻辑公式">构造逻辑公式、</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
-h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(h\)</span> 即可。</p>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题-1">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(e\)</span> 即可。</p>
-<h2 id="可三角划分图">可三角划分图</h2>
-<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
-个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
-<h3 id="定义原子命题-2">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
-<ol type="1">
-<li>共有 n 个集合</li>
-<li>每个顶点都在要在一个集合中</li>
-<li>没有顶点同时在两个集合中</li>
-</ol>
-<p>然后定义原子命题</p>
-<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
-<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp;
-1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
-g_{ijkc}}
-\\
-&amp;
-2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
-\\
-&amp;
-3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
-g_{ijkc_1} \vee \neg g_{ijkc_2})}
-\end{align*}
-\]</span></p>
-<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
-<li>百度百科</li>
-<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -257,6 +73,35 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </categories>
       <tags>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -538,56 +383,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>支持向量机</title>
     <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
@@ -781,6 +576,56 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习术语</title>
     <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
     <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
@@ -819,8 +664,8 @@ vector machine</em> , <em>SVM</em></h2>
 <p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
-        <category>cheatSheet</category>
         <category>机器学习</category>
+        <category>cheatSheet</category>
       </categories>
       <tags>
         <tag>持续更新</tag>
@@ -1049,5 +894,160 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       <tags>
         <tag>高数</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<blockquote>
+<p>求解欧拉图</p>
+<p>求解哈密顿图</p>
+<p>求解可三角划分图</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="欧拉图">欧拉图</h2>
+<blockquote>
+<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
+具有欧拉回路的图称为欧拉图（Euler Graph）</p>
+<p>​ ---百度百科</p>
+</blockquote>
+<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
+<center>
+1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
+</center>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
+<ol type="1">
+<li>每条边 b 必须出现在路径中。</li>
+<li>路径中没有边 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一条边占用。</li>
+<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
+（在欧拉回路中第一条边和最后一条边视为相邻</li>
+</ol>
+<p>然后定义原子命题。设有 m 条边</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
+$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
+<h3 id="构造逻辑公式">构造逻辑公式、</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
+h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(h\)</span> 即可。</p>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
+<figure>
+<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题-1">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(e\)</span> 即可。</p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
+个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
+<h3 id="定义原子命题-2">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p>然后定义原子命题</p>
+<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
+<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
+<li>百度百科</li>
+<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
 </search>
