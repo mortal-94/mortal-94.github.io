@@ -158,149 +158,6 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
-    <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
-    <content><![CDATA[<h1 id="terminal">Terminal</h1>
-<p>超强终端。</p>
-<p><img src="/img/terminal/image-20220622210445601.png"></p>
-<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
-来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
-<span id="more"></span>
-<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
-<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
-<p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
-</blockquote>
-<p>在提示中输入 <code>Y</code></p>
-<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
-<blockquote>
-<h2 id="总结">总结</h2>
-<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
-<ul>
-<li><code>where.exe 文件搜索字符串</code></li>
-<li><code>gcm 文件搜索字符串 -All</code></li>
-<li><code>get-command 文件搜索字符串 -All</code></li>
-</ul>
-</blockquote>
-<h2 id="conda配置">conda配置</h2>
-<p>参考这篇文章</p>
-<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
-<blockquote>
-<p>PowerShell中输入命令<code>conda init powershell</code></p>
-<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
-</blockquote>
-<p>顺便说下conda配置虚拟环境常用命令</p>
-<p>参考这篇文章</p>
-<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
-<blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>PowerShell</tag>
-        <tag>终端</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>持续更新</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>人口统计数据分析器</title>
     <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
     <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
@@ -380,6 +237,62 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
       </tags>
   </entry>
   <entry>
@@ -576,102 +489,6 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>概率论大一下期末</title>
     <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
@@ -730,54 +547,6 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </categories>
       <tags>
         <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>离散数学大一下期末</title>
-    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
-\begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
       </tags>
   </entry>
   <entry>
@@ -854,45 +623,51 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+    <title>离散数学大一下期末</title>
+    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
 <span id="more"></span>
 <blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+<p>离散数学第二版 <strong>P131</strong></p>
+<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
+是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
+<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
+[x]_R=\{y\mid y\in A\wedge xRy\}
+\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
+<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
+<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
+<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
+<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
+R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
+\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
 </blockquote>
 <h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
+<p><span class="math display">\[
 \begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
+A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
 \end{gather}
 \]</span></p>
 <h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
+<p>根据上面的定义知 <span class="math display">\[
+R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
+\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
 \begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+&amp;[a]_R=\{a,d\}\\
+&amp;[b]_R=\{b,c\}\\
+&amp;[c]_R=\{c,b\}\\
+&amp;[d]_R=\{d,a\}\\
 \end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+\]</span></p>
 ]]></content>
       <categories>
         <category>大学考试</category>
       </categories>
       <tags>
-        <tag>高数</tag>
+        <tag>离散数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1041,6 +816,190 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       </tags>
   </entry>
   <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>terminal</title>
+    <url>/2022/06/20/terminal/</url>
+    <content><![CDATA[<h1 id="terminal">Terminal</h1>
+<p>超强终端。</p>
+<p><img src="/img/terminal/image-20220622210445601.png"></p>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+<span id="more"></span>
+<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
+<h2 id="conda配置">conda配置</h2>
+<p>参考这篇文章</p>
+<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
+<blockquote>
+<p>PowerShell中输入命令<code>conda init powershell</code></p>
+<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
+</blockquote>
+<p>顺便说下conda配置虚拟环境常用命令</p>
+<p>参考这篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
+<blockquote>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>PowerShell</tag>
+        <tag>终端</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大一下总结</title>
     <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
@@ -1049,5 +1008,51 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       <categories>
         <category>生活</category>
       </categories>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
   </entry>
 </search>
