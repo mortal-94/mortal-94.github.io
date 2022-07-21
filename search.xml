@@ -158,6 +158,199 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
+    <title>支持向量机</title>
+    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
+<p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>
+🍜 <span class="math display">\[
+\omega^T X + b = 0
+\]</span> 最后测试时判断测试数据在超平面那一边就行了。</p>
+<span id="more"></span>
+<h2 id="线性可分的情况">线性可分的情况</h2>
+<h3 id="目的">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
+<u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="前提定理和条件">前提定理和条件</h3>
+<p><img src="https://s2.loli.net/2022/07/17/14Z3JtckAHdhBWX.jpg"></p>
+<h3 id="问题描述">问题描述</h3>
+<p>若在 <strong>前提定理和条件</strong> 中那点为
+<strong>支持向量</strong>
+，则线性可分情况下划分两类数据可以描述成如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/FwXHTMz7RGbh1vW.jpg"></p>
+<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
+<p>❗❗❗
+<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
+即最终问题描述如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/rnySKJOhZ7mdELk.jpg"></p>
+<h2 id="线性不可分的情况">线性不可分的情况</h2>
+<h3 id="目的-1">目的</h3>
+<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
+分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
+<h3 id="问题描述-1">问题描述</h3>
+<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
+<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
+。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
+<p><img src="https://s2.loli.net/2022/07/17/rR4OqTHSejshlMZ.png"></p>
+<p>❗❗❗ 注意：这里有个
+<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
+<h2 id="非线性的情况">非线性的情况</h2>
+<h3 id="目的-2">目的</h3>
+<p><em>与线性不可分的情况一样</em></p>
+<p>❗❗❗
+注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
+<h3 id="前提定理和条件-1">前提定理和条件</h3>
+<p><img src="https://s2.loli.net/2022/07/17/1TbCNqsXG4BWpyi.png"></p>
+<blockquote>
+<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
+</blockquote>
+<h3 id="问题描述-2">问题描述</h3>
+<blockquote>
+<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span>
+映射向更高维度的函数，具体形式未知。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/17/9N7FxEzKfw2pRvY.png"></p>
+<h2 id="问题求解">问题求解</h2>
+<p>咱先整理一下思路。首先，训练数据（<span class="math inline">\(X,y\)</span>）是已知的； <span class="math inline">\(\varphi(X)\)</span> 函数的具体形式未知； <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
+未知；我们最终要确定一个超平面用来划分两类数据，超平面： <span class="math display">\[
+\omega^T\varphi(X)+b=0
+\]</span> 故确定了参数便确定了超平面。</p>
+<blockquote>
+<p>测试时判断测试数据在超平面那一边就行了。</p>
+</blockquote>
+<h3 id="前提定理和条件-2">前提定理和条件</h3>
+<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
+<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
+<strong>对偶问题</strong> ：</p>
+<p>一个原问题如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/FAafD8tY41ibg2P.png"></p>
+<blockquote>
+<p>原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
+<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
+<p>引入拉格朗日函数：</p>
+<p><img src="https://s2.loli.net/2022/07/17/CeqEHQG4kPiZvW8.png"></p>
+<p>❗❗❗
+注意：我不完全明白为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了未能彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
+<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
+lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
+<p>拉格朗日函数做了什么？Lagrange乘数法可以将原本的约束优化问题转换成等价的无约束优化问题。而其中又有很大的深意，我觉得知乎这边文章说得挺好的
+<a href="https://zhuanlan.zhihu.com/p/38163970">Karush-Kuhn-Tucker
+(KKT)条件 - Eureka的文章 - 知乎</a>。里面有这样一段：</p>
+<blockquote>
+<p><img src="https://s2.loli.net/2022/07/17/cDBuml6dLhApxRH.png"></p>
+</blockquote>
+<p>限制条件没有起作用，那么拉格朗日乘数值为零。限制条件起作用，限制函数值为零。</p>
+</blockquote>
+<p>然后其对偶问题就描述成如下：</p>
+<p><img src="https://s2.loli.net/2022/07/17/tzQ7RXgqFEd4lMh.png"></p>
+<blockquote>
+<p>inf ：求一个集合 最大 的 下界。</p>
+</blockquote>
+<p><strong>这个描述有点意思了。</strong></p>
+<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
+，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
+<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
+最大的那一组（细想挺绕的）。至于<strong>为什么这样取</strong>，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也表明了尚未能彻底理解支持向量机的工作原理</strong></p>
+<h4 id="核函数">核函数</h4>
+<p>这是由于直接计算高维的向量十分困难而引入。</p>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p>直接理解，知乎一遍文章： <a href="https://zhuanlan.zhihu.com/p/47541349">核函数粗浅的理解 -
+杨航锋的文章 - 知乎</a></p>
+<blockquote>
+<p>❗❗❗
+注意：这个东西我尚未完全理解。（<strong>这里再次表明未能彻底了解支持向量机工作原理</strong></p>
+</blockquote>
+<h3 id="最终的描述描述对偶问题">最终的描述描述（对偶问题</h3>
+<p>直接看更具代表性的非线性问题。</p>
+<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。<strong>先将非线性问题的描述改成对应的形式：</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/hvo7Aa21S8OBPUN.png"></p>
+<blockquote>
+<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b,\alpha,\beta\)</span>
+这几个参数的函数</p>
+</blockquote>
+<p><strong>然后写出对应的拉格朗日函数：</strong> <span class="math display">\[
+\begin{align}
+L(\omega,\delta_1,\cdots,\delta_N,b,\alpha,\beta)=&amp;\cfrac{1}{2}\|\omega\|^2-C\sum_{i=1}^{N}\delta_i+\sum_{i=1}^{N}\beta_i\delta_i\\
+&amp;+\sum_{i=1}^{N}\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]
+\end{align}
+\]</span></p>
+<blockquote>
+<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
+<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
+</blockquote>
+<p><strong>最终对偶问题描述成：</strong></p>
+<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
+L(\omega,\delta_1,\cdots,\delta_N,b,\alpha,\beta)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
+<blockquote>
+<p>❗❗❗ 注意：这里的为什么要求每个 <span class="math inline">\(\alpha_i\)</span> 要大于零也尚未完全明白</p>
+</blockquote>
+<h3 id="求解">求解</h3>
+<p>这里原问题的两个限制条件都是线性的，满足<strong>强对偶定理</strong>
+： <span class="math display">\[
+f(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*)=\theta(\alpha^*,\beta^*)
+\]</span></p>
+<blockquote>
+<p><span class="math inline">\(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*,\alpha^*,\beta^*\)</span>
+是对应的解</p>
+<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。证明貌似网上很多。</p>
+</blockquote>
+<p><strong>如此一来，求解对偶问题的同时，其对应的原问题参数便也是原问题目标函数的解！！</strong></p>
+<p>竟然前面转成了对偶问题且它较为容易求解，那肯定是先求解对偶问题啦，然后再找<strong>对应关系</strong>。</p>
+<ol type="1">
+<li><p>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta_i,b\)</span>
+这些参数的偏导，显然其要等于零是找最优解的必要条件。得出如下关系</p>
+<p><img src="https://s2.loli.net/2022/07/17/L6mnYuGhErse18W.png"></p>
+<blockquote>
+<p>特别留意这里找出了关系： <span class="math display">\[
+\omega=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\tag{*}
+\]</span></p>
+</blockquote></li>
+<li><p>把上面求导得来的关系代入拉格朗日函数，便得到 <span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
+<p><img src="https://s2.loli.net/2022/07/17/gEcQtyLx9HKXnqz.png"></p>
+<p>上面用<strong>核函数</strong> <span class="math inline">\(K(X_i,X_j)\)</span> 代替掉 <span class="math inline">\(\varphi(X_i)^T\varphi(X_j)\)</span>
+后目标函数就只有一个未知参数 <span class="math inline">\(\alpha\)</span>
+，再根据下面简单的限制条件，很容易便可求出 <span class="math inline">\(\alpha\)</span> 。</p></li>
+<li><p>求出 <span class="math inline">\(\alpha\)</span> 后，根据关系 (*)
+，我们离求 <span class="math inline">\(\omega\)</span>
+更近了一些。不过由于 <span class="math inline">\(\varphi(X)\)</span>
+的具体形式我们不知道，所以仍需转换，我们的<strong>核函数</strong>再次登场。
+<span class="math display">\[
+\begin{align}
+\omega&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\\
+\Leftrightarrow\omega^T&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\\
+\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\varphi(X_j)\\
+\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)
+\end{align}
+\]</span></p></li>
+<li><p>走到这发现 <span class="math inline">\(\omega^T\varphi(X)\)</span>
+直接给求了出来，我们离求出超平面就差一个参数 <span class="math inline">\(b\)</span> 。根据 <em>KKT条件</em> ，对于限制条件
+<span class="math inline">\(\delta_i\le0,i=1,\cdots,N\)</span>
+和拉格朗日乘数 <span class="math inline">\(\beta\)</span> ，恒有 <span class="math inline">\(\beta_i\delta_i=0\)</span> 。所以，当 <span class="math inline">\(\beta_i\not=0\)</span> 即 <span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span>
+；而又看另一个限制条件和其对应的拉格朗日乘数，又有 <span class="math inline">\(\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0\)</span>
+恒成立。我们要求 <span class="math inline">\(b\)</span> ，故再找一个
+<span class="math inline">\(\alpha_i&gt;0\)</span> ，便有如下等式：
+<span class="math display">\[
+[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0
+\]</span> 其中 <span class="math inline">\(\alpha_i\)</span> 同时满足
+<span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span> 。显然我们可以找到这样的一个
+<span class="math inline">\(\alpha_i\)</span> ，满足 <span class="math inline">\(0&lt;\alpha_i&lt;C\)</span> ，然后求得参数 <span class="math inline">\(b\)</span> : <span class="math display">\[
+b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
+\]</span></p></li>
+</ol>
+<p>至此，超平面已得出。二分类问题的支持向量机完成。🎉</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
+<blockquote>
+<p><a href="https://mortal-94.github.io/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">本文原地址-个人博客</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>yt-dlp以及you-get使用体验</title>
     <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
@@ -296,260 +489,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>支持向量机</title>
-    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
-    <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
-<p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>
-🍜 <span class="math display">\[
-\omega^T X + b = 0
-\]</span> 最后测试时判断测试数据在超平面那一边就行了。</p>
-<span id="more"></span>
-<h2 id="线性可分的情况">线性可分的情况</h2>
-<h3 id="目的">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中分开，并使得
-<u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="前提定理和条件">前提定理和条件</h3>
-<p><img src="https://s2.loli.net/2022/07/17/14Z3JtckAHdhBWX.jpg"></p>
-<h3 id="问题描述">问题描述</h3>
-<p>若在 <strong>前提定理和条件</strong> 中那点为
-<strong>支持向量</strong>
-，则线性可分情况下划分两类数据可以描述成如下：</p>
-<p><img src="https://s2.loli.net/2022/07/17/FwXHTMz7RGbh1vW.jpg"></p>
-<p>故最大化 <span class="math inline">\(d\)</span> ，即最小化 <span class="math inline">\(\|\omega\|\)</span> 。</p>
-<p>❗❗❗
-<strong>但这里要注意一下，为了后续操作方便（求导），我们把最小化 <span class="math inline">\(\|\omega\|\)</span> 改成最小化 <span class="math inline">\(\cfrac{1}{2}\|\omega\|^2\)</span> 。</strong>
-即最终问题描述如下：</p>
-<p><img src="https://s2.loli.net/2022/07/17/rnySKJOhZ7mdELk.jpg"></p>
-<h2 id="线性不可分的情况">线性不可分的情况</h2>
-<h3 id="目的-1">目的</h3>
-<p><strong>找一个 <u>超平面</u> 将两类数据在特征空间中 <em>尽可能地</em>
-分开，并使得 <u>支持向量</u> 到其的距离最大。</strong></p>
-<h3 id="问题描述-1">问题描述</h3>
-<p>为了尽可能地把两类数据分开，需要对所求的超平面进行条件放松。</p>
-<p>这里对应每一个训练样本及标签引入一个新变量 <span class="math inline">\(\delta_i\)</span> ，称为 <strong>松弛变量</strong>
-。让本用来划分数据的限制条件不再那么严格，即使一些数据无需被严格划分开。</p>
-<p><img src="https://s2.loli.net/2022/07/17/rR4OqTHSejshlMZ.png"></p>
-<p>❗❗❗ 注意：这里有个
-<strong>算法的超参数</strong>（人为事先设定的参数）<span class="math inline">\(C\)</span></p>
-<h2 id="非线性的情况">非线性的情况</h2>
-<h3 id="目的-2">目的</h3>
-<p><em>与线性不可分的情况一样</em></p>
-<p>❗❗❗
-注意：是和线性<strong>不可分</strong>的情况一样，而不是线性<strong>可分</strong>。因为这里涉及概率问题。（看下面👇）</p>
-<h3 id="前提定理和条件-1">前提定理和条件</h3>
-<p><img src="https://s2.loli.net/2022/07/17/1TbCNqsXG4BWpyi.png"></p>
-<blockquote>
-<p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
-</blockquote>
-<h3 id="问题描述-2">问题描述</h3>
-<blockquote>
-<p><span class="math inline">\(\varphi(X_i)\)</span> 是将原样本 <span class="math inline">\(X_i\)</span>
-映射向更高维度的函数，具体形式未知。</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/07/17/9N7FxEzKfw2pRvY.png"></p>
-<h2 id="问题求解">问题求解</h2>
-<p>咱先整理一下思路。首先，训练数据（<span class="math inline">\(X,y\)</span>）是已知的； <span class="math inline">\(\varphi(X)\)</span> 函数的具体形式未知； <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
-未知；我们最终要确定一个超平面用来划分两类数据，超平面： <span class="math display">\[
-\omega^T\varphi(X)+b=0
-\]</span> 故确定了参数便确定了超平面。</p>
-<blockquote>
-<p>测试时判断测试数据在超平面那一边就行了。</p>
-</blockquote>
-<h3 id="前提定理和条件-2">前提定理和条件</h3>
-<h4 id="原问题和对偶问题">原问题和对偶问题</h4>
-<p>由于上面描述的问题求最小值都有大量限制条件，求导找极值点非常困难。为此需引入
-<strong>对偶问题</strong> ：</p>
-<p>一个原问题如下：</p>
-<p><img src="https://s2.loli.net/2022/07/17/FAafD8tY41ibg2P.png"></p>
-<blockquote>
-<p>原问题需要最小化的那个函数再加上限制条件非常难运算（求导被限制条件限制），咱找一个东西代替掉它（拉格朗日函数
-<em>Lagrange</em>）。（相当于去掉了限制条件，方便后面直接求导。</p>
-<p>引入拉格朗日函数：</p>
-<p><img src="https://s2.loli.net/2022/07/17/CeqEHQG4kPiZvW8.png"></p>
-<p>❗❗❗
-注意：我不完全明白为什么拉格朗日函数可以代替掉它，<strong>就这一点便敲定了未能彻底理解支持向量机的工作原理</strong>，待深入。但知乎上有个回答对这个应该有启发：
-<a href="https://www.zhihu.com/question/58584814/answer/1119054535">如何通俗地讲解对偶问题，尤其是拉格朗日对偶
-lagrangian duality？ - 李竞宜的回答 - 知乎</a></p>
-<p>拉格朗日函数做了什么？Lagrange乘数法可以将原本的约束优化问题转换成等价的无约束优化问题。而其中又有很大的深意，我觉得知乎这边文章说得挺好的
-<a href="https://zhuanlan.zhihu.com/p/38163970">Karush-Kuhn-Tucker
-(KKT)条件 - Eureka的文章 - 知乎</a>。里面有这样一段：</p>
-<blockquote>
-<p><img src="https://s2.loli.net/2022/07/17/cDBuml6dLhApxRH.png"></p>
-</blockquote>
-<p>限制条件没有起作用，那么拉格朗日乘数值为零。限制条件起作用，限制函数值为零。</p>
-</blockquote>
-<p>然后其对偶问题就描述成如下：</p>
-<p><img src="https://s2.loli.net/2022/07/17/tzQ7RXgqFEd4lMh.png"></p>
-<blockquote>
-<p>inf ：求一个集合 最大 的 下界。</p>
-</blockquote>
-<p><strong>这个描述有点意思了。</strong></p>
-<p>首先要知道流程是这样的，对于每一组 <span class="math inline">\((\alpha,\beta)\)</span>
-，代入拉格朗日函数，然后通过求导找出函数最大的下界，从而得出 <span class="math inline">\(\omega\)</span> 。我们把每一组 <span class="math inline">\((\alpha,\beta)\)</span> 对应的那个函数最大下界记作
-<span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
-<p>那么问题来了，取哪一组 <span class="math inline">\((\alpha,\beta)\)</span> 呢？这里说取使得 <span class="math inline">\(\theta(\alpha,\beta)\)</span>
-最大的那一组（细想挺绕的）。至于<strong>为什么这样取</strong>，我也不知道😅，猜想应该是和拉格朗日函数有关，待深入了解。<strong>（这里也表明了尚未能彻底理解支持向量机的工作原理</strong></p>
-<h4 id="核函数">核函数</h4>
-<p>这是由于直接计算高维的向量十分困难而引入。</p>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p>直接理解，知乎一遍文章： <a href="https://zhuanlan.zhihu.com/p/47541349">核函数粗浅的理解 -
-杨航锋的文章 - 知乎</a></p>
-<blockquote>
-<p>❗❗❗
-注意：这个东西我尚未完全理解。（<strong>这里再次表明未能彻底了解支持向量机工作原理</strong></p>
-</blockquote>
-<h3 id="最终的描述描述对偶问题">最终的描述描述（对偶问题</h3>
-<p>直接看更具代表性的非线性问题。</p>
-<p>竟然对偶问题更加好运算，那就先把原问题转成其对偶问题先。<strong>先将非线性问题的描述改成对应的形式：</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/hvo7Aa21S8OBPUN.png"></p>
-<blockquote>
-<p>这里原问题的目标函数就变成了有 <span class="math inline">\(\omega,\delta_1,\cdots,\delta_N,b\)</span>
-这几个参数的函数</p>
-</blockquote>
-<p><strong>然后写出对应的拉格朗日函数：</strong> <span class="math display">\[
-\begin{align}
-L(\omega,\delta_1,\cdots,\delta_N,b)=&amp;\cfrac{1}{2}\|\omega\|^2-C\sum_{i=1}^{N}\delta_i+\sum_{i=1}^{N}\beta_i\delta_i\\
-&amp;+\sum_{i=1}^{N}\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]
-\end{align}
-\]</span></p>
-<blockquote>
-<p>❗❗❗ 注意：由于限制条件中没有 <span class="math inline">\(=0\)</span> 的那一类，但 <span class="math inline">\(\le0\)</span> 的的有两类，故仍需用两个
-<em>拉格朗日乘数</em> 。但不明白原理，待深入。</p>
-</blockquote>
-<p><strong>最终对偶问题描述成：</strong></p>
-<p>最大化： <span class="math inline">\(\theta(\alpha,\beta)=\inf
-L(\omega,\delta_1,\cdots,\delta_N,b)\)</span> ，每个 <span class="math inline">\(\alpha_i\)</span> 都要大于零。</p>
-<blockquote>
-<p>❗❗❗ 注意：这里的为什么要求每个 <span class="math inline">\(\alpha_i\)</span> 要大于零也尚未完全明白</p>
-</blockquote>
-<h3 id="求解">求解</h3>
-<p>这里原问题的两个限制条件都是线性的，满足<strong>强对偶定理</strong>
-： <span class="math display">\[
-f(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*)=\theta(\alpha^*,\beta^*)
-\]</span></p>
-<blockquote>
-<p><span class="math inline">\(\omega^*,\delta_1^*,\cdots,\delta_N^*,b^*,\alpha^*,\beta^*\)</span>
-是对应的解</p>
-<p>❗❗❗ 注意：我不知道强对偶定理的证明，待深入。证明貌似网上很多。</p>
-</blockquote>
-<p><strong>如此一来，求解对偶问题的同时，其对应的原问题参数便也是原问题目标函数的解！！</strong></p>
-<p>竟然前面转成了对偶问题且它较为容易求解，那肯定是先求解对偶问题啦，然后再找<strong>对应关系</strong>。</p>
-<ol type="1">
-<li><p>先直接对拉格朗日函数求关于 <span class="math inline">\(\omega,\delta_i,b\)</span>
-这些参数的偏导，显然其要等于零是找最优解的必要条件。得出如下关系</p>
-<p><img src="https://s2.loli.net/2022/07/17/L6mnYuGhErse18W.png"></p>
-<blockquote>
-<p>特别留意这里找出了关系： <span class="math display">\[
-\omega=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\tag{*}
-\]</span></p>
-</blockquote></li>
-<li><p>把上面求导得来的关系代入拉格朗日函数，便得到 <span class="math inline">\(\theta(\alpha,\beta)\)</span> 。</p>
-<p><img src="https://s2.loli.net/2022/07/17/gEcQtyLx9HKXnqz.png"></p>
-<p>上面用<strong>核函数</strong> <span class="math inline">\(K(X_i,X_j)\)</span> 代替掉 <span class="math inline">\(\varphi(X_i)^T\varphi(X_j)\)</span>
-后目标函数就只有一个未知参数 <span class="math inline">\(\alpha\)</span>
-，再根据下面简单的限制条件，很容易便可求出 <span class="math inline">\(\alpha\)</span> 。</p></li>
-<li><p>求出 <span class="math inline">\(\alpha\)</span> 后，根据关系 (*)
-，我们离求 <span class="math inline">\(\omega\)</span>
-更近了一些。不过由于 <span class="math inline">\(\varphi(X)\)</span>
-的具体形式我们不知道，所以仍需转换，我们的<strong>核函数</strong>再次登场。
-<span class="math display">\[
-\begin{align}
-\omega&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)\\
-\Leftrightarrow\omega^T&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\\
-\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_i\varphi(X_i)^T\varphi(X_j)\\
-\Leftrightarrow\omega^T\varphi(X_j)&amp;=\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)
-\end{align}
-\]</span></p></li>
-<li><p>走到这发现 <span class="math inline">\(\omega^T\varphi(X)\)</span>
-直接给求了出来，我们离求出超平面就差一个参数 <span class="math inline">\(b\)</span> 。根据 <em>KKT条件</em> ，对于限制条件
-<span class="math inline">\(\delta_i\le0,i=1,\cdots,N\)</span>
-和拉格朗日乘数 <span class="math inline">\(\beta\)</span> ，恒有 <span class="math inline">\(\beta_i\delta_i=0\)</span> 。所以，当 <span class="math inline">\(\beta_i\not=0\)</span> 即 <span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span>
-；而又看另一个限制条件和其对应的拉格朗日乘数，又有 <span class="math inline">\(\alpha_i[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0\)</span>
-恒成立。我们要求 <span class="math inline">\(b\)</span> ，故再找一个
-<span class="math inline">\(\alpha_i&gt;0\)</span> ，便有如下等式：
-<span class="math display">\[
-[1+\delta_i-y_i\omega^T\varphi(X_i)-y_ib]=0
-\]</span> 其中 <span class="math inline">\(\alpha_i\)</span> 同时满足
-<span class="math inline">\(\alpha_i&lt;C\)</span> 时，<span class="math inline">\(\delta_i=0\)</span> 。显然我们可以找到这样的一个
-<span class="math inline">\(\alpha_i\)</span> ，满足 <span class="math inline">\(0&lt;\alpha_i&lt;C\)</span> ，然后求得参数 <span class="math inline">\(b\)</span> : <span class="math display">\[
-b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
-\]</span></p></li>
-</ol>
-<p>至此，超平面已得出。二分类问题的支持向量机完成。🎉</p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-<blockquote>
-<p><a href="https://mortal-94.github.io/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">本文原地址-个人博客</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>概率论大一下期末</title>
-    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
-<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
-</figure>
-<span id="more"></span>
-<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
-<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
-</figure>
-<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
-枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
-N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
-进行区间估计。</p>
-<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
-<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
-</figure>
-<h2 id="考试题">考试题</h2>
-<p>题目太长很多都忘了😅</p>
-<p>要是没记错有道题是这样 <span class="math display">\[
-\begin{gather}
-X_1,X_2,\cdots,X_n是从总体服从N(\mu,
-4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
-<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
-<strong>定理二</strong> 。</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
-<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
-</figure>
-<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
-，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
-，再根据卡方分布的可加性</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
-<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
-</figure>
-<p>有 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
-\]</span> 即 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>离散数学大一下期末</title>
     <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
@@ -595,6 +534,48 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </categories>
       <tags>
         <tag>离散数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
       </tags>
   </entry>
   <entry>
@@ -671,45 +652,64 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+    <title>概率论大一下期末</title>
+    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
+<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
+</figure>
 <span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
+<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
+<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
+</figure>
+<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
+枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
+N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
+进行区间估计。</p>
+<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
+<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
+</figure>
+<h2 id="考试题">考试题</h2>
+<p>题目太长很多都忘了😅</p>
+<p>要是没记错有道题是这样 <span class="math display">\[
 \begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
+X_1,X_2,\cdots,X_n是从总体服从N(\mu,
+4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
 \end{gather}
 \]</span></p>
 <h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
+<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
+<strong>定理二</strong> 。</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
+<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
+</figure>
+<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
+，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
+，再根据卡方分布的可加性</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
+<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
+</figure>
+<p>有 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
+\]</span> 即 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
+\]</span></p>
 ]]></content>
       <categories>
         <category>大学考试</category>
       </categories>
       <tags>
-        <tag>高数</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
@@ -858,6 +858,16 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
       </tags>
   </entry>
   <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -910,16 +920,6 @@ g_{ijkc_1} \vee \neg g_{ijkc_2})}
         <tag>终端</tag>
         <tag>持续更新</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
   </entry>
   <entry>
     <title>vscdoe使用</title>
