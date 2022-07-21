@@ -2878,3 +2878,6 @@ figure.highlight {
 .header-inner {
   overflow: hidden;
 }
+.back-to-top {
+  margin: -4px 10px -18px;
+}

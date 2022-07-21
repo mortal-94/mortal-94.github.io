@@ -1,78 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Codeforces1690D 滑动窗口</title>
-    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
-    <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
-<p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<blockquote>
+<p>求解欧拉图</p>
+<p>求解哈密顿图</p>
+<p>求解可三角划分图</p>
+</blockquote>
 <span id="more"></span>
-<p>废话不多说，分析题目，题干比较简单，直接看例子</p>
-<p>input</p>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">4</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">3</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">5</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">W</span></span><br></pre></td></tr></tbody></table></figure>
-<p>output</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="欧拉图">欧拉图</h2>
 <blockquote>
-<p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
-BBBBW ”，有k个连续的B</p>
-<p>在第二个测试用例中，" BBWBW " 和k = 5. 重新着色就2个就足够了并得到“
-BBBBB ”，有k个连续的B</p>
-<p>在第三个测试用例中，" BBWBW " 和k = 1 无需重新着色就已满足有 k
-个连续的B</p>
+<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
+具有欧拉回路的图称为欧拉图（Euler Graph）</p>
+<p>​ ---百度百科</p>
 </blockquote>
-<p>典型的滑动窗口题，窗口大小就是 k (windowsize =
-k)。按常规的滑动窗口题目的做法应该都会需要弄个哈希表来搞，这题比较简单，只需记录一些窗口中
-W 的个数即可。 <span class="math display">\[
-\begin{gather}
-第一个测试用例\quad k=3 \\ \\
-\begin{array}{ccccc}
-    \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-\end{array}\\
-\text{count}\_\text{W}=1
-\\ \\ \\
-\begin{array}{ccccc}
-    &amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-    \hline
-    \text{Out}
-\end{array}\\
-\text{count}\_\text{W}=1
-\\ \\ \\
-\begin{array}{cccccc}
-    &amp;&amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-    \hline
-    &amp;\text{Out}
-\end{array}\\
-\text{count}\_\text{W}=2
-\end{gather}
+<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
+<center>
+1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
+</center>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
+<ol type="1">
+<li>每条边 b 必须出现在路径中。</li>
+<li>路径中没有边 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一条边占用。</li>
+<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
+（在欧拉回路中第一条边和最后一条边视为相邻</li>
+</ol>
+<p>然后定义原子命题。设有 m 条边</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
+$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
+<h3 id="构造逻辑公式">构造逻辑公式、</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
+h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
 \]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(h\)</span> 即可。</p>
+<h2 id="哈密顿图">哈密顿图</h2>
 <blockquote>
-<p>整个滑动过程 最小的 count_W 即为答案。 为了更新 count_W
-的值，可以引入一个 Out 变量记着出去的字母</p>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
 </blockquote>
-<p>整体C++代码实现如下：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> n, k;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> count_W = <span class="number">0</span>; <span class="comment">//记录窗口内 W 的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">'W'</span>)</span><br><span class="line">                count_W++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 滑动窗口 k  [leftIndex, rightIndex)</span></span><br><span class="line">        <span class="type">int</span> res = count_W;</span><br><span class="line">        <span class="type">int</span> leftIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> rightIndex = k - leftIndex;</span><br><span class="line">        <span class="comment">// Out 代表出去的字母， s[rightIndex - 1] 代表进来的字母</span></span><br><span class="line">        <span class="type">char</span> Out = s[leftIndex];</span><br><span class="line">        leftIndex++, rightIndex++;</span><br><span class="line">        <span class="keyword">for</span> (; rightIndex &lt;= n; rightIndex++, leftIndex++)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 更新 count_W</span></span><br><span class="line">            <span class="keyword">if</span> (Out != s[rightIndex - <span class="number">1</span>])</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (Out == <span class="string">'W'</span>)</span><br><span class="line">                    count_W--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    count_W++;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">// 更新出去的字母 以及 答案</span></span><br><span class="line">            Out = s[leftIndex];</span><br><span class="line">            res = res &lt; count_W ? res : count_W;</span><br><span class="line">        }</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="写在最后">写在最后</h3>
-<p>大家好，这是我知乎的第一篇文章，希望多多支持，本人喜欢 <strong>打 注
-释</strong>
-，顺手发发文章。个人觉得这样能让自己以及他人能够更好地读懂自己代码，想必大家都能体会到心情激动地Google到别人的代码却完全看不懂TA写啥的那种感受，尤其这段代码还能完美解决你的问题的时候。。。</p>
-<p>还有 <a href="https://codeforces.com/">codefores</a>
-这个居然刷题网站可以查看别人的 submit
-的代码！！（点那串数字；不过常常不知道别人在写啥，但 CTRL C V 过来就是能
-AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<figure>
+<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题-1">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
+<span class="math inline">\(e\)</span> 即可。</p>
+<h2 id="可三角划分图">可三角划分图</h2>
+<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
+个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
+<h3 id="定义原子命题-2">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
+<ol type="1">
+<li>共有 n 个集合</li>
+<li>每个顶点都在要在一个集合中</li>
+<li>没有顶点同时在两个集合中</li>
+</ol>
+<p>然后定义原子命题</p>
+<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
+<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp;
+1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
+g_{ijkc}}
+\\
+&amp;
+2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
+\\
+&amp;
+3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
+g_{ijkc_1} \vee \neg g_{ijkc_2})}
+\end{align*}
+\]</span></p>
+<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
+<li>百度百科</li>
+<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>OJ题</category>
+        <category>练手小项目</category>
       </categories>
       <tags>
-        <tag>滑动窗口</tag>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>terminal</title>
+    <url>/2022/06/20/terminal/</url>
+    <content><![CDATA[<h1 id="terminal">Terminal</h1>
+<p>超强终端。</p>
+<p><img src="/img/terminal/image-20220622210445601.png"></p>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+<span id="more"></span>
+<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
+<h2 id="conda配置">conda配置</h2>
+<p>参考这篇文章</p>
+<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
+<blockquote>
+<p>PowerShell中输入命令<code>conda init powershell</code></p>
+<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
+</blockquote>
+<p>顺便说下conda配置虚拟环境常用命令</p>
+<p>参考这篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
+<blockquote>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>PowerShell</tag>
+        <tag>终端</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一下总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
+<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
+vector machine</em> , <em>SVM</em></h2>
+<h3 id="支持向量">支持向量</h3>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -155,6 +423,219 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Codeforces1690D 滑动窗口</title>
+    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
+<p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
+<span id="more"></span>
+<p>废话不多说，分析题目，题干比较简单，直接看例子</p>
+<p>input</p>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">4</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">3</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">5</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">W</span></span><br></pre></td></tr></tbody></table></figure>
+<p>output</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
+BBBBW ”，有k个连续的B</p>
+<p>在第二个测试用例中，" BBWBW " 和k = 5. 重新着色就2个就足够了并得到“
+BBBBB ”，有k个连续的B</p>
+<p>在第三个测试用例中，" BBWBW " 和k = 1 无需重新着色就已满足有 k
+个连续的B</p>
+</blockquote>
+<p>典型的滑动窗口题，窗口大小就是 k (windowsize =
+k)。按常规的滑动窗口题目的做法应该都会需要弄个哈希表来搞，这题比较简单，只需记录一些窗口中
+W 的个数即可。 <span class="math display">\[
+\begin{gather}
+第一个测试用例\quad k=3 \\ \\
+\begin{array}{ccccc}
+    \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{ccccc}
+    &amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    \text{Out}
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{cccccc}
+    &amp;&amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    &amp;\text{Out}
+\end{array}\\
+\text{count}\_\text{W}=2
+\end{gather}
+\]</span></p>
+<blockquote>
+<p>整个滑动过程 最小的 count_W 即为答案。 为了更新 count_W
+的值，可以引入一个 Out 变量记着出去的字母</p>
+</blockquote>
+<p>整体C++代码实现如下：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> n, k;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> count_W = <span class="number">0</span>; <span class="comment">//记录窗口内 W 的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">'W'</span>)</span><br><span class="line">                count_W++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 滑动窗口 k  [leftIndex, rightIndex)</span></span><br><span class="line">        <span class="type">int</span> res = count_W;</span><br><span class="line">        <span class="type">int</span> leftIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> rightIndex = k - leftIndex;</span><br><span class="line">        <span class="comment">// Out 代表出去的字母， s[rightIndex - 1] 代表进来的字母</span></span><br><span class="line">        <span class="type">char</span> Out = s[leftIndex];</span><br><span class="line">        leftIndex++, rightIndex++;</span><br><span class="line">        <span class="keyword">for</span> (; rightIndex &lt;= n; rightIndex++, leftIndex++)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 更新 count_W</span></span><br><span class="line">            <span class="keyword">if</span> (Out != s[rightIndex - <span class="number">1</span>])</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (Out == <span class="string">'W'</span>)</span><br><span class="line">                    count_W--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    count_W++;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">// 更新出去的字母 以及 答案</span></span><br><span class="line">            Out = s[leftIndex];</span><br><span class="line">            res = res &lt; count_W ? res : count_W;</span><br><span class="line">        }</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="写在最后">写在最后</h3>
+<p>大家好，这是我知乎的第一篇文章，希望多多支持，本人喜欢 <strong>打 注
+释</strong>
+，顺手发发文章。个人觉得这样能让自己以及他人能够更好地读懂自己代码，想必大家都能体会到心情激动地Google到别人的代码却完全看不懂TA写啥的那种感受，尤其这段代码还能完美解决你的问题的时候。。。</p>
+<p>还有 <a href="https://codeforces.com/">codefores</a>
+这个居然刷题网站可以查看别人的 submit
+的代码！！（点那串数字；不过常常不知道别人在写啥，但 CTRL C V 过来就是能
+AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+]]></content>
+      <categories>
+        <category>OJ题</category>
+      </categories>
+      <tags>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人口统计数据分析器</title>
+    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
+<p>最近快考python了，上网找了个小项目来练习一下。</p>
+<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
+和数据分析</strong> 这个教程。</p>
+<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
+<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
+<span id="more"></span>
+<h2 id="题目要求">题目要求：</h2>
+<blockquote>
+<p>你必须使用 Pandas 来回答以下问题：</p>
+<ol type="1">
+<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
+Pandas 系列。 （<code>race</code> 栏）</li>
+<li>男性的平均年龄是多少？</li>
+<li>拥有学士学位的人的百分比是多少？</li>
+<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
+<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
+<li>一个人每周最少工作多少小时？</li>
+<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
+<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
+<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
+</ol>
+</blockquote>
+<h2 id="分析">分析</h2>
+<ol type="1">
+<li><p>这个数据集中每个种族有多少人？
+这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
+栏）</p>
+<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
+<code>race</code> 栏各个值的数量。索引：<code>race</code>
+的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
+<li><p>男性的平均年龄是多少？</p>
+<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
+<code>age</code> 求 <code>mean</code> 便可</p></li>
+<li><p>拥有学士学位的人的百分比是多少？</p>
+<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
+和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
+<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
+<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
+<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
+<code>salary &gt;50k</code>
+的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
+<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
+<p>方法同 4。</p></li>
+<li><p>一个人每周最少工作多少小时？</p>
+<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
+<code>min()</code> 方法即可。</p></li>
+<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
+<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
+<code>salary &gt; 50k</code> ，满足这些的数量 除以
+定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
+的数量得到占比。（这题答案是比例值。。。</p></li>
+<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
+<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
+<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
+方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
+<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
+<p>定位：国家是印度，<code>salary &gt; 50k</code>
+。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
+<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
+</ol>
+<h1 id="整体代码">整体代码：</h1>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="写在最后">写在最后</h1>
+<p>最近折腾了好久，利用 Hexo + Github
+搭载了个个人博客，欢迎大家来玩啊。</p>
+<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
+<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -351,234 +832,6 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人口统计数据分析器</title>
-    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
-<p>最近快考python了，上网找了个小项目来练习一下。</p>
-<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
-和数据分析</strong> 这个教程。</p>
-<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
-<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
-<span id="more"></span>
-<h2 id="题目要求">题目要求：</h2>
-<blockquote>
-<p>你必须使用 Pandas 来回答以下问题：</p>
-<ol type="1">
-<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
-Pandas 系列。 （<code>race</code> 栏）</li>
-<li>男性的平均年龄是多少？</li>
-<li>拥有学士学位的人的百分比是多少？</li>
-<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
-<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
-<li>一个人每周最少工作多少小时？</li>
-<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
-<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
-<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
-</ol>
-</blockquote>
-<h2 id="分析">分析</h2>
-<ol type="1">
-<li><p>这个数据集中每个种族有多少人？
-这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
-栏）</p>
-<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
-<code>race</code> 栏各个值的数量。索引：<code>race</code>
-的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
-<li><p>男性的平均年龄是多少？</p>
-<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
-<code>age</code> 求 <code>mean</code> 便可</p></li>
-<li><p>拥有学士学位的人的百分比是多少？</p>
-<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
-和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
-<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
-<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
-<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
-<code>salary &gt;50k</code>
-的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
-<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
-<p>方法同 4。</p></li>
-<li><p>一个人每周最少工作多少小时？</p>
-<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
-<code>min()</code> 方法即可。</p></li>
-<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
-<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
-<code>salary &gt; 50k</code> ，满足这些的数量 除以
-定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
-的数量得到占比。（这题答案是比例值。。。</p></li>
-<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
-<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
-<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
-方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
-<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
-<p>定位：国家是印度，<code>salary &gt; 50k</code>
-。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
-<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
-</ol>
-<h1 id="整体代码">整体代码：</h1>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="写在最后">写在最后</h1>
-<p>最近折腾了好久，利用 Hexo + Github
-搭载了个个人博客，欢迎大家来玩啊。</p>
-<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
-<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>离散数学大一下期末</title>
-    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
-\begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>点到空间直线的距离公式</title>
     <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
@@ -713,346 +966,93 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </tags>
   </entry>
   <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<blockquote>
-<p>求解欧拉图</p>
-<p>求解哈密顿图</p>
-<p>求解可三角划分图</p>
-</blockquote>
+    <title>离散数学大一下期末</title>
+    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
 <span id="more"></span>
-<h2 id="欧拉图">欧拉图</h2>
 <blockquote>
-<p>欧拉图是指通过图（无向图或有向图）中所有边且每边仅通过一次通路，相应的回路称为欧拉回路。
-具有欧拉回路的图称为欧拉图（Euler Graph）</p>
-<p>​ ---百度百科</p>
+<p>离散数学第二版 <strong>P131</strong></p>
+<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
+是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
+<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
+[x]_R=\{y\mid y\in A\wedge xRy\}
+\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
+<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
+<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
+<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
+<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
+R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
+\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
 </blockquote>
-<p><img src="/img/SAT求解器的应用/zY0m9zcyph.png" style="zoom:33%;"></p>
-<center>
-1−2−3−7−1−3−4−5−9−6−7−9−4−7−8−1
-</center>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为欧拉图</p>
-<ol type="1">
-<li>每条边 b 必须出现在路径中。</li>
-<li>路径中没有边 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一条边占用。</li>
-<li>非连通边 b 和 c 在路径中不能相邻。（即相邻要连通
-（在欧拉回路中第一条边和最后一条边视为相邻</li>
-</ol>
-<p>然后定义原子命题。设有 m 条边</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(m^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ m\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示欧拉回路中的第 $a
-$ 个位置被边 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(h_{ab}\)</span> 表示这两条边连通</p>
-<h3 id="构造逻辑公式">构造逻辑公式、</h3>
+<h2 id="考试题目">考试题目</h2>
 <p><span class="math display">\[
+\begin{gather}
+A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>根据上面的定义知 <span class="math display">\[
+R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
+\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
 \begin{align*}
-&amp; 1.\bigwedge_{b=1}^m\bigvee_{i=1}^m{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^m\bigwedge_{i=1}^{m}\bigwedge_{j=1}^m{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^m\bigvee_{i=1}^{m}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^m\bigwedge_{c=b+1}^m\bigwedge_{i=1}^{m-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge h_{bc})\vee(\neg h_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{m}\bigwedge_{j=1}^{m}((H_{1i}\wedge H_{nj}\wedge
-h_{ij})\vee(\neg h_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+&amp;[a]_R=\{a,d\}\\
+&amp;[b]_R=\{b,c\}\\
+&amp;[c]_R=\{c,b\}\\
+&amp;[d]_R=\{d,a\}\\
 \end{align*}
 \]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(h\)</span> 即可。</p>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题-1">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用SAT求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题
-<span class="math inline">\(e\)</span> 即可。</p>
-<h2 id="可三角划分图">可三角划分图</h2>
-<p>对于一个含有 3n 个顶点的无向图，它可以分成 n 份，每份有 3
-个顶点，并且这三个点之间都有线连同。满足条件称为可三角划分图.</p>
-<h3 id="定义原子命题-2">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为可三角划分图</p>
-<ol type="1">
-<li>共有 n 个集合</li>
-<li>每个顶点都在要在一个集合中</li>
-<li>没有顶点同时在两个集合中</li>
-</ol>
-<p>然后定义原子命题</p>
-<p>原子命题 <span class="math inline">\(g_{ijkc}\)</span> 表示顶点 <span class="math inline">\(i,j,k\)</span> 组成第 <span class="math inline">\(c\)</span> 份划分。</p>
-<h3 id="构造命题逻辑公式-1">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp;
-1.\bigwedge_{c=1}^n{\bigvee_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}
-g_{ijkc}}
-\\
-&amp;
-2.\bigwedge_{i=1}^{3n}\bigvee_{j=1}^{3n}\bigvee_{k=1}^{3n}\bigvee_{c=1}^ng_{ijkc}
-\\
-&amp;
-3.\bigwedge_{i=1}^{3n}\bigwedge_{j=1}^{3n}\bigwedge_{k=1}^{3n}\bigwedge_{c_1=1}^{n}\bigwedge_{c_2=1}^{n}{(\neg
-g_{ijkc_1} \vee \neg g_{ijkc_2})}
-\end{align*}
-\]</span></p>
-<p>此处若有应用SAT求解器则需对顶点 <span class="math inline">\(i,j,k\)</span> 进行条件判断。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8">在我的仓库里</a></p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">关于用SAT哈密顿回路的讨论</a></li>
-<li>百度百科</li>
-<li><a href="https://www.parkandroid.com/wiki/eulerian-path/">https://www.parkandroid.com/wiki/eulerian-path/</a></li>
-</ol>
 ]]></content>
       <categories>
-        <category>练手小项目</category>
+        <category>大学考试</category>
       </categories>
       <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
+        <tag>离散数学</tag>
       </tags>
   </entry>
   <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<figure class="highlight text"><table><tbody><tr><td class="code"><pre><span class="line">I get 10 times more traffic from [Google][] than from</span><br><span class="line">[Yahoo][] or [MSN][].</span><br><span class="line"></span><br><span class="line">  [google]: http://google.com/        "Google"</span><br><span class="line">  [yahoo]:  http://search.yahoo.com/  "Yahoo Search"</span><br><span class="line">  [msn]:    http://search.msn.com/    "MSN Search"</span><br></pre></td></tr></tbody></table></figure>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search">MSN</a>.</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
-    <content><![CDATA[<h1 id="terminal">Terminal</h1>
-<p>超强终端。</p>
-<p><img src="/img/terminal/image-20220622210445601.png"></p>
-<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
-来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
 <span id="more"></span>
-<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
-<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
-<p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
-<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
 </blockquote>
-<p>在提示中输入 <code>Y</code></p>
-<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
-<blockquote>
-<h2 id="总结">总结</h2>
-<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
-<ul>
-<li><code>where.exe 文件搜索字符串</code></li>
-<li><code>gcm 文件搜索字符串 -All</code></li>
-<li><code>get-command 文件搜索字符串 -All</code></li>
-</ul>
-</blockquote>
-<h2 id="conda配置">conda配置</h2>
-<p>参考这篇文章</p>
-<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
-<blockquote>
-<p>PowerShell中输入命令<code>conda init powershell</code></p>
-<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
-</blockquote>
-<p>顺便说下conda配置虚拟环境常用命令</p>
-<p>参考这篇文章</p>
-<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
-<blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>大学考试</category>
       </categories>
       <tags>
-        <tag>操作记录</tag>
-        <tag>PowerShell</tag>
-        <tag>终端</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>持续更新</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<h3 id="二叉搜索树">二叉搜索树</h3>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<h3 id="二叉平衡树">二叉平衡树</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h3 id="堆">堆</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
+        <tag>高数</tag>
       </tags>
   </entry>
 </search>
