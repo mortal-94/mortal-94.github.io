@@ -2858,6 +2858,12 @@ body {
 .comments {
   opacity: 0.85;
 }
+figure.highlight {
+  opacity: 0.85;
+}
+.post-copyright {
+  opacity: 0.85;
+}
 /* webkit, opera, IE9 */
 ::selection {
   background: #00c4b6;
