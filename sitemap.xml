@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mortal-94.github.io/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</loc>
+    
+    <lastmod>2022-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mortal-94.github.io/miniNote/%E6%9D%82%E8%AE%B0.html</loc>
     
     <lastmod>2022-07-22</lastmod>
@@ -23,15 +32,6 @@
     <loc>https://mortal-94.github.io/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2022-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mortal-94.github.io/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</loc>
-    
-    <lastmod>2022-07-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -230,6 +230,20 @@
   </url>
   
   <url>
+    <loc>https://mortal-94.github.io/tags/vscode/</loc>
+    <lastmod>2022-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://mortal-94.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</loc>
+    <lastmod>2022-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://mortal-94.github.io/tags/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -251,20 +265,6 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</loc>
-    <lastmod>2022-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://mortal-94.github.io/tags/vscode/</loc>
-    <lastmod>2022-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://mortal-94.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -279,14 +279,14 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/tags/python/</loc>
+    <loc>https://mortal-94.github.io/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/</loc>
+    <loc>https://mortal-94.github.io/tags/python/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -307,7 +307,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/tags/%E5%90%91%E9%87%8F/</loc>
+    <loc>https://mortal-94.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -321,7 +321,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://mortal-94.github.io/tags/%E5%90%91%E9%87%8F/</loc>
     <lastmod>2022-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
