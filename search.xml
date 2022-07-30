@@ -1,32 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <title>terminal</title>
+    <url>/2022/06/20/terminal/</url>
+    <content><![CDATA[<h1 id="terminal">Terminal</h1>
+<p>超强终端。</p>
+<p><img src="/img/terminal/image-20220622210445601.png"></p>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
 <span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
+<h2 id="conda配置">conda配置</h2>
+<p>参考这篇文章</p>
+<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
+<blockquote>
+<p>PowerShell中输入命令<code>conda init powershell</code></p>
+<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
+</blockquote>
+<p>顺便说下conda配置虚拟环境常用命令</p>
+<p>参考这篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
+<blockquote>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>操作记录</tag>
+        <tag>PowerShell</tag>
+        <tag>终端</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人工神经网络</title>
+    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
+<p><strong>Artificial Neural Networks, ANN</strong></p>
+<span id="more"></span>
+<h2 id="预备知识">预备知识</h2>
+<h3 id="mp模型">MP模型</h3>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>人工神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
+oi-wiki</a></p>
+<h3 id="图">图</h3>
+<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
+io-wiki</a></p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量">支持向量</h2>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h2 id="混淆矩阵">混淆矩阵</h2>
+<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
+<h2 id="mp模型">MP模型</h2>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h2 id="增广向量">增广向量</h2>
+<h2 id="阶跃函数">阶跃函数</h2>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -102,6 +299,106 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </categories>
       <tags>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hamiltonian_path.svg/330px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+<span class="math inline">\(a\)</span> 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用 SAT
+求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
+格式的命题逻辑公式。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
+<blockquote>
+<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
+</blockquote>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -340,6 +637,7 @@ Pandas 系列。 （<code>race</code> 栏）</li>
 <p><img src="https://s2.loli.net/2022/07/17/1TbCNqsXG4BWpyi.png"></p>
 <blockquote>
 <p>所以我们可以运用低维向高维映射获得线性可分的样本。</p>
+<p>❗❗❗ 注意：这个理论我尚未深入理解</p>
 </blockquote>
 <h3 id="问题描述-2">问题描述</h3>
 <blockquote>
@@ -710,278 +1008,6 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       </categories>
       <tags>
         <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="/img/SAT求解器的应用/440px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-$a $ 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用 SAT
-求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
-格式的命题逻辑公式。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
-<blockquote>
-<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
-</blockquote>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
-    <content><![CDATA[<h1 id="terminal">Terminal</h1>
-<p>超强终端。</p>
-<p><img src="/img/terminal/image-20220622210445601.png"></p>
-<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
-来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
-<span id="more"></span>
-<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
-<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
-<p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
-</blockquote>
-<p>在提示中输入 <code>Y</code></p>
-<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
-<blockquote>
-<h2 id="总结">总结</h2>
-<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
-<ul>
-<li><code>where.exe 文件搜索字符串</code></li>
-<li><code>gcm 文件搜索字符串 -All</code></li>
-<li><code>get-command 文件搜索字符串 -All</code></li>
-</ul>
-</blockquote>
-<h2 id="conda配置">conda配置</h2>
-<p>参考这篇文章</p>
-<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
-<blockquote>
-<p>PowerShell中输入命令<code>conda init powershell</code></p>
-<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
-</blockquote>
-<p>顺便说下conda配置虚拟环境常用命令</p>
-<p>参考这篇文章</p>
-<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
-<blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>PowerShell</tag>
-        <tag>终端</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>持续更新</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一下总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一下总结">大一下总结</h1>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<h3 id="二叉搜索树">二叉搜索树</h3>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<h3 id="二叉平衡树">二叉平衡树</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h3 id="堆">堆</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
-<h3 id="哈夫曼树">哈夫曼树</h3>
-<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
-oi-wiki</a></p>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量机-support-vector-machine-svm">支持向量机 <em>support
-vector machine</em> , <em>SVM</em></h2>
-<h3 id="支持向量">支持向量</h3>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h3 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h3 id="核函数-kernel-function">核函数 <em>Kernel function</em></h3>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h3 id="原问题和对偶问题">原问题和对偶问题</h3>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
       </tags>
   </entry>
 </search>
