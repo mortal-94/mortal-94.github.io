@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+        <tag>持续更新</tag>
+        <tag>操作记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -48,43 +81,10 @@
         <category>工具</category>
       </categories>
       <tags>
+        <tag>持续更新</tag>
         <tag>操作记录</tag>
         <tag>PowerShell</tag>
         <tag>终端</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>持续更新</tag>
-        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -95,6 +95,8 @@
 <span id="more"></span>
 <h2 id="预备知识">预备知识</h2>
 <h3 id="mp模型">MP模型</h3>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -102,15 +104,6 @@
       <tags>
         <tag>人工神经网络</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>大一总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
   </entry>
   <entry>
     <title>数据结构和算法的经典问题</title>
@@ -225,6 +218,15 @@ io-wiki</a></p>
       <tags>
         <tag>持续更新</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>大一总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
   <entry>
     <title>Codeforces1690D 滑动窗口</title>
@@ -511,88 +513,6 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </tags>
   </entry>
   <entry>
-    <title>人口统计数据分析器</title>
-    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
-<p>最近快考python了，上网找了个小项目来练习一下。</p>
-<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
-和数据分析</strong> 这个教程。</p>
-<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
-<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
-<span id="more"></span>
-<h2 id="题目要求">题目要求：</h2>
-<blockquote>
-<p>你必须使用 Pandas 来回答以下问题：</p>
-<ol type="1">
-<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
-Pandas 系列。 （<code>race</code> 栏）</li>
-<li>男性的平均年龄是多少？</li>
-<li>拥有学士学位的人的百分比是多少？</li>
-<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
-<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
-<li>一个人每周最少工作多少小时？</li>
-<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
-<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
-<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
-</ol>
-</blockquote>
-<h2 id="分析">分析</h2>
-<ol type="1">
-<li><p>这个数据集中每个种族有多少人？
-这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
-栏）</p>
-<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
-<code>race</code> 栏各个值的数量。索引：<code>race</code>
-的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
-<li><p>男性的平均年龄是多少？</p>
-<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
-<code>age</code> 求 <code>mean</code> 便可</p></li>
-<li><p>拥有学士学位的人的百分比是多少？</p>
-<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
-和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
-<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
-<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
-<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
-<code>salary &gt;50k</code>
-的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
-<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
-<p>方法同 4。</p></li>
-<li><p>一个人每周最少工作多少小时？</p>
-<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
-<code>min()</code> 方法即可。</p></li>
-<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
-<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
-<code>salary &gt; 50k</code> ，满足这些的数量 除以
-定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
-的数量得到占比。（这题答案是比例值。。。</p></li>
-<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
-<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
-<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
-方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
-<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
-<p>定位：国家是印度，<code>salary &gt; 50k</code>
-。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
-<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
-</ol>
-<h1 id="整体代码">整体代码：</h1>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="写在最后">写在最后</h1>
-<p>最近折腾了好久，利用 Hexo + Github
-搭载了个个人博客，欢迎大家来玩啊。</p>
-<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
-<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>支持向量机</title>
     <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
@@ -848,6 +768,88 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </tags>
   </entry>
   <entry>
+    <title>人口统计数据分析器</title>
+    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
+<p>最近快考python了，上网找了个小项目来练习一下。</p>
+<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
+和数据分析</strong> 这个教程。</p>
+<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
+<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
+<span id="more"></span>
+<h2 id="题目要求">题目要求：</h2>
+<blockquote>
+<p>你必须使用 Pandas 来回答以下问题：</p>
+<ol type="1">
+<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
+Pandas 系列。 （<code>race</code> 栏）</li>
+<li>男性的平均年龄是多少？</li>
+<li>拥有学士学位的人的百分比是多少？</li>
+<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
+<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
+<li>一个人每周最少工作多少小时？</li>
+<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
+<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
+<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
+</ol>
+</blockquote>
+<h2 id="分析">分析</h2>
+<ol type="1">
+<li><p>这个数据集中每个种族有多少人？
+这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
+栏）</p>
+<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
+<code>race</code> 栏各个值的数量。索引：<code>race</code>
+的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
+<li><p>男性的平均年龄是多少？</p>
+<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
+<code>age</code> 求 <code>mean</code> 便可</p></li>
+<li><p>拥有学士学位的人的百分比是多少？</p>
+<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
+和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
+<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
+<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
+<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
+<code>salary &gt;50k</code>
+的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
+<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
+<p>方法同 4。</p></li>
+<li><p>一个人每周最少工作多少小时？</p>
+<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
+<code>min()</code> 方法即可。</p></li>
+<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
+<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
+<code>salary &gt; 50k</code> ，满足这些的数量 除以
+定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
+的数量得到占比。（这题答案是比例值。。。</p></li>
+<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
+<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
+<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
+方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
+<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
+<p>定位：国家是印度，<code>salary &gt; 50k</code>
+。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
+<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
+</ol>
+<h1 id="整体代码">整体代码：</h1>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="写在最后">写在最后</h1>
+<p>最近折腾了好久，利用 Hexo + Github
+搭载了个个人博客，欢迎大家来玩啊。</p>
+<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
+<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>点到空间直线的距离公式</title>
     <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
@@ -921,6 +923,48 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>离散数学大一下期末</title>
     <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
@@ -966,48 +1010,6 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </categories>
       <tags>
         <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
       </tags>
   </entry>
 </search>
