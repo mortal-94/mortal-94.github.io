@@ -55,39 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>人工神经网络</title>
-    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
-<p><strong>Artificial Neural Networks, ANN</strong></p>
-<span id="more"></span>
-<h2 id="预备知识">预备知识</h2>
-<h3 id="mp模型">MP模型</h3>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h3 id="感知算法">感知算法</h3>
-<p><img src="/img/人工神经网络/感知算法.png"></p>
-<h3 id="增广向量">增广向量</h3>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h3 id="阶跃函数">阶跃函数</h3>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
-<blockquote>
-<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
-</blockquote>
-<h3 id="梯度下降算法">梯度下降算法</h3>
-<h3 id="后向传播算法">后向传播算法</h3>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>人工神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vscdoe使用</title>
     <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
@@ -121,13 +88,37 @@
       </tags>
   </entry>
   <entry>
-    <title>大一总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+    <title>人工神经网络</title>
+    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
+<p><strong>Artificial Neural Networks, ANN</strong></p>
+<span id="more"></span>
+<h2 id="预备知识">预备知识</h2>
+<h3 id="mp模型">MP模型</h3>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h3 id="感知算法">感知算法</h3>
+<p><img src="/img/人工神经网络/感知算法.png"></p>
+<h3 id="增广向量">增广向量</h3>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h3 id="阶跃函数">阶跃函数</h3>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<blockquote>
+<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
+</blockquote>
+<h3 id="梯度下降算法">梯度下降算法</h3>
+<h3 id="后向传播算法">后向传播算法</h3>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>机器学习</category>
       </categories>
+      <tags>
+        <tag>人工神经网络</tag>
+      </tags>
   </entry>
   <entry>
     <title>寻找自幂数的优化算法</title>
@@ -187,151 +178,6 @@
       </categories>
       <tags>
         <tag>自幂数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<h3 id="二叉搜索树">二叉搜索树</h3>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<h3 id="二叉平衡树">二叉平衡树</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h3 id="堆">堆</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
-<h3 id="哈夫曼树">哈夫曼树</h3>
-<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
-oi-wiki</a></p>
-<h3 id="图">图</h3>
-<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
-io-wiki</a></p>
-<h2 id="寻找自幂数">寻找自幂数</h2>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量">支持向量</h2>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h2 id="混淆矩阵">混淆矩阵</h2>
-<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
-<h2 id="mp模型">MP模型</h2>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h2 id="增广向量">增广向量</h2>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h2 id="阶跃函数">阶跃函数</h2>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -410,115 +256,6 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </tags>
   </entry>
   <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python大一下期末</title>
-    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
-<p>没复习，寄😊</p>
-<h2 id="当时不会的题">当时不会的题</h2>
-<ol type="1">
-<li>MindSpore最基础的数据结构</li>
-<li>R语言 （）型</li>
-<li>矩阵 自定义 索引 和 列名</li>
-<li>dataframe数据内连合并 后缀名</li>
-<li>sklearn wine数据 聚类svc 建模</li>
-</ol>
-<span id="more"></span>
-<h2 id="事后解答">事后解答</h2>
-<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
-<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
-<blockquote>
-<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
-</blockquote>
-<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
-<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
-<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
-<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
-<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
-涉及后缀名的添加</h3>
-<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
-<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
-和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
-<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
-<p>外加数据标准化</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SAT求解器的应用</title>
     <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
@@ -590,76 +327,223 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
       </tags>
   </entry>
   <entry>
-    <title>点到空间直线的距离公式</title>
-    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
-<figure>
-<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
-<figcaption aria-hidden="true">来源参考2</figcaption>
-</figure>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <span id="more"></span>
-<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
-<span class="math display">\[
-\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
-\]</span> 下面看 <strong>空间</strong> 的</p>
-<hr>
-<p>对于 <strong>点到空间直线的距离公式</strong>
-，本文从<strong>向量</strong>的角度进行探讨。</p>
-<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
-<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
-<h3 id="法一">法一</h3>
-<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
-{\rm cos}\theta\)</span> ，</p>
-<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
-与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
-<p>故 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-
-(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
-\]</span></p>
-<h3 id="法二">法二</h3>
-<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
-，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
-<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
-<p>故 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
-\]</span></p>
-<h2 id="例子">例子</h2>
-<p><span class="math display">\[
-求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
-\]</span></p>
-<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
-<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
-|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
-<p>以及 <span class="math display">\[
-\vec{s}\times\vec{v}=
-\begin{vmatrix}
-\vec{i} &amp; \vec{j} &amp;\vec{k} \\
-1 &amp; 0 &amp; -1 \\
-3 &amp; 1 &amp; 1
-\end{vmatrix}=
-\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
-\]</span> 代入公式(1)计算得 <span class="math display">\[
-d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
-=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
-=\sqrt{9}=3
-\]</span> 代入公式(2)计算得 <span class="math display">\[
-d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
-=\frac{3\sqrt{2}}{\sqrt{2}}
-=3
-\]</span></p>
-<p>验证完毕</p>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
-- ZCC的回答 - 知乎</a></p></li>
-<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
-</ol>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
-        <category>数学</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>向量</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python大一下期末</title>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<p>没复习，寄😊</p>
+<h2 id="当时不会的题">当时不会的题</h2>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚类svc 建模</li>
+</ol>
+<span id="more"></span>
+<h2 id="事后解答">事后解答</h2>
+<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
+<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<blockquote>
+<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
+</blockquote>
+<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
+<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
+<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
+<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
+<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
+涉及后缀名的添加</h3>
+<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
+<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
+和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
+<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
+<p>外加数据标准化</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人口统计数据分析器</title>
+    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
+<p>最近快考python了，上网找了个小项目来练习一下。</p>
+<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
+和数据分析</strong> 这个教程。</p>
+<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
+<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
+<span id="more"></span>
+<h2 id="题目要求">题目要求：</h2>
+<blockquote>
+<p>你必须使用 Pandas 来回答以下问题：</p>
+<ol type="1">
+<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
+Pandas 系列。 （<code>race</code> 栏）</li>
+<li>男性的平均年龄是多少？</li>
+<li>拥有学士学位的人的百分比是多少？</li>
+<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
+<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
+<li>一个人每周最少工作多少小时？</li>
+<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
+<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
+<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
+</ol>
+</blockquote>
+<h2 id="分析">分析</h2>
+<ol type="1">
+<li><p>这个数据集中每个种族有多少人？
+这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
+栏）</p>
+<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
+<code>race</code> 栏各个值的数量。索引：<code>race</code>
+的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
+<li><p>男性的平均年龄是多少？</p>
+<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
+<code>age</code> 求 <code>mean</code> 便可</p></li>
+<li><p>拥有学士学位的人的百分比是多少？</p>
+<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
+和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
+<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
+<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
+<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
+<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
+<code>salary &gt;50k</code>
+的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
+<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
+<p>方法同 4。</p></li>
+<li><p>一个人每周最少工作多少小时？</p>
+<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
+<code>min()</code> 方法即可。</p></li>
+<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
+<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
+<code>salary &gt; 50k</code> ，满足这些的数量 除以
+定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
+的数量得到占比。（这题答案是比例值。。。</p></li>
+<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
+<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
+<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
+方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
+<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
+<p>定位：国家是印度，<code>salary &gt; 50k</code>
+。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
+<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
+</ol>
+<h1 id="整体代码">整体代码：</h1>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="写在最后">写在最后</h1>
+<p>最近折腾了好久，利用 Hexo + Github
+搭载了个个人博客，欢迎大家来玩啊。</p>
+<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
+<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -857,88 +741,6 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
-    <title>人口统计数据分析器</title>
-    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
-<p>最近快考python了，上网找了个小项目来练习一下。</p>
-<p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
-和数据分析</strong> 这个教程。</p>
-<p>项目链接： <a href="https://chinese.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer">人口统计数据分析器</a>
-<a href="https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer">github</a></p>
-<span id="more"></span>
-<h2 id="题目要求">题目要求：</h2>
-<blockquote>
-<p>你必须使用 Pandas 来回答以下问题：</p>
-<ol type="1">
-<li>这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的
-Pandas 系列。 （<code>race</code> 栏）</li>
-<li>男性的平均年龄是多少？</li>
-<li>拥有学士学位的人的百分比是多少？</li>
-<li>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</li>
-<li>没有受过高等教育的人的收入超过 50K 的比例是多少？</li>
-<li>一个人每周最少工作多少小时？</li>
-<li>每周工作最少小时数的人中有多少人的工资超过 50K？</li>
-<li>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</li>
-<li>确定印度收入 &gt;50K 的人最受欢迎的职业。</li>
-</ol>
-</blockquote>
-<h2 id="分析">分析</h2>
-<ol type="1">
-<li><p>这个数据集中每个种族有多少人？
-这应该是一个以种族名称作为索引标签的 Pandas 系列。 （<code>race</code>
-栏）</p>
-<p>利用 <code>Series.value_counts()</code> 方法直接可以算出
-<code>race</code> 栏各个值的数量。索引：<code>race</code>
-的各个值；值：<code>race</code> 的各个值对应的数量。</p></li>
-<li><p>男性的平均年龄是多少？</p>
-<p><code>df.loc[df['sex'] == 'Male']</code>直接取出所有性别为男性的行，再对其
-<code>age</code> 求 <code>mean</code> 便可</p></li>
-<li><p>拥有学士学位的人的百分比是多少？</p>
-<p><code>df.loc[df['education'] == 'Bachelors']</code>直接取出所有学士学位的行，用其行数
-和 总数据的行数 相除即可（行数：<code>.shape[0]</code> ）</p></li>
-<li><p>受过高等教育（<code>Bachelors</code>, <code>Masters</code>, or
-<code>Doctorate</code>）收入超过 50K 的人占多大比例？</p>
-<p>用 <code>Series.isin( 高等教育对应的学位 )</code> 方法得出对应的
-<code>bool</code>值的<code>Series</code>，再定位到总数据中对应的行；筛选出这些行中
-<code>salary &gt;50k</code>
-的行数即为受过满足题意的人生，再除以受过高等教育的总人数得到比例值</p></li>
-<li><p>没有受过高等教育的人的收入超过 50K 的比例是多少？</p>
-<p>方法同 4。</p></li>
-<li><p>一个人每周最少工作多少小时？</p>
-<p>这个可以拿出 <code>hours-per-week</code> 这一列使用
-<code>min()</code> 方法即可。</p></li>
-<li><p>每周工作最少小时数的人中有多少人的工资超过 50K？</p>
-<p>定位： <code>df['hours-per-week'] == 每周工作最少小时数</code> 和
-<code>salary &gt; 50k</code> ，满足这些的数量 除以
-定位仅为<code>df['hours-per-week'] == 每周工作最少小时数</code>
-的数量得到占比。（这题答案是比例值。。。</p></li>
-<li><p>哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</p>
-<p>定位：<code>salary &gt; 50k</code> 的所有行中。求出每个国家/地区
-<code>native-country</code> 对应的数量（同1）。用 <code>idxmax()</code>
-方法 找出最大索引即那个 国家/地区。之后操作与7差不多。</p></li>
-<li><p>确定印度收入 &gt;50K 的人最受欢迎的职业。</p>
-<p>定位：国家是印度，<code>salary &gt; 50k</code>
-。同1求出各个定位出来的行中 <code>occupation</code> 对应的数量，再用
-<code>idxmax()</code> 方法找出最大值索引即那个 职业。</p></li>
-</ol>
-<h1 id="整体代码">整体代码：</h1>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_demographic_data</span>(<span class="params">print_data=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="comment"># 从文件中读取数据</span></span><br><span class="line">    df = pd.read_csv(<span class="string">'adult.data.csv'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.这个数据集中每个种族有多少人？ 这应该是一个以种族名称作为索引标签的 Pandas Series。 （race 栏）</span></span><br><span class="line">    <span class="string">"""利用value_counts()方法"""</span></span><br><span class="line">    race_count = df[<span class="string">'race'</span>].value_counts()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2.男性的平均年龄是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['sex'] == 'Male']直接取出所有性别为男性的行，再对其 age 求 mean 便可'"""</span></span><br><span class="line">    average_age_men = <span class="built_in">round</span>(df.loc[df[<span class="string">'sex'</span>] == <span class="string">'Male'</span>][<span class="string">'age'</span>].mean(), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3.拥有学士学位的人的百分比是多少？</span></span><br><span class="line">    <span class="string">"""df.loc[df['education'] == 'Bachelors']直接取出所有学士学位的行，用其行数 和 总数据的行数 相除即可"""</span></span><br><span class="line">    percentage_bachelors = <span class="built_in">round</span>(df.loc[df[<span class="string">'education'</span>] == <span class="string">'Bachelors'</span>].shape[<span class="number">0</span>] / df.shape[<span class="number">0</span>] * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.受过高等教育（Bachelors, Masters, or Doctorate）收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="comment"># 5.没有受过高等教育的人的收入超过 50K 的比例是多少？</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 受过高等教育 和 没受过高等教育 的标签</span></span><br><span class="line">    higher_education = [<span class="string">'Bachelors'</span>, <span class="string">'Masters'</span>, <span class="string">'Doctorate'</span>]</span><br><span class="line">    lower_education = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'education'</span>].unique() <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> higher_education]  <span class="comment"># unique()返回唯一值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收入超过 50K 的人占多大比例？</span></span><br><span class="line">    <span class="string">"""用 isin() 方法得出对应的 bool值Series，再按题意定位到对应的行"""</span></span><br><span class="line">    higher_education_rich = df.loc[df[<span class="string">'education'</span>].isin(higher_education) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                            df[df[<span class="string">'education'</span>].isin(higher_education)].shape[<span class="number">0</span>]</span><br><span class="line">    higher_education_rich = <span class="built_in">round</span>(higher_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line">    lower_education_rich = df.loc[(df[<span class="string">'education'</span>].isin(lower_education)) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                           df[df[<span class="string">'education'</span>].isin(lower_education)].shape[<span class="number">0</span>]</span><br><span class="line">    lower_education_rich = <span class="built_in">round</span>(lower_education_rich * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6.一个人每周最少工作多少小时？</span></span><br><span class="line">    <span class="string">"""这个可以直接求"""</span></span><br><span class="line">    min_work_hours = df[<span class="string">'hours-per-week'</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7.每周工作最少小时数的人中有多少人的工资超过 50K？</span></span><br><span class="line">    <span class="string">"""做法同上"""</span></span><br><span class="line">    rich_percentage = df.loc[df[<span class="string">'hours-per-week'</span>] == min_work_hours &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)].shape[<span class="number">0</span>] / \</span><br><span class="line">                      df[df[<span class="string">'hours-per-week'</span>] == min_work_hours].shape[<span class="number">0</span>]</span><br><span class="line">    rich_percentage = <span class="built_in">round</span>(rich_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8.哪个国家/地区的收入 &gt;50K 的人口比例最高，该比例是多少？</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    df1 = df.loc[df['salary'] == '&gt;50K'] 把收入 &gt;50K 的行拿出来</span></span><br><span class="line"><span class="string">    df1['native-country'].value_counts() / df['native-country'].value_counts() 利用Series的性质把数量整体索引(国家/地区)对应相除</span></span><br><span class="line"><span class="string">    用 idxmax()方法 找出最大索引即那个 国家/地区</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    df1 = df.loc[df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>]</span><br><span class="line">    highest_earning_country = (df1[<span class="string">'native-country'</span>].value_counts() / df[<span class="string">'native-country'</span>].value_counts()).idxmax()</span><br><span class="line">    <span class="string">"""知道了该国家，拿该国家 收入 &gt;50k 的人数 除 该国家的总人数 即可"""</span></span><br><span class="line">    highest_earning_country_percentage = (</span><br><span class="line">            df1.loc[df1[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>] /</span><br><span class="line">            df.loc[df[<span class="string">'native-country'</span>] == highest_earning_country].shape[<span class="number">0</span>])</span><br><span class="line">    highest_earning_country_percentage = <span class="built_in">round</span>(highest_earning_country_percentage * <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9.确定印度收入 &gt;50K 的人最受欢迎的职业。</span></span><br><span class="line">    <span class="string">"""同上"""</span></span><br><span class="line">    top_IN_occupation = \</span><br><span class="line">    df.loc[(df[<span class="string">'native-country'</span>] == <span class="string">'India'</span>) &amp; (df[<span class="string">'salary'</span>] == <span class="string">'&gt;50K'</span>)][<span class="string">'occupation'</span>].value_counts().idxmax()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 不要在此行以下修改</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> print_data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Number of each race:\n"</span>, race_count)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Average age of men:"</span>, average_age_men)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with Bachelors degrees: <span class="subst">{percentage_bachelors}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage with higher education that earn &gt;50K: <span class="subst">{higher_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage without higher education that earn &gt;50K: <span class="subst">{lower_education_rich}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Min work time: <span class="subst">{min_work_hours}</span> hours/week"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Percentage of rich among those who work fewest hours: <span class="subst">{rich_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Country with highest percentage of rich:"</span>, highest_earning_country)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Highest percentage of rich people in country: <span class="subst">{highest_earning_country_percentage}</span>%"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Top occupations in India:"</span>, top_IN_occupation)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        <span class="string">'race_count'</span>: race_count,</span><br><span class="line">        <span class="string">'average_age_men'</span>: average_age_men,</span><br><span class="line">        <span class="string">'percentage_bachelors'</span>: percentage_bachelors,</span><br><span class="line">        <span class="string">'higher_education_rich'</span>: higher_education_rich,</span><br><span class="line">        <span class="string">'lower_education_rich'</span>: lower_education_rich,</span><br><span class="line">        <span class="string">'min_work_hours'</span>: min_work_hours,</span><br><span class="line">        <span class="string">'rich_percentage'</span>: rich_percentage,</span><br><span class="line">        <span class="string">'highest_earning_country'</span>: highest_earning_country,</span><br><span class="line">        <span class="string">'highest_earning_country_percentage'</span>:</span><br><span class="line">            highest_earning_country_percentage,</span><br><span class="line">        <span class="string">'top_IN_occupation'</span>: top_IN_occupation</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">calculate_demographic_data()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="写在最后">写在最后</h1>
-<p>最近折腾了好久，利用 Hexo + Github
-搭载了个个人博客，欢迎大家来玩啊。</p>
-<p><a href="https://mortal-94.github.io/">我的个人博客</a></p>
-<p>才刚刚搭建好，现在还是很简陋的，哈哈。</p>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>概率论大一下期末</title>
     <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
@@ -997,6 +799,79 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </categories>
       <tags>
         <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>点到空间直线的距离公式</title>
+    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
+<figure>
+<img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
+<figcaption aria-hidden="true">来源参考2</figcaption>
+</figure>
+<span id="more"></span>
+<p>对于 <strong>点到平面直线的距离公式</strong> 我们都知道是这样的：
+<span class="math display">\[
+\cfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}
+\]</span> 下面看 <strong>空间</strong> 的</p>
+<hr>
+<p>对于 <strong>点到空间直线的距离公式</strong>
+，本文从<strong>向量</strong>的角度进行探讨。</p>
+<p>设某空间直线的方向向量为 <span class="math inline">\(\vec{s}=(m,n,p)\)</span> 过点 <span class="math inline">\(A(x_0,y_0,z_0)\)</span> ；空间上的一点 <span class="math inline">\(P(x,y,z)\)</span> 。令 <span class="math inline">\(\vec{v}=(x-x_0,y-y_0,z-z_0)\)</span> ，即表示由点
+<span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(P\)</span> 的向量。</p>
+<h3 id="法一">法一</h3>
+<p>观察 <span class="math inline">\(\vec{s}\cdot\vec{v}=|\vec{s}|\cdot|\vec{v}|\cdot
+{\rm cos}\theta\)</span> ，</p>
+<p>而 <span class="math inline">\(|\vec{v}|\cdot{\rm cos}\theta\)</span>
+与要求的距离 <span class="math inline">\(d\)</span> 构成以 <span class="math inline">\(|AP|\)</span> 即 <span class="math inline">\(|\vec{v}|\)</span> 为斜边的直角三角形。</p>
+<p>故 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-
+(|\vec{v}|\cdot\cos\theta)^2}=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}\tag{1}
+\]</span></p>
+<h3 id="法二">法二</h3>
+<p>观察 <span class="math inline">\(|\vec{s}\times\vec{v}|\)</span>
+，根据向量积的定义，这其实就是由这两个向量构成的平行四边形的面积，</p>
+<p>而这个平行四边形的面积有等于 <span class="math inline">\(|\vec{s}|\cdot d\)</span> 。</p>
+<p>故 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}\tag{2}
+\]</span></p>
+<h2 id="例子">例子</h2>
+<p><span class="math display">\[
+求点M_0(2,3,2)到直线\frac{x+1}{1}=\frac{y-2}{0}=\frac{z-1}{-1}
+\]</span></p>
+<p>对于该题，空间直线的方向向量为 <span class="math inline">\(\vec{s}=(1,0,-1)\)</span> ，过点 <span class="math inline">\(A(-1,2,1)\)</span> ；令 <span class="math inline">\(\vec{v}\)</span> 表示由点 <span class="math inline">\(A\)</span> 指向点 <span class="math inline">\(M_0\)</span> 的向量，则 <span class="math inline">\(\vec{v}=(3,1,1)\)</span> 。</p>
+<p>故 <span class="math inline">\(|\vec{v}|=\sqrt{11},\ \
+|\vec{s}|=\sqrt{2},\ \ \vec{s}\cdot\vec{v}=-1+0+-1=-2\)</span></p>
+<p>以及 <span class="math display">\[
+\vec{s}\times\vec{v}=
+\begin{vmatrix}
+\vec{i} &amp; \vec{j} &amp;\vec{k} \\
+1 &amp; 0 &amp; -1 \\
+3 &amp; 1 &amp; 1
+\end{vmatrix}=
+\vec{i}-4\vec{j}-\vec{k},\quad\therefore|\vec{s}\times\vec{v}|=3\sqrt{2}
+\]</span> 代入公式(1)计算得 <span class="math display">\[
+d=\sqrt{|\vec{v}|^2-(\frac{\vec{s}\cdot\vec{v}}{|\vec{s}|})^2}
+=\sqrt{11-(\frac{-2}{\sqrt{2}})^2}
+=\sqrt{9}=3
+\]</span> 代入公式(2)计算得 <span class="math display">\[
+d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
+=\frac{3\sqrt{2}}{\sqrt{2}}
+=3
+\]</span></p>
+<p>验证完毕</p>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li><p><a href="https://www.zhihu.com/question/322449140/answer/668978444">空间向量如何求点到直线距离？
+- ZCC的回答 - 知乎</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_32867925/article/details/114282835">CSND</a></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>向量</tag>
       </tags>
   </entry>
   <entry>
@@ -1087,6 +962,131 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
       </categories>
       <tags>
         <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">知乎回答</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
+oi-wiki</a></p>
+<h3 id="图">图</h3>
+<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
+io-wiki</a></p>
+<h2 id="寻找自幂数">寻找自幂数</h2>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量">支持向量</h2>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h2 id="混淆矩阵">混淆矩阵</h2>
+<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
+<h2 id="mp模型">MP模型</h2>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h2 id="增广向量">增广向量</h2>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h2 id="阶跃函数">阶跃函数</h2>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
 </search>
