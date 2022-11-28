@@ -130,149 +130,56 @@
       </categories>
   </entry>
   <entry>
-    <title>Codeforces1690D 滑动窗口</title>
-    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
-    <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
-<p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
-<span id="more"></span>
-<p>废话不多说，分析题目，题干比较简单，直接看例子</p>
-<p>input</p>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">4</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">3</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">5</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">W</span></span><br></pre></td></tr></tbody></table></figure>
-<p>output</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
-BBBBW ”，有k个连续的B</p>
-<p>在第二个测试用例中，" BBWBW " 和k = 5. 重新着色就2个就足够了并得到“
-BBBBB ”，有k个连续的B</p>
-<p>在第三个测试用例中，" BBWBW " 和k = 1 无需重新着色就已满足有 k
-个连续的B</p>
-</blockquote>
-<p>典型的滑动窗口题，窗口大小就是 k (windowsize =
-k)。按常规的滑动窗口题目的做法应该都会需要弄个哈希表来搞，这题比较简单，只需记录一些窗口中
-W 的个数即可。 <span class="math display">\[
-\begin{gather}
-第一个测试用例\quad k=3 \\ \\
-\begin{array}{ccccc}
-    \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-\end{array}\\
-\text{count}\_\text{W}=1
-\\ \\ \\
-\begin{array}{ccccc}
-    &amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-    \hline
-    \text{Out}
-\end{array}\\
-\text{count}\_\text{W}=1
-\\ \\ \\
-\begin{array}{cccccc}
-    &amp;&amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
-    \hline
-    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
-\\
-    \hline
-    &amp;\text{Out}
-\end{array}\\
-\text{count}\_\text{W}=2
-\end{gather}
-\]</span></p>
-<blockquote>
-<p>整个滑动过程 最小的 count_W 即为答案。 为了更新 count_W
-的值，可以引入一个 Out 变量记着出去的字母</p>
-</blockquote>
-<p>整体C++代码实现如下：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> n, k;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> count_W = <span class="number">0</span>; <span class="comment">//记录窗口内 W 的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">'W'</span>)</span><br><span class="line">                count_W++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 滑动窗口 k  [leftIndex, rightIndex)</span></span><br><span class="line">        <span class="type">int</span> res = count_W;</span><br><span class="line">        <span class="type">int</span> leftIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> rightIndex = k - leftIndex;</span><br><span class="line">        <span class="comment">// Out 代表出去的字母， s[rightIndex - 1] 代表进来的字母</span></span><br><span class="line">        <span class="type">char</span> Out = s[leftIndex];</span><br><span class="line">        leftIndex++, rightIndex++;</span><br><span class="line">        <span class="keyword">for</span> (; rightIndex &lt;= n; rightIndex++, leftIndex++)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 更新 count_W</span></span><br><span class="line">            <span class="keyword">if</span> (Out != s[rightIndex - <span class="number">1</span>])</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (Out == <span class="string">'W'</span>)</span><br><span class="line">                    count_W--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    count_W++;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">// 更新出去的字母 以及 答案</span></span><br><span class="line">            Out = s[leftIndex];</span><br><span class="line">            res = res &lt; count_W ? res : count_W;</span><br><span class="line">        }</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="写在最后">写在最后</h3>
-<p>大家好，这是我知乎的第一篇文章，希望多多支持，本人喜欢 <strong>打 注
-释</strong>
-，顺手发发文章。个人觉得这样能让自己以及他人能够更好地读懂自己代码，想必大家都能体会到心情激动地Google到别人的代码却完全看不懂TA写啥的那种感受，尤其这段代码还能完美解决你的问题的时候。。。</p>
-<p>还有 <a href="https://codeforces.com/">codefores</a>
-这个居然刷题网站可以查看别人的 submit
-的代码！！（点那串数字；不过常常不知道别人在写啥，但 CTRL C V 过来就是能
-AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-]]></content>
-      <categories>
-        <category>OJ题</category>
-      </categories>
-      <tags>
-        <tag>滑动窗口</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量">支持向量</h2>
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hamiltonian_path.svg/330px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
 </figure>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-<span class="math inline">\(a\)</span> 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用 SAT
-求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
-格式的命题逻辑公式。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
 <blockquote>
-<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
 </blockquote>
+<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h2 id="混淆矩阵">混淆矩阵</h2>
+<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
+<h2 id="mp模型">MP模型</h2>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h2 id="增广向量">增广向量</h2>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h2 id="阶跃函数">阶跃函数</h2>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
 <h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
-</ol>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
-        <category>练手小项目</category>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
       </categories>
       <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -349,56 +256,74 @@ io-wiki</a></p>
       </tags>
   </entry>
   <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量">支持向量</h2>
+    <title>SAT求解器的应用</title>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
 <figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hamiltonian_path.svg/330px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
 </figure>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+<span class="math inline">\(a\)</span> 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用 SAT
+求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
+格式的命题逻辑公式。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
 <blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
 </blockquote>
-<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h2 id="混淆矩阵">混淆矩阵</h2>
-<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
-<h2 id="mp模型">MP模型</h2>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h2 id="增广向量">增广向量</h2>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h2 id="阶跃函数">阶跃函数</h2>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
 <h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
+        <category>练手小项目</category>
       </categories>
       <tags>
-        <tag>持续更新</tag>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
       </tags>
   </entry>
   <entry>
@@ -428,6 +353,81 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Codeforces1690D 滑动窗口</title>
+    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
+<p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
+<span id="more"></span>
+<p>废话不多说，分析题目，题干比较简单，直接看例子</p>
+<p>input</p>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">4</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">3</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">5</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">BBWBW</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">1</span></span><br><span class="line"><span class="attribute">W</span></span><br></pre></td></tr></tbody></table></figure>
+<p>output</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>在第一个测试用例中，" BBWBW " 和k = 3. 重新着色1个就足够了并得到“
+BBBBW ”，有k个连续的B</p>
+<p>在第二个测试用例中，" BBWBW " 和k = 5. 重新着色就2个就足够了并得到“
+BBBBB ”，有k个连续的B</p>
+<p>在第三个测试用例中，" BBWBW " 和k = 1 无需重新着色就已满足有 k
+个连续的B</p>
+</blockquote>
+<p>典型的滑动窗口题，窗口大小就是 k (windowsize =
+k)。按常规的滑动窗口题目的做法应该都会需要弄个哈希表来搞，这题比较简单，只需记录一些窗口中
+W 的个数即可。 <span class="math display">\[
+\begin{gather}
+第一个测试用例\quad k=3 \\ \\
+\begin{array}{ccccc}
+    \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{ccccc}
+    &amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    \text{Out}
+\end{array}\\
+\text{count}\_\text{W}=1
+\\ \\ \\
+\begin{array}{cccccc}
+    &amp;&amp; \text{leftIndex} &amp;&amp;&amp; \text{rightIndex}  \\
+    \hline
+    \text{B} &amp; \text{B} &amp; \text{W} &amp; \text{B} &amp; \text{W}
+\\
+    \hline
+    &amp;\text{Out}
+\end{array}\\
+\text{count}\_\text{W}=2
+\end{gather}
+\]</span></p>
+<blockquote>
+<p>整个滑动过程 最小的 count_W 即为答案。 为了更新 count_W
+的值，可以引入一个 Out 变量记着出去的字母</p>
+</blockquote>
+<p>整体C++代码实现如下：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> n, k;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line">        <span class="type">int</span> count_W = <span class="number">0</span>; <span class="comment">//记录窗口内 W 的个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (s[i] == <span class="string">'W'</span>)</span><br><span class="line">                count_W++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 滑动窗口 k  [leftIndex, rightIndex)</span></span><br><span class="line">        <span class="type">int</span> res = count_W;</span><br><span class="line">        <span class="type">int</span> leftIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> rightIndex = k - leftIndex;</span><br><span class="line">        <span class="comment">// Out 代表出去的字母， s[rightIndex - 1] 代表进来的字母</span></span><br><span class="line">        <span class="type">char</span> Out = s[leftIndex];</span><br><span class="line">        leftIndex++, rightIndex++;</span><br><span class="line">        <span class="keyword">for</span> (; rightIndex &lt;= n; rightIndex++, leftIndex++)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 更新 count_W</span></span><br><span class="line">            <span class="keyword">if</span> (Out != s[rightIndex - <span class="number">1</span>])</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (Out == <span class="string">'W'</span>)</span><br><span class="line">                    count_W--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    count_W++;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">// 更新出去的字母 以及 答案</span></span><br><span class="line">            Out = s[leftIndex];</span><br><span class="line">            res = res &lt; count_W ? res : count_W;</span><br><span class="line">        }</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="写在最后">写在最后</h3>
+<p>大家好，这是我知乎的第一篇文章，希望多多支持，本人喜欢 <strong>打 注
+释</strong>
+，顺手发发文章。个人觉得这样能让自己以及他人能够更好地读懂自己代码，想必大家都能体会到心情激动地Google到别人的代码却完全看不懂TA写啥的那种感受，尤其这段代码还能完美解决你的问题的时候。。。</p>
+<p>还有 <a href="https://codeforces.com/">codefores</a>
+这个居然刷题网站可以查看别人的 submit
+的代码！！（点那串数字；不过常常不知道别人在写啥，但 CTRL C V 过来就是能
+AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+]]></content>
+      <categories>
+        <category>OJ题</category>
+      </categories>
+      <tags>
+        <tag>滑动窗口</tag>
       </tags>
   </entry>
   <entry>
@@ -540,66 +540,6 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </tags>
   </entry>
   <entry>
-    <title>寻找自幂数的优化算法</title>
-    <url>/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="寻找自幂数的优化算法">寻找自幂数的优化算法</h1>
-<p><a href="https://baike.baidu.com/item/%E8%87%AA%E5%B9%82%E6%95%B0/4397236">自幂数-百度百科</a></p>
-<p>输入位数 n ，输出位数为 n 的所有自幂数</p>
-<span id="more"></span>
-<h2 id="基础暴力版">基础暴力版</h2>
-<p>直接遍历 <span class="math inline">\([10^{n-1},10^n)\)</span>
-，然后对每个数进行判断，就不细说了。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用 long 数据类型遍历求自幂数的函数</span></span><br><span class="line"><span class="comment">* 最大 16 位</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">selfNum2</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">    <span class="comment">// 遍历范围 [10^(n-1),10^n)</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> (<span class="type">long</span>) Math.pow(<span class="number">10</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> (<span class="type">long</span>) Math.pow(<span class="number">10</span>, n);</span><br><span class="line">    <span class="type">long</span> <span class="variable">i</span> <span class="operator">=</span> start;</span><br><span class="line">    <span class="comment">// 遍历</span></span><br><span class="line">    <span class="keyword">for</span> (; i &lt; end; i++) {</span><br><span class="line">        <span class="type">long</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">temp</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="comment">// 求幂</span></span><br><span class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">dig</span> <span class="operator">=</span> (<span class="type">int</span>) (temp % <span class="number">10</span>);</span><br><span class="line">            sum = sum + (<span class="type">long</span>) Math.pow(dig, n);</span><br><span class="line">            temp = temp / <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (i == sum) {</span><br><span class="line">            System.out.print(i);</span><br><span class="line">            System.out.print(<span class="string">" "</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    System.out.println();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>位数超过8、9就耗时很长了。</p>
-<h2 id="优化版">优化版</h2>
-<p>基础为何慢？有两个原因</p>
-<ol type="1">
-<li>全遍历</li>
-<li>全计算</li>
-</ol>
-<p>如何优化？</p>
-<p>对于第一点，基于判断自幂数的方法，可以考虑使用
-<strong>选数字</strong> 作统计方法。</p>
-<p>例如三位的，判断选了一个1、一个2、一个3如何；判断两个1、一个2如何……</p>
-<p>那么便可以这样干，例如，以数字9作统计，把选了零个9的所有情况进行判断、选了一个9的所有情况进行判断、（以此类推）……直到把选了n个9的所有情况进行判断，便完成了遍历。</p>
-<p>如此一来，便可运用<strong>深度优先搜索算法</strong>进行编写，以数字9开始。每一层需要记录的是
-<strong>当前统计数字、当前和、剩余位数</strong>
-；搜索方式就是在剩余位数基础上选 <code>i</code>
-个当前数字，更新当前和。</p>
-<p>然后就是最重要的一点，对搜索进行 <strong>剪枝</strong> 。</p>
-<p>显然，不必继续往下搜索的情况有以下：</p>
-<ol type="1">
-<li>已对所有数字进行了搜索（当前统计数字小于0</li>
-<li>剩余可选位数不足</li>
-</ol>
-<p>对于当前数字 <code>cur</code> ，选了 <code>i</code>
-个，即可进行判断剪枝：</p>
-<ul>
-<li>和已经大于 <span class="math inline">\(10^{n}-1\)</span>
-（再选下去只会更大</li>
-</ul>
-<p>再对第二点进行优化，可使用 <strong>空间换时间</strong> 。</p>
-<p>预先计算保留好 <strong>0到9中任意数字 i 的 N 次方乘以 i 出现的次数 j
-的结果</strong> 。<code>table[10][n+1]</code></p>
-<p>如此一来，再上面更新当前和这部分，便可直接获取，
-<code>new_sum = sum + table[cur][i]</code> 。</p>
-<p>再者，在判断一个数是否为自幂数这部分，可以先获取这个数的数字组合，然后代入
-<code>table</code> 进行求和判断便可。</p>
-<p>计算主要用于判断，当遍历和计算都已优化好，该搜索程序的性能便得到了提升。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基于 long 数据类型 寻找所有的自幂数</span></span><br><span class="line"><span class="comment"> * 最大位数为 16 位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NarcissisticNumber2_Long</span> {</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span>[][] table;                   <span class="comment">// 记录0到9中任意数字i的N次方乘以i出现的次数j的结果（i^N*j）</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">        <span class="type">long</span> <span class="variable">time</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">16</span>; i++) {</span><br><span class="line">            System.out.println(i + <span class="number">1</span> + <span class="string">" 位"</span>);</span><br><span class="line">            findNum(i + <span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line">        time = System.currentTimeMillis() - time;</span><br><span class="line">        System.out.print(<span class="string">"程序运行时间： "</span> + time + <span class="string">" ms"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 制造 table</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">makeTable</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">        table = <span class="keyword">new</span> <span class="title class_">long</span>[<span class="number">10</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= n; j++) {</span><br><span class="line">                table[i][j] = (<span class="type">long</span>) Math.pow(i, n) * j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 基于 long 数据类型寻找 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findNum</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">        makeTable(n);</span><br><span class="line">        findNum(<span class="number">9</span>, <span class="number">0</span>, n, n);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 以数字cur为统计，寻找 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cur  当前数字</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sum  当前和</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n    自幂数的位数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> rest 剩余位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findNum</span><span class="params">(<span class="type">int</span> cur, <span class="type">long</span> sum, <span class="type">int</span> n, <span class="type">int</span> rest)</span> {</span><br><span class="line">        <span class="keyword">if</span> (rest &lt;= <span class="number">0</span> || cur &lt; <span class="number">0</span>) {     <span class="comment">// 没有剩余的位了 或者 没有数选了</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在剩余的位置循环查找</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= rest; i++) {</span><br><span class="line"></span><br><span class="line">            <span class="type">long</span> <span class="variable">new_sum</span> <span class="operator">=</span> sum + table[cur][i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (new_sum &gt; Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>) {   <span class="comment">// 已经大了，跳出循环</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (rest - i == <span class="number">0</span> &amp;&amp; isSelfNum(new_sum, n)) {      <span class="comment">// 加满了，且是自幂数</span></span><br><span class="line">                System.out.println(new_sum);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            findNum(cur - <span class="number">1</span>, new_sum, n, rest - i);     <span class="comment">// 递归</span></span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检查一个 long 类型的数是否为 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num 待检查的数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n   自幂数的位数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 是自幂数返回 true，否则返回 false</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isSelfNum</span><span class="params">(<span class="type">long</span> num, <span class="type">int</span> n)</span> {</span><br><span class="line">        <span class="keyword">if</span> (num &lt; Math.pow(<span class="number">10</span>, n - <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span>[] numArray = getNum(num);</span><br><span class="line">        <span class="type">long</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">            sum += table[i][numArray[i]];</span><br><span class="line">        }</span><br><span class="line">        <span class="type">return</span> <span class="variable">sum</span> <span class="operator">=</span>= num;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取一个 long 类型数据的数字组合</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num 待获取的 long 类型数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 一个 int[10] 数组，数组中的每个元素代表一个数字出现的次数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] getNum(<span class="type">long</span> num) {</span><br><span class="line">        <span class="type">int</span>[] numArray = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">while</span> (num != <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">dig</span> <span class="operator">=</span> (<span class="type">int</span>) (num % <span class="number">10</span>);</span><br><span class="line">            numArray[dig]++;</span><br><span class="line">            num = num / <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> numArray;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>上面程序在我的 IDEA 上 六百多毫秒
-便可以结束。可以说相比于基础版快很多了。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>自幂数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>人口统计数据分析器</title>
     <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
     <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
@@ -679,6 +619,127 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>寻找自幂数的优化算法</title>
+    <url>/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="寻找自幂数的优化算法">寻找自幂数的优化算法</h1>
+<p><a href="https://baike.baidu.com/item/%E8%87%AA%E5%B9%82%E6%95%B0/4397236">自幂数-百度百科</a></p>
+<p>输入位数 n ，输出位数为 n 的所有自幂数</p>
+<span id="more"></span>
+<h2 id="基础暴力版">基础暴力版</h2>
+<p>直接遍历 <span class="math inline">\([10^{n-1},10^n)\)</span>
+，然后对每个数进行判断，就不细说了。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 用 long 数据类型遍历求自幂数的函数</span></span><br><span class="line"><span class="comment">* 最大 16 位</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">selfNum2</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">    <span class="comment">// 遍历范围 [10^(n-1),10^n)</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> (<span class="type">long</span>) Math.pow(<span class="number">10</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> (<span class="type">long</span>) Math.pow(<span class="number">10</span>, n);</span><br><span class="line">    <span class="type">long</span> <span class="variable">i</span> <span class="operator">=</span> start;</span><br><span class="line">    <span class="comment">// 遍历</span></span><br><span class="line">    <span class="keyword">for</span> (; i &lt; end; i++) {</span><br><span class="line">        <span class="type">long</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">temp</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="comment">// 求幂</span></span><br><span class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">dig</span> <span class="operator">=</span> (<span class="type">int</span>) (temp % <span class="number">10</span>);</span><br><span class="line">            sum = sum + (<span class="type">long</span>) Math.pow(dig, n);</span><br><span class="line">            temp = temp / <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (i == sum) {</span><br><span class="line">            System.out.print(i);</span><br><span class="line">            System.out.print(<span class="string">" "</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    System.out.println();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>位数超过8、9就耗时很长了。</p>
+<h2 id="优化版">优化版</h2>
+<p>基础为何慢？有两个原因</p>
+<ol type="1">
+<li>全遍历</li>
+<li>全计算</li>
+</ol>
+<p>如何优化？</p>
+<p>对于第一点，基于判断自幂数的方法，可以考虑使用
+<strong>选数字</strong> 作统计方法。</p>
+<p>例如三位的，判断选了一个1、一个2、一个3如何；判断两个1、一个2如何……</p>
+<p>那么便可以这样干，例如，以数字9作统计，把选了零个9的所有情况进行判断、选了一个9的所有情况进行判断、（以此类推）……直到把选了n个9的所有情况进行判断，便完成了遍历。</p>
+<p>如此一来，便可运用<strong>深度优先搜索算法</strong>进行编写，以数字9开始。每一层需要记录的是
+<strong>当前统计数字、当前和、剩余位数</strong>
+；搜索方式就是在剩余位数基础上选 <code>i</code>
+个当前数字，更新当前和。</p>
+<p>然后就是最重要的一点，对搜索进行 <strong>剪枝</strong> 。</p>
+<p>显然，不必继续往下搜索的情况有以下：</p>
+<ol type="1">
+<li>已对所有数字进行了搜索（当前统计数字小于0</li>
+<li>剩余可选位数不足</li>
+</ol>
+<p>对于当前数字 <code>cur</code> ，选了 <code>i</code>
+个，即可进行判断剪枝：</p>
+<ul>
+<li>和已经大于 <span class="math inline">\(10^{n}-1\)</span>
+（再选下去只会更大</li>
+</ul>
+<p>再对第二点进行优化，可使用 <strong>空间换时间</strong> 。</p>
+<p>预先计算保留好 <strong>0到9中任意数字 i 的 N 次方乘以 i 出现的次数 j
+的结果</strong> 。<code>table[10][n+1]</code></p>
+<p>如此一来，再上面更新当前和这部分，便可直接获取，
+<code>new_sum = sum + table[cur][i]</code> 。</p>
+<p>再者，在判断一个数是否为自幂数这部分，可以先获取这个数的数字组合，然后代入
+<code>table</code> 进行求和判断便可。</p>
+<p>计算主要用于判断，当遍历和计算都已优化好，该搜索程序的性能便得到了提升。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基于 long 数据类型 寻找所有的自幂数</span></span><br><span class="line"><span class="comment"> * 最大位数为 16 位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NarcissisticNumber2_Long</span> {</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span>[][] table;                   <span class="comment">// 记录0到9中任意数字i的N次方乘以i出现的次数j的结果（i^N*j）</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">        <span class="type">long</span> <span class="variable">time</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">16</span>; i++) {</span><br><span class="line">            System.out.println(i + <span class="number">1</span> + <span class="string">" 位"</span>);</span><br><span class="line">            findNum(i + <span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line">        time = System.currentTimeMillis() - time;</span><br><span class="line">        System.out.print(<span class="string">"程序运行时间： "</span> + time + <span class="string">" ms"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 制造 table</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">makeTable</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">        table = <span class="keyword">new</span> <span class="title class_">long</span>[<span class="number">10</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= n; j++) {</span><br><span class="line">                table[i][j] = (<span class="type">long</span>) Math.pow(i, n) * j;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 基于 long 数据类型寻找 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 自幂数的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findNum</span><span class="params">(<span class="type">int</span> n)</span> {</span><br><span class="line">        makeTable(n);</span><br><span class="line">        findNum(<span class="number">9</span>, <span class="number">0</span>, n, n);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 以数字cur为统计，寻找 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cur  当前数字</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sum  当前和</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n    自幂数的位数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> rest 剩余位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findNum</span><span class="params">(<span class="type">int</span> cur, <span class="type">long</span> sum, <span class="type">int</span> n, <span class="type">int</span> rest)</span> {</span><br><span class="line">        <span class="keyword">if</span> (rest &lt;= <span class="number">0</span> || cur &lt; <span class="number">0</span>) {     <span class="comment">// 没有剩余的位了 或者 没有数选了</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在剩余的位置循环查找</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= rest; i++) {</span><br><span class="line"></span><br><span class="line">            <span class="type">long</span> <span class="variable">new_sum</span> <span class="operator">=</span> sum + table[cur][i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (new_sum &gt; Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>) {   <span class="comment">// 已经大了，跳出循环</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (rest - i == <span class="number">0</span> &amp;&amp; isSelfNum(new_sum, n)) {      <span class="comment">// 加满了，且是自幂数</span></span><br><span class="line">                System.out.println(new_sum);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            findNum(cur - <span class="number">1</span>, new_sum, n, rest - i);     <span class="comment">// 递归</span></span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检查一个 long 类型的数是否为 n 位的自幂数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num 待检查的数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n   自幂数的位数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 是自幂数返回 true，否则返回 false</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isSelfNum</span><span class="params">(<span class="type">long</span> num, <span class="type">int</span> n)</span> {</span><br><span class="line">        <span class="keyword">if</span> (num &lt; Math.pow(<span class="number">10</span>, n - <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span>[] numArray = getNum(num);</span><br><span class="line">        <span class="type">long</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">            sum += table[i][numArray[i]];</span><br><span class="line">        }</span><br><span class="line">        <span class="type">return</span> <span class="variable">sum</span> <span class="operator">=</span>= num;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取一个 long 类型数据的数字组合</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num 待获取的 long 类型数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 一个 int[10] 数组，数组中的每个元素代表一个数字出现的次数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] getNum(<span class="type">long</span> num) {</span><br><span class="line">        <span class="type">int</span>[] numArray = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">while</span> (num != <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">dig</span> <span class="operator">=</span> (<span class="type">int</span>) (num % <span class="number">10</span>);</span><br><span class="line">            numArray[dig]++;</span><br><span class="line">            num = num / <span class="number">10</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> numArray;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>上面程序在我的 IDEA 上 六百多毫秒
+便可以结束。可以说相比于基础版快很多了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>自幂数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>概率论大一下期末</title>
+    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
+<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
+</figure>
+<span id="more"></span>
+<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
+<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
+</figure>
+<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
+枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
+N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
+进行区间估计。</p>
+<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
+<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
+</figure>
+<h2 id="考试题">考试题</h2>
+<p>题目太长很多都忘了😅</p>
+<p>要是没记错有道题是这样 <span class="math display">\[
+\begin{gather}
+X_1,X_2,\cdots,X_n是从总体服从N(\mu,
+4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
+<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
+<strong>定理二</strong> 。</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
+<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
+</figure>
+<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
+，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
+，再根据卡方分布的可加性</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
+<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
+</figure>
+<p>有 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
+\]</span> 即 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
+\]</span></p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
@@ -876,67 +937,6 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
-    <title>概率论大一下期末</title>
-    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
-<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
-</figure>
-<span id="more"></span>
-<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
-<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
-</figure>
-<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
-枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
-N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
-进行区间估计。</p>
-<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
-<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
-</figure>
-<h2 id="考试题">考试题</h2>
-<p>题目太长很多都忘了😅</p>
-<p>要是没记错有道题是这样 <span class="math display">\[
-\begin{gather}
-X_1,X_2,\cdots,X_n是从总体服从N(\mu,
-4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
-<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
-<strong>定理二</strong> 。</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
-<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
-</figure>
-<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
-，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
-，再根据卡方分布的可加性</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
-<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
-</figure>
-<p>有 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
-\]</span> 即 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>点到空间直线的距离公式</title>
     <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
@@ -1010,48 +1010,6 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>离散数学大一下期末</title>
     <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
@@ -1097,6 +1055,48 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </categories>
       <tags>
         <tag>离散数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
       </tags>
   </entry>
 </search>
