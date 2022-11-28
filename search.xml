@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+        <tag>持续更新</tag>
+        <tag>操作记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -48,43 +81,83 @@
         <category>工具</category>
       </categories>
       <tags>
+        <tag>持续更新</tag>
         <tag>操作记录</tag>
         <tag>PowerShell</tag>
         <tag>终端</tag>
-        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
 <blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
 </blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">如何更好地理解和掌握
+KMP 算法? - 阮行止的回答 - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/281346746">如何更好地理解和掌握
+KMP 算法? - 海纳的回答 - 知乎</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
 <blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
 </blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
+oi-wiki</a></p>
+<h3 id="图">图</h3>
+<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
+io-wiki</a></p>
+<h2 id="寻找自幂数">寻找自幂数</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/570576659">我的知乎文章</a></p>
+<h2 id="ackermann函数">Ackermann函数</h2>
+<figure>
+<img src="/img/数据结构和算法的经典问题/Ackermann函数.png" alt="Ackermann函数">
+<figcaption aria-hidden="true">Ackermann函数</figcaption>
+</figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 不用栈的非递归算法   -- 3个</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_1</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> value[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            n++;</span><br><span class="line">            <span class="keyword">if</span> (size-- == <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            m = value[size];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            m--;</span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = size++;</span><br><span class="line">        value[index] = m - <span class="number">1</span>;</span><br><span class="line">        n--;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_2</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> positions[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        positions[j] = <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> values[m + <span class="number">1</span>];</span><br><span class="line">    values[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        values[j] = <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (positions[m] != n)</span><br><span class="line">    {</span><br><span class="line">        values[<span class="number">0</span>]++;</span><br><span class="line">        positions[<span class="number">0</span>]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m &amp;&amp; positions[j - <span class="number">1</span>] == values[j]; j++)</span><br><span class="line">        {</span><br><span class="line">            values[j] = values[j - <span class="number">1</span>]; </span><br><span class="line">            positions[j]++;            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> values[m];</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_3</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> i, value, transferring, mCurrent;</span><br><span class="line">    <span class="type">int</span> next[m + <span class="number">1</span>], goal[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        next[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        goal[i] = <span class="number">1</span>;</span><br><span class="line">    goal[m] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        value = next[<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">        transferring = <span class="number">1</span>;</span><br><span class="line">        mCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (transferring)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (next[mCurrent] == goal[mCurrent])</span><br><span class="line">                goal[mCurrent] = value;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                transferring = <span class="number">0</span>;</span><br><span class="line">            next[mCurrent] = next[mCurrent] + <span class="number">1</span>;</span><br><span class="line">            mCurrent = mCurrent + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">while</span> (next[m] != n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
+</ul>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>cheatSheet</category>
       </categories>
       <tags>
-        <tag>操作记录</tag>
         <tag>持续更新</tag>
-        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -175,81 +248,8 @@
 <p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
+        <category>cheatSheet</category>
         <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">如何更好地理解和掌握
-KMP 算法? - 阮行止的回答 - 知乎</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/281346746">如何更好地理解和掌握
-KMP 算法? - 海纳的回答 - 知乎</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<h3 id="二叉搜索树">二叉搜索树</h3>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/tree/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉搜索树-自己仓库的代码</a></p>
-<h3 id="二叉平衡树">二叉平衡树</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h3 id="堆">堆</h3>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
-<h3 id="哈夫曼树">哈夫曼树</h3>
-<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
-oi-wiki</a></p>
-<h3 id="图">图</h3>
-<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
-io-wiki</a></p>
-<h2 id="寻找自幂数">寻找自幂数</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/570576659">我的知乎文章</a></p>
-<h2 id="ackermann函数">Ackermann函数</h2>
-<figure>
-<img src="/img/数据结构和算法的经典问题/Ackermann函数.png" alt="Ackermann函数">
-<figcaption aria-hidden="true">Ackermann函数</figcaption>
-</figure>
-<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 不用栈的非递归算法   -- 3个</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_1</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> value[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            n++;</span><br><span class="line">            <span class="keyword">if</span> (size-- == <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            m = value[size];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            m--;</span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = size++;</span><br><span class="line">        value[index] = m - <span class="number">1</span>;</span><br><span class="line">        n--;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_2</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> positions[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        positions[j] = <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> values[m + <span class="number">1</span>];</span><br><span class="line">    values[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        values[j] = <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (positions[m] != n)</span><br><span class="line">    {</span><br><span class="line">        values[<span class="number">0</span>]++;</span><br><span class="line">        positions[<span class="number">0</span>]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m &amp;&amp; positions[j - <span class="number">1</span>] == values[j]; j++)</span><br><span class="line">        {</span><br><span class="line">            values[j] = values[j - <span class="number">1</span>]; </span><br><span class="line">            positions[j]++;            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> values[m];</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_3</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> i, value, transferring, mCurrent;</span><br><span class="line">    <span class="type">int</span> next[m + <span class="number">1</span>], goal[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        next[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        goal[i] = <span class="number">1</span>;</span><br><span class="line">    goal[m] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        value = next[<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">        transferring = <span class="number">1</span>;</span><br><span class="line">        mCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (transferring)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (next[mCurrent] == goal[mCurrent])</span><br><span class="line">                goal[mCurrent] = value;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                transferring = <span class="number">0</span>;</span><br><span class="line">            next[mCurrent] = next[mCurrent] + <span class="number">1</span>;</span><br><span class="line">            mCurrent = mCurrent + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">while</span> (next[m] != n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
       </categories>
       <tags>
         <tag>持续更新</tag>
@@ -324,35 +324,6 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
         <tag>SAT</tag>
         <tag>命题逻辑</tag>
         <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -481,6 +452,35 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -682,67 +682,6 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>概率论大一下期末</title>
-    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
-<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
-</figure>
-<span id="more"></span>
-<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
-<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
-</figure>
-<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
-枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
-N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
-进行区间估计。</p>
-<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
-<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
-</figure>
-<h2 id="考试题">考试题</h2>
-<p>题目太长很多都忘了😅</p>
-<p>要是没记错有道题是这样 <span class="math display">\[
-\begin{gather}
-X_1,X_2,\cdots,X_n是从总体服从N(\mu,
-4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
-<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
-<strong>定理二</strong> 。</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
-<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
-</figure>
-<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
-，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
-，再根据卡方分布的可加性</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
-<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
-</figure>
-<p>有 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
-\]</span> 即 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>支持向量机</title>
     <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
@@ -935,6 +874,67 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       <categories>
         <category>机器学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>概率论大一下期末</title>
+    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
+<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
+</figure>
+<span id="more"></span>
+<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
+<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
+</figure>
+<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
+枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
+N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
+进行区间估计。</p>
+<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
+<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
+</figure>
+<h2 id="考试题">考试题</h2>
+<p>题目太长很多都忘了😅</p>
+<p>要是没记错有道题是这样 <span class="math display">\[
+\begin{gather}
+X_1,X_2,\cdots,X_n是从总体服从N(\mu,
+4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
+<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
+<strong>定理二</strong> 。</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
+<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
+</figure>
+<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
+，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
+，再根据卡方分布的可加性</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
+<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
+</figure>
+<p>有 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
+\]</span> 即 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
+\]</span></p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>概率论</tag>
+      </tags>
   </entry>
   <entry>
     <title>点到空间直线的距离公式</title>
