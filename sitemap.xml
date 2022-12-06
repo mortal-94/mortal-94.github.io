@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://mortal-94.github.io/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
+    <loc>https://mortal-94.github.io/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2022-12-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
     
     <lastmod>2022-11-28</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://mortal-94.github.io/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -29,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/miniNote/C++%E5%B0%8F%E6%8A%84.html</loc>
+    <loc>https://mortal-94.github.io/miniNote/C++%E5%B0%8F%E6%8A%84.html</loc>
     
     <lastmod>2022-08-23</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/miniNote/%E6%9D%82%E8%AE%B0.html</loc>
+    <loc>https://mortal-94.github.io/miniNote/%E6%9D%82%E8%AE%B0.html</loc>
     
     <lastmod>2022-08-23</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95.html</loc>
+    <loc>https://mortal-94.github.io/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95.html</loc>
     
     <lastmod>2022-08-11</lastmod>
     
@@ -56,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
+    <loc>https://mortal-94.github.io/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -65,16 +74,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
-    
-    <lastmod>2022-08-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</loc>
+    <loc>https://mortal-94.github.io/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</loc>
     
     <lastmod>2022-07-30</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://mortal-94.github.io/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2022-07-30</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
+    <loc>https://mortal-94.github.io/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
     
     <lastmod>2022-07-29</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/miniNote/%E7%BE%8E%E5%8F%A5.html</loc>
+    <loc>https://mortal-94.github.io/miniNote/%E7%BE%8E%E5%8F%A5.html</loc>
     
     <lastmod>2022-07-29</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</loc>
+    <loc>https://mortal-94.github.io/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</loc>
     
     <lastmod>2022-07-29</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</loc>
+    <loc>https://mortal-94.github.io/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</loc>
     
     <lastmod>2022-07-22</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://mortal-94.github.io/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2022-07-22</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/20/terminal/</loc>
+    <loc>https://mortal-94.github.io/2022/06/20/terminal/</loc>
     
     <lastmod>2022-07-19</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://mortal-94.github.io/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</loc>
     
     <lastmod>2022-07-17</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/miniNote/index.html</loc>
+    <loc>https://mortal-94.github.io/miniNote/index.html</loc>
     
     <lastmod>2022-07-11</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
+    <loc>https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</loc>
     
     <lastmod>2022-06-29</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</loc>
+    <loc>https://mortal-94.github.io/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</loc>
     
     <lastmod>2022-06-21</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</loc>
+    <loc>https://mortal-94.github.io/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</loc>
     
     <lastmod>2022-06-18</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
+    <loc>https://mortal-94.github.io/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     
     <lastmod>2022-06-18</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/2022/06/15/hello-world/</loc>
+    <loc>https://mortal-94.github.io/2022/06/15/hello-world/</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -209,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/index.html</loc>
+    <loc>https://mortal-94.github.io/categories/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/index.html</loc>
+    <loc>https://mortal-94.github.io/tags/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -228,7 +228,7 @@
   
 
   <url>
-    <loc>https://mortal-94.github.io/MyBlog</loc>
+    <loc>https://mortal-94.github.io/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -236,133 +236,133 @@
 
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://mortal-94.github.io/tags/%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/PowerShell/</loc>
+    <loc>https://mortal-94.github.io/tags/PowerShell/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E7%BB%88%E7%AB%AF/</loc>
+    <loc>https://mortal-94.github.io/tags/%E7%BB%88%E7%AB%AF/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</loc>
+    <loc>https://mortal-94.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/vscode/</loc>
+    <loc>https://mortal-94.github.io/tags/vscode/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://mortal-94.github.io/tags/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
+    <loc>https://mortal-94.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/Hexo/</loc>
+    <loc>https://mortal-94.github.io/tags/SAT/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/</loc>
+    <loc>https://mortal-94.github.io/tags/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/SAT/</loc>
+    <loc>https://mortal-94.github.io/tags/pycosat/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/</loc>
+    <loc>https://mortal-94.github.io/tags/python/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/pycosat/</loc>
+    <loc>https://mortal-94.github.io/tags/pandas/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/python/</loc>
+    <loc>https://mortal-94.github.io/tags/Hexo/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/pandas/</loc>
+    <loc>https://mortal-94.github.io/tags/%E8%87%AA%E5%B9%82%E6%95%B0/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E8%87%AA%E5%B9%82%E6%95%B0/</loc>
+    <loc>https://mortal-94.github.io/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E5%90%91%E9%87%8F/</loc>
+    <loc>https://mortal-94.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://mortal-94.github.io/tags/%E5%90%91%E9%87%8F/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E9%AB%98%E6%95%B0/</loc>
+    <loc>https://mortal-94.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
+    <loc>https://mortal-94.github.io/tags/%E9%AB%98%E6%95%B0/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -371,70 +371,70 @@
 
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://mortal-94.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://mortal-94.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://mortal-94.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/cheatSheet/</loc>
+    <loc>https://mortal-94.github.io/categories/cheatSheet/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/OJ%E9%A2%98/</loc>
+    <loc>https://mortal-94.github.io/categories/OJ%E9%A2%98/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/Hexo/</loc>
+    <loc>https://mortal-94.github.io/categories/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://mortal-94.github.io/categories/%E5%A4%A7%E5%AD%A6%E8%80%83%E8%AF%95/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://mortal-94.github.io/categories/Hexo/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://mortal-94.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://mortal-94.github.io/MyBlog/categories/%E5%A4%A7%E5%AD%A6%E8%80%83%E8%AF%95/</loc>
+    <loc>https://mortal-94.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
