@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
+    <url>/MyBlog/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
 <p>超强终端。</p>
 <p><img src="/img/terminal/image-20220622210445601.png"></p>
@@ -56,7 +56,7 @@
   </entry>
   <entry>
     <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <url>/MyBlog/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
 <h2 id="搭载c环境">搭载C++环境</h2>
 <p>参考这个视频</p>
@@ -88,8 +88,17 @@
       </tags>
   </entry>
   <entry>
+    <title>大一总结</title>
+    <url>/MyBlog/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>人工神经网络</title>
-    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <url>/MyBlog/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
 <p><strong>Artificial Neural Networks, ANN</strong></p>
 <span id="more"></span>
@@ -122,7 +131,7 @@
   </entry>
   <entry>
     <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <url>/MyBlog/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
 <h2 id="斐波那契数列">斐波那契数列</h2>
 <p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
@@ -195,7 +204,7 @@ io-wiki</a></p>
   </entry>
   <entry>
     <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <url>/MyBlog/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
     <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
 <h2 id="支持向量">支持向量</h2>
 <figure>
@@ -247,117 +256,8 @@ io-wiki</a></p>
       </tags>
   </entry>
   <entry>
-    <title>大一总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SAT求解器的应用</title>
-    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
-<h2 id="哈密顿图">哈密顿图</h2>
-<blockquote>
-<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
-<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
-<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
-<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
-<p>哈密顿图</p>
-<p>有哈密顿圈的图。</p>
-<p>​ ---维基百科</p>
-</blockquote>
-<figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hamiltonian_path.svg/330px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
-<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
-</figure>
-<h3 id="定义原子命题">定义原子命题</h3>
-<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
-<ol type="1">
-<li>每个顶点 b 必须出现在路径中。</li>
-<li>路径中没有顶点 b 出现两次。</li>
-<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
-<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
-（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
-</ol>
-<p>然后定义原子命题，设有 n 个顶点</p>
-<p>我这里原子命题定义：<br>
-设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
-这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
-<span class="math inline">\(a\)</span> 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
-（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
-<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
-<p><span class="math display">\[
-\begin{align*}
-&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
-&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
-H_{ib}\vee\neg H_{jb})}\\
-&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
-&amp;
-4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
-H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
-H_{(i+1)c})))}\\
-&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
-e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
-\end{align*}
-\]</span></p>
-<p>此处若要应用 SAT
-求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
-格式的命题逻辑公式。</p>
-<h1 id="代码">代码</h1>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
-<blockquote>
-<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
-</blockquote>
-<h1 id="参考">参考</h1>
-<ol type="1">
-<li>维基百科</li>
-<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>练手小项目</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-        <tag>命题逻辑</tag>
-        <tag>pycosat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Codeforces1690D 滑动窗口</title>
-    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <url>/MyBlog/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
 <p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
 <span id="more"></span>
@@ -431,61 +331,164 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </tags>
   </entry>
   <entry>
-    <title>python大一下期末</title>
-    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
-<p>没复习，寄😊</p>
-<h2 id="当时不会的题">当时不会的题</h2>
-<ol type="1">
-<li>MindSpore最基础的数据结构</li>
-<li>R语言 （）型</li>
-<li>矩阵 自定义 索引 和 列名</li>
-<li>dataframe数据内连合并 后缀名</li>
-<li>sklearn wine数据 聚类svc 建模</li>
-</ol>
+    <title>Hello World</title>
+    <url>/MyBlog/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <span id="more"></span>
-<h2 id="事后解答">事后解答</h2>
-<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
-<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
-<blockquote>
-<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
-</blockquote>
-<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
-<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
-<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
-<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
-<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
-涉及后缀名的添加</h3>
-<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
-<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
-和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
-<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
-<p>外加数据标准化</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
-</blockquote>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
-        <category>大学考试</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/MyBlog/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SAT求解器的应用</title>
+    <url>/MyBlog/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
+<h2 id="哈密顿图">哈密顿图</h2>
+<blockquote>
+<p><a href="https://zh.m.wikipedia.org/wiki/哈密頓路徑">哈密顿路径</a></p>
+<p>图的一条<a href="https://zh.m.wikipedia.org/wiki/道路_(图论)">路</a>，经过每个顶点恰好一次。</p>
+<p><a href="https://zh.m.wikipedia.org/zh-hans/哈密頓環">哈密顿环</a></p>
+<p>在一条哈密顿路的基础上，再有一条边将其首尾连接，所构成的<a href="https://zh.m.wikipedia.org/wiki/環_(圖論)">圈</a>。注意，若有一个哈密顿圈，则移除其任一条边，皆可得到一条哈密顿路，但反之则不然，即给定一条哈密顿路，不一定能延伸成哈密顿圈，因为该路径的首尾两顶点之间，不一定有边相连。</p>
+<p>哈密顿图</p>
+<p>有哈密顿圈的图。</p>
+<p>​ ---维基百科</p>
+</blockquote>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Hamiltonian_path.svg/330px-Hamiltonian_path.svg.png" alt="哈密顿图- Wikiwand">
+<figcaption aria-hidden="true">哈密顿图- Wikiwand</figcaption>
+</figure>
+<h3 id="定义原子命题">定义原子命题</h3>
+<p>首先确定一下逻辑，满足一下条件可断定为哈密顿图</p>
+<ol type="1">
+<li>每个顶点 b 必须出现在路径中。</li>
+<li>路径中没有顶点 b 出现两次。</li>
+<li>路径上的每个位置 a 都必须被一个顶点占用。</li>
+<li>非连通顶点 b 和 c 在路径中不能相邻。（即相邻要连通
+（在哈密顿回路中第一个顶点和最后一个顶点视为相邻</li>
+</ol>
+<p>然后定义原子命题，设有 n 个顶点</p>
+<p>我这里原子命题定义：<br>
+设有 <span class="math inline">\(n^2\)</span> 个原子命题 <span class="math inline">\(H_{ab}，1 ≤ a,b ≤ n\)</span> 。<br>
+这里的 <span class="math inline">\(H_{ab}\)</span> 表示哈密顿回路中的第
+<span class="math inline">\(a\)</span> 个位置被顶点 <span class="math inline">\(b\)</span> 占据。<br>
+（ <span class="math inline">\(e_{ij}\)</span> 表示这两个顶点间连通</p>
+<h3 id="构造命题逻辑公式">构造命题逻辑公式</h3>
+<p><span class="math display">\[
+\begin{align*}
+&amp; 1.\bigwedge_{b=1}^n\bigvee_{i=1}^n{H_{ib}}\\
+&amp; 2.\bigwedge_{b=1}^n\bigwedge_{i=1}^{n}\bigwedge_{j=1}^n{(\neg
+H_{ib}\vee\neg H_{jb})}\\
+&amp; 3.\bigwedge_{a=1}^n\bigvee_{i=1}^{n}{H_{ai}}\\
+&amp;
+4.\bigwedge_{b=1}^n\bigwedge_{c=b+1}^n\bigwedge_{i=1}^{n-1}{((H_{ib}\wedge
+H_{(i+1)c}\wedge e_{bc})\vee(\neg e_{bc}\wedge\neg(H_{ib}\wedge
+H_{(i+1)c})))}\\
+&amp;(\bigwedge_{i=1}^{n}\bigwedge_{j=1}^{n}((H_{1i}\wedge H_{nj}\wedge
+e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
+\end{align*}
+\]</span></p>
+<p>此处若要应用 SAT
+求解器则需在代码中对第四条进行微调。加个选择语句去掉原子命题 <span class="math inline">\(e\)</span> 即可。如此便可以构造成了 CNF
+格式的命题逻辑公式。</p>
+<h1 id="代码">代码</h1>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/%E7%BB%83%E6%89%8B%E5%B0%8F%E9%A1%B9%E7%9B%AE/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/%E6%B1%82%E8%A7%A3%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E7%A8%8B%E5%BA%8F.py">在我的仓库里</a></p>
+<blockquote>
+<p>我这里使用的SAT求解器是 python 的 pycosat 包</p>
+</blockquote>
+<h1 id="参考">参考</h1>
+<ol type="1">
+<li>维基百科</li>
+<li><a href="https://discuss.codechef.com/t/how-to-solve-hamiltonian-path-using-sat-solver-for-undirected-graph/13261">一个关于用SAT求解哈密顿回路的讨论</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>练手小项目</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+        <tag>命题逻辑</tag>
+        <tag>pycosat</tag>
       </tags>
   </entry>
   <entry>
     <title>人口统计数据分析器</title>
-    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
+    <url>/MyBlog/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
     <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
 <p>最近快考python了，上网找了个小项目来练习一下。</p>
 <p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
@@ -566,64 +569,8 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>寻找自幂数的优化算法</title>
-    <url>/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <url>/MyBlog/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1 id="寻找自幂数的优化算法">寻找自幂数的优化算法</h1>
 <p><a href="https://baike.baidu.com/item/%E8%87%AA%E5%B9%82%E6%95%B0/4397236">自幂数-百度百科</a></p>
 <p>输入位数 n ，输出位数为 n 的所有自幂数</p>
@@ -682,56 +629,8 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </tags>
   </entry>
   <entry>
-    <title>离散数学大一下期末</title>
-    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
-\begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>支持向量机</title>
-    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+    <url>/MyBlog/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
 <p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>
 🍜 <span class="math display">\[
@@ -925,7 +824,7 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
   </entry>
   <entry>
     <title>点到空间直线的距离公式</title>
-    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <url>/MyBlog/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
 <figure>
 <img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
@@ -997,8 +896,151 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
+    <title>离散数学大一下期末</title>
+    <url>/MyBlog/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>离散数学第二版 <strong>P131</strong></p>
+<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
+是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
+<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
+[x]_R=\{y\mid y\in A\wedge xRy\}
+\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
+<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
+<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
+<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
+<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
+R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
+\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p><span class="math display">\[
+\begin{gather}
+A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>根据上面的定义知 <span class="math display">\[
+R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
+\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
+\begin{align*}
+&amp;[a]_R=\{a,d\}\\
+&amp;[b]_R=\{b,c\}\\
+&amp;[c]_R=\{c,b\}\\
+&amp;[d]_R=\{d,a\}\\
+\end{align*}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数大一下期末</title>
+    <url>/MyBlog/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python大一下期末</title>
+    <url>/MyBlog/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<p>没复习，寄😊</p>
+<h2 id="当时不会的题">当时不会的题</h2>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚类svc 建模</li>
+</ol>
+<span id="more"></span>
+<h2 id="事后解答">事后解答</h2>
+<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
+<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<blockquote>
+<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
+</blockquote>
+<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
+<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
+<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
+<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
+<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
+涉及后缀名的添加</h3>
+<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
+<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
+和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
+<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
+<p>外加数据标准化</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>概率论大一下期末</title>
-    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <url>/MyBlog/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
 <p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
@@ -1055,48 +1097,6 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
       </categories>
       <tags>
         <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
       </tags>
   </entry>
 </search>
