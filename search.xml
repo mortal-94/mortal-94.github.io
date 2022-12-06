@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>terminal</title>
-    <url>/MyBlog/2022/06/20/terminal/</url>
+    <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
 <p>超强终端。</p>
 <p><img src="/img/terminal/image-20220622210445601.png"></p>
@@ -56,7 +56,7 @@
   </entry>
   <entry>
     <title>vscdoe使用</title>
-    <url>/MyBlog/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
 <h2 id="搭载c环境">搭载C++环境</h2>
 <p>参考这个视频</p>
@@ -89,7 +89,7 @@
   </entry>
   <entry>
     <title>人工神经网络</title>
-    <url>/MyBlog/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
 <p><strong>Artificial Neural Networks, ANN</strong></p>
 <span id="more"></span>
@@ -122,7 +122,7 @@
   </entry>
   <entry>
     <title>大一总结</title>
-    <url>/MyBlog/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="大一总结">大一总结</h1>
 ]]></content>
       <categories>
@@ -131,7 +131,7 @@
   </entry>
   <entry>
     <title>数据结构和算法的经典问题</title>
-    <url>/MyBlog/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
 <h2 id="斐波那契数列">斐波那契数列</h2>
 <p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
@@ -204,7 +204,7 @@ io-wiki</a></p>
   </entry>
   <entry>
     <title>机器学习术语</title>
-    <url>/MyBlog/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
     <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
 <h2 id="支持向量">支持向量</h2>
 <figure>
@@ -257,7 +257,7 @@ io-wiki</a></p>
   </entry>
   <entry>
     <title>Codeforces1690D 滑动窗口</title>
-    <url>/MyBlog/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
+    <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
 <p><a href="https://codeforces.com/contest/1690/problem/D">原题链接</a></p>
 <span id="more"></span>
@@ -332,7 +332,7 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
   </entry>
   <entry>
     <title>SAT求解器的应用</title>
-    <url>/MyBlog/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <url>/2022/06/18/SAT%E6%B1%82%E8%A7%A3%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h1 id="sat求解器的应用">SAT求解器的应用</h1>
 <h2 id="哈密顿图">哈密顿图</h2>
 <blockquote>
@@ -402,8 +402,37 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python大一下期末</title>
-    <url>/MyBlog/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
 <p>没复习，寄😊</p>
 <h2 id="当时不会的题">当时不会的题</h2>
@@ -455,8 +484,64 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
       </tags>
   </entry>
   <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>人口统计数据分析器</title>
-    <url>/MyBlog/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
+    <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
     <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
 <p>最近快考python了，上网找了个小项目来练习一下。</p>
 <p>这个项目来自 <strong>freecodecamp</strong> 里面的 <strong>Python
@@ -537,37 +622,8 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/MyBlog/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>寻找自幂数的优化算法</title>
-    <url>/MyBlog/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <url>/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1 id="寻找自幂数的优化算法">寻找自幂数的优化算法</h1>
 <p><a href="https://baike.baidu.com/item/%E8%87%AA%E5%B9%82%E6%95%B0/4397236">自幂数-百度百科</a></p>
 <p>输入位数 n ，输出位数为 n 的所有自幂数</p>
@@ -626,64 +682,8 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       </tags>
   </entry>
   <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/MyBlog/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>支持向量机</title>
-    <url>/MyBlog/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+    <url>/2022/07/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="支持向量机-二分类问题">支持向量机 <em>二分类问题</em></h1>
 <p><strong>一句话，找出可以划分两类数据的超平面，即找出确定这个超平面的参数。</strong>
 🍜 <span class="math display">\[
@@ -877,7 +877,7 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
   </entry>
   <entry>
     <title>概率论大一下期末</title>
-    <url>/MyBlog/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
 <p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
@@ -938,7 +938,7 @@ X_1,X_2,\cdots,X_n是从总体服从N(\mu,
   </entry>
   <entry>
     <title>点到空间直线的距离公式</title>
-    <url>/MyBlog/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
+    <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
 <figure>
 <img src="https://img-blog.csdnimg.cn/img_convert/f853c663befd1e14150ddf20b95a97cd.gif" alt="来源参考2">
@@ -1011,7 +1011,7 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
   </entry>
   <entry>
     <title>离散数学大一下期末</title>
-    <url>/MyBlog/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
 <p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
@@ -1059,7 +1059,7 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
   </entry>
   <entry>
     <title>高数大一下期末</title>
-    <url>/MyBlog/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
     <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
 <p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
