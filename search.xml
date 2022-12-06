@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>vscode</tag>
-        <tag>持续更新</tag>
-        <tag>操作记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>terminal</title>
     <url>/2022/06/20/terminal/</url>
     <content><![CDATA[<h1 id="terminal">Terminal</h1>
@@ -81,10 +48,76 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>持续更新</tag>
         <tag>操作记录</tag>
         <tag>PowerShell</tag>
         <tag>终端</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人工神经网络</title>
+    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
+<p><strong>Artificial Neural Networks, ANN</strong></p>
+<span id="more"></span>
+<h2 id="预备知识">预备知识</h2>
+<h3 id="mp模型">MP模型</h3>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h3 id="感知算法">感知算法</h3>
+<p><img src="/img/人工神经网络/感知算法.png"></p>
+<h3 id="增广向量">增广向量</h3>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h3 id="阶跃函数">阶跃函数</h3>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<blockquote>
+<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
+</blockquote>
+<h3 id="梯度下降算法">梯度下降算法</h3>
+<h3 id="后向传播算法">后向传播算法</h3>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>人工神经网络</tag>
       </tags>
   </entry>
   <entry>
@@ -145,7 +178,7 @@ io-wiki</a></p>
 <img src="/img/数据结构和算法的经典问题/Ackermann函数.png" alt="Ackermann函数">
 <figcaption aria-hidden="true">Ackermann函数</figcaption>
 </figure>
-<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 不用栈的非递归算法   -- 3个</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_1</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> value[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            n++;</span><br><span class="line">            <span class="keyword">if</span> (size-- == <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            m = value[size];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            m--;</span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = size++;</span><br><span class="line">        value[index] = m - <span class="number">1</span>;</span><br><span class="line">        n--;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_2</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> positions[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        positions[j] = <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> values[m + <span class="number">1</span>];</span><br><span class="line">    values[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        values[j] = <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (positions[m] != n)</span><br><span class="line">    {</span><br><span class="line">        values[<span class="number">0</span>]++;</span><br><span class="line">        positions[<span class="number">0</span>]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m &amp;&amp; positions[j - <span class="number">1</span>] == values[j]; j++)</span><br><span class="line">        {</span><br><span class="line">            values[j] = values[j - <span class="number">1</span>]; </span><br><span class="line">            positions[j]++;            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> values[m];</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_3</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> i, value, transferring, mCurrent;</span><br><span class="line">    <span class="type">int</span> next[m + <span class="number">1</span>], goal[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        next[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        goal[i] = <span class="number">1</span>;</span><br><span class="line">    goal[m] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        value = next[<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">        transferring = <span class="number">1</span>;</span><br><span class="line">        mCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (transferring)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (next[mCurrent] == goal[mCurrent])</span><br><span class="line">                goal[mCurrent] = value;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                transferring = <span class="number">0</span>;</span><br><span class="line">            next[mCurrent] = next[mCurrent] + <span class="number">1</span>;</span><br><span class="line">            mCurrent = mCurrent + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">while</span> (next[m] != n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 不用栈的非递归算法   -- 3个</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_1</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> value[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            n++;</span><br><span class="line">            <span class="keyword">if</span> (size-- == <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            m = value[size];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            m--;</span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> index = size++;</span><br><span class="line">        value[index] = m - <span class="number">1</span>;</span><br><span class="line">        n--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_2</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> positions[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        positions[j] = <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> values[m + <span class="number">1</span>];</span><br><span class="line">    values[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; m + <span class="number">1</span>; j++)</span><br><span class="line">    {</span><br><span class="line">        values[j] = <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (positions[m] != n)</span><br><span class="line">    {</span><br><span class="line">        values[<span class="number">0</span>]++;</span><br><span class="line">        positions[<span class="number">0</span>]++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m &amp;&amp; positions[j - <span class="number">1</span>] == values[j]; j++)</span><br><span class="line">        {</span><br><span class="line">            values[j] = values[j - <span class="number">1</span>]; </span><br><span class="line">            positions[j]++;            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> values[m];</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Ackerman3_3</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> i, value, transferring, mCurrent;</span><br><span class="line">    <span class="type">int</span> next[m + <span class="number">1</span>], goal[m + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">        next[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        goal[i] = <span class="number">1</span>;</span><br><span class="line">    goal[m] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        value = next[<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">        transferring = <span class="number">1</span>;</span><br><span class="line">        mCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (transferring)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (next[mCurrent] == goal[mCurrent])</span><br><span class="line">                goal[mCurrent] = value;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                transferring = <span class="number">0</span>;</span><br><span class="line">            next[mCurrent] = next[mCurrent] + <span class="number">1</span>;</span><br><span class="line">            mCurrent = mCurrent + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">while</span> (next[m] != n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="参考">参考</h1>
 <ul>
 <li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
@@ -159,48 +192,6 @@ io-wiki</a></p>
       <tags>
         <tag>持续更新</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>人工神经网络</title>
-    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
-<p><strong>Artificial Neural Networks, ANN</strong></p>
-<span id="more"></span>
-<h2 id="预备知识">预备知识</h2>
-<h3 id="mp模型">MP模型</h3>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h3 id="感知算法">感知算法</h3>
-<p><img src="/img/人工神经网络/感知算法.png"></p>
-<h3 id="增广向量">增广向量</h3>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h3 id="阶跃函数">阶跃函数</h3>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
-<blockquote>
-<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
-</blockquote>
-<h3 id="梯度下降算法">梯度下降算法</h3>
-<h3 id="后向传播算法">后向传播算法</h3>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>人工神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
   </entry>
   <entry>
     <title>机器学习术语</title>
@@ -248,12 +239,21 @@ io-wiki</a></p>
 <p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
 ]]></content>
       <categories>
-        <category>cheatSheet</category>
         <category>机器学习</category>
+        <category>cheatSheet</category>
       </categories>
       <tags>
         <tag>持续更新</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>大一总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
   <entry>
     <title>SAT求解器的应用</title>
@@ -324,6 +324,35 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
         <tag>SAT</tag>
         <tag>命题逻辑</tag>
         <tag>pycosat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/06/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -455,91 +484,6 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/06/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yt-dlp以及you-get使用体验</title>
-    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
-<p>由于youtube-dl下载实在太慢就不放这里了</p>
-<h2 id="测试视频链接">测试视频链接</h2>
-<ul>
-<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
-: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
-<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
-: https://www.bilibili.com/bangumi/play/ep331428</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
-https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
-:
-https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
-</ul>
-<span id="more"></span>
-<h2 id="yt-dlp">yt-dlp</h2>
-<h3 id="b站video视频">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
-<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
-<h3 id="b站bangumi视频">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
-<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
-<h3 id="油管单个视频">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h3 id="油管视频列表">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
-<p>反应速度和下载速度都🆗</p>
-<h2 id="you-get">you-get</h2>
-<h3 id="b站video视频-1">B站video视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
-<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
-<h3 id="油管单个视频-1">油管单个视频</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
-<p>呃。。。</p>
-<h3 id="油管视频列表-1">油管视频列表</h3>
-<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
-<p>呃。。。</p>
-<h2 id="总结">总结</h2>
-<p>yt-dlp 用来下油管</p>
-<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
-也挺不错的</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>视频下载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>人口统计数据分析器</title>
     <url>/2022/06/17/%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%99%A8/</url>
     <content><![CDATA[<h1 id="人口统计数据分析器">人口统计数据分析器</h1>
@@ -622,6 +566,62 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </tags>
   </entry>
   <entry>
+    <title>yt-dlp以及you-get使用体验</title>
+    <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
+<p>由于youtube-dl下载实在太慢就不放这里了</p>
+<h2 id="测试视频链接">测试视频链接</h2>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1P44y1q7uL?spm_id_from=333.999.0.0">B站video视频</a>
+: https://www.bilibili.com/video/BV1P44y1q7uL</p></li>
+<li><p><a href="https://www.bilibili.com/bangumi/play/ep331428">B站bangumi视频</a>
+: https://www.bilibili.com/bangumi/play/ep331428</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=CYYtLXfquy0">油管单个视频</a> :
+https://www.youtube.com/watch?v=CYYtLXfquy0</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">油管视频列表</a>
+:
+https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3</p></li>
+</ul>
+<span id="more"></span>
+<h2 id="yt-dlp">yt-dlp</h2>
+<h3 id="b站video视频">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174021731.png"></p>
+<p>可以是可以下载，但它居然刚开始失败了一次；而且反应有点慢；速度还🆗。</p>
+<h3 id="b站bangumi视频">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174349905.png"></p>
+<p>B站番剧视频直接无法下载了。（也可能是我的操作失误，反正我找不到解决方案😅</p>
+<h3 id="油管单个视频">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174614388.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h3 id="油管视频列表">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706174806614.png"></p>
+<p>反应速度和下载速度都🆗</p>
+<h2 id="you-get">you-get</h2>
+<h3 id="b站video视频-1">B站video视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230209003.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="b站bangumi视频-1">B站bangumi视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706230737119.png"></p>
+<p>反应速度和下载速度都🆗，还下载了弹幕。</p>
+<h3 id="油管单个视频-1">油管单个视频</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232125285.png"></p>
+<p>呃。。。</p>
+<h3 id="油管视频列表-1">油管视频列表</h3>
+<p><img src="/img/yt-dlp以及you-get使用体验/image-20220706232521406.png"></p>
+<p>呃。。。</p>
+<h2 id="总结">总结</h2>
+<p>yt-dlp 用来下油管</p>
+<p>you-get 用来下B站（不过听说 <strong>哔哩哔哩下载姬</strong>
+也挺不错的</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>视频下载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>寻找自幂数的优化算法</title>
     <url>/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1 id="寻找自幂数的优化算法">寻找自幂数的优化算法</h1>
@@ -679,6 +679,54 @@ Pandas 系列。 （<code>race</code> 栏）</li>
       </categories>
       <tags>
         <tag>自幂数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>离散数学大一下期末</title>
+    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
+<span id="more"></span>
+<blockquote>
+<p>离散数学第二版 <strong>P131</strong></p>
+<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
+是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
+<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
+为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
+[x]_R=\{y\mid y\in A\wedge xRy\}
+\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
+<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
+<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
+<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
+<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
+R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
+\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
+</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p><span class="math display">\[
+\begin{gather}
+A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>根据上面的定义知 <span class="math display">\[
+R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
+\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
+\begin{align*}
+&amp;[a]_R=\{a,d\}\\
+&amp;[b]_R=\{b,c\}\\
+&amp;[c]_R=\{c,b\}\\
+&amp;[d]_R=\{d,a\}\\
+\end{align*}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
       </tags>
   </entry>
   <entry>
@@ -876,67 +924,6 @@ b=\cfrac{1-y_i\sum_{i=1}^{N}\alpha_iy_iK(X_i,X_j)}{y_i}
       </categories>
   </entry>
   <entry>
-    <title>概率论大一下期末</title>
-    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
-<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
-</figure>
-<span id="more"></span>
-<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
-<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
-</figure>
-<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
-枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
-N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
-进行区间估计。</p>
-<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
-<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
-</figure>
-<h2 id="考试题">考试题</h2>
-<p>题目太长很多都忘了😅</p>
-<p>要是没记错有道题是这样 <span class="math display">\[
-\begin{gather}
-X_1,X_2,\cdots,X_n是从总体服从N(\mu,
-4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
-<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
-<strong>定理二</strong> 。</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
-<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
-</figure>
-<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
-，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
-，再根据卡方分布的可加性</p>
-<figure>
-<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
-<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
-</figure>
-<p>有 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
-\]</span> 即 <span class="math display">\[
-\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
-\]</span></p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>点到空间直线的距离公式</title>
     <url>/2022/06/18/%E7%82%B9%E5%88%B0%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="点到空间直线的距离公式">点到空间直线的距离公式</h1>
@@ -1010,51 +997,64 @@ d=\frac{|\vec{s}\times\vec{v}|}{|\vec{s}|}
       </tags>
   </entry>
   <entry>
-    <title>离散数学大一下期末</title>
-    <url>/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="离散数学大一下期末">离散数学大一下期末</h1>
+    <title>概率论大一下期末</title>
+    <url>/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="概率论大一下期末">概率论大一下期末</h1>
 <h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
+<p><strong>切比雪夫不等式</strong> ：知道 <span class="math inline">\(E(X)\)</span> 和 <span class="math inline">\(D(X)\)</span> 就可以估计概率范围了</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629153843797.png" alt="概率论与数理统计P105">
+<figcaption aria-hidden="true">概率论与数理统计P105</figcaption>
+</figure>
 <span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
+<p><strong>相关系数</strong> ：消除量纲影响以描述线性相关程度</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629154103345.png" alt="概率论与数理统计P106">
+<figcaption aria-hidden="true">概率论与数理统计P106</figcaption>
+</figure>
+<p><strong>已知方差的正态总体均值的区间估计</strong> ： 采用 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span>
+枢轴量，由 <span class="math inline">\(\cfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim
+N(0,1)\)</span> 便可对均值 <span class="math inline">\(\mu\)</span>
+进行区间估计。</p>
+<p><strong>最大似然估计法</strong> ：（直接看具体例子应用</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160118966.png" alt="概率论与数理统计P153">
+<figcaption aria-hidden="true">概率论与数理统计P153</figcaption>
+</figure>
+<h2 id="考试题">考试题</h2>
+<p>题目太长很多都忘了😅</p>
+<p>要是没记错有道题是这样 <span class="math display">\[
 \begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
+X_1,X_2,\cdots,X_n是从总体服从N(\mu,
+4)的样本，\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\underline{\hspace{2cm}}
 \end{gather}
 \]</span></p>
 <h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
+<p><strong>尚未找到权威性的解答，下面是我个人的做法。</strong></p>
+<p>对于这道题目，直接应用 <strong>四大定理</strong> 中的
+<strong>定理二</strong> 。</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160524735.png" alt="概率论与数理统计P143">
+<figcaption aria-hidden="true">概率论与数理统计P143</figcaption>
+</figure>
+<p>其中 <span class="math inline">\(\sigma^2=4\)</span> ，而 <span class="math inline">\(S^2=\sum\limits_{i=1}^n(X_i-\overline{X})^2\)</span>
+，故 <span class="math inline">\(\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\cfrac{\chi^2(n-1)}{n-1}\)</span>
+，再根据卡方分布的可加性</p>
+<figure>
+<img src="/img/概率论大一下期末/image-20220629160752592.png" alt="概率论与数理统计P139">
+<figcaption aria-hidden="true">概率论与数理统计P139</figcaption>
+</figure>
+<p>有 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(\cfrac{n-1}{n-1})
+\]</span> 即 <span class="math display">\[
+\cfrac{\sum\limits_{i=1}^n(X_i-\overline{X})^2}{4}\sim\chi^2(1)
 \]</span></p>
 ]]></content>
       <categories>
         <category>大学考试</category>
       </categories>
       <tags>
-        <tag>离散数学</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
