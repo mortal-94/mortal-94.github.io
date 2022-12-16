@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/BlogLogo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/BlogLogo.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="zIlmy6t7d6p4oWGtlhAEFcZkOmXHSaufoispsMDFsc0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CCourgette:300,300italic,400,400italic,700,700italic%7Ccursive:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mortal-94.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="计组术语收集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计组整理">
+<meta property="og:url" content="https://mortal-94.github.io/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="mortallyn&#39;s blog">
+<meta property="og:description" content="计组术语收集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/计算机系统层次结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/各编码表示范围.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/浮点数格式.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/IEEE754浮点数格式.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/ASCII码对照表.jpg">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/汉字编码.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/补码加法.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/补码减法.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/求补.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/定点数加减运算器.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/阵列乘法器结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/求补电路.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/单总线运算器的结构形式1.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/单总线运算器的结构形式2.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/双总线运算器的结构形式1.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/双总线运算器的结构形式2.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/三总线运算器的结构形式.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/浮点数运算器结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/存储器分类.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/存储器的层次结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/集中式刷新.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/分散式刷新.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/异步式刷新.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/Cache理论依据.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/Cache概念式.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/CPU结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/控制器结构.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/时序系统周期关系.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/时序信号发生器.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/微指令格式.png">
+<meta property="og:image" content="https://mortal-94.github.io/img/计组整理/微程序控制器的组成.png">
+<meta property="article:published_time" content="2022-12-11T07:36:29.340Z">
+<meta property="article:modified_time" content="2022-12-16T04:36:22.318Z">
+<meta property="article:author" content="mortallyn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mortal-94.github.io/img/计组整理/计算机系统层次结构.png">
+
+
+<link rel="canonical" href="https://mortal-94.github.io/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/","path":"2022/12/11/计组整理/","title":"计组整理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计组整理 | mortallyn's blog</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://my-waline-6bwvk45fx-mortal-94.vercel.app/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">mortallyn's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">井底之蛙 欲观苍穹</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">19</span></a></li><li class="menu-item menu-item-mininote"><a href="/miniNote/" rel="section"><i class="fa fa-note-sticky fa-fw"></i>miniNote</a></li><li class="menu-item menu-item-疑惑记录"><a href="/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95.html" rel="section"><i class="fa fa-question fa-fw"></i>疑惑记录</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">计组整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.1.</span> <span class="nav-text">计算机系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">硬件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">软件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">层次结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.1.2.</span> <span class="nav-text">计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.3.</span> <span class="nav-text">计算机系统的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%BB%93%E6%9E%84%E5%88%86"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">按结构分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%94%A8%E9%80%94%E5%88%86"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">按用途分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E5%88%86"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">按使用方式分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E8%A7%84%E6%A8%A1%E5%88%86"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">按规模分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.2.</span> <span class="nav-text">信息编码与数据表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">编码方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">定点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">规格化表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ieee-754-%E6%A0%87%E5%87%86"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">IEEE 754 标准</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E6%95%B0%E5%80%BC%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.4.</span> <span class="nav-text">非数值数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ascii%E7%A0%81"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">ASCII码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">汉字编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E9%AA%8C%E7%A0%81"><span class="nav-number">1.2.5.</span> <span class="nav-text">效验码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">运算方法和运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0%E7%9A%84%E7%A7%BB%E4%BD%8D"><span class="nav-number">1.3.1.</span> <span class="nav-text">机器数的移位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">定点数的加减</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E5%88%A4%E6%96%AD"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">溢出判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">运算器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">1.3.3.</span> <span class="nav-text">定点数的乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E4%B9%98%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">原码乘法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B5%E5%88%97%E4%B9%98%E6%B3%95%E5%99%A8"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">阵列乘法器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.4.</span> <span class="nav-text">定点运算器的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E6%88%90"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F"><span class="nav-number">1.3.5.</span> <span class="nav-text">浮点数的加减</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">运算步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84-1"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.4.</span> <span class="nav-text">存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.4.2.</span> <span class="nav-text">主存的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dram%E7%9A%84%E5%88%B7%E6%96%B0"><span class="nav-number">1.4.4.</span> <span class="nav-text">DRAM的刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8Ecpu%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.5.</span> <span class="nav-text">主存储器与CPU的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E9%87%8F%E6%89%A9%E5%B1%95"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">容量扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.5.2.</span> <span class="nav-text">连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8cache"><span class="nav-number">1.4.6.</span> <span class="nav-text">高速缓冲存储器Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.4.6.1.</span> <span class="nav-text">地址映射方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="nav-number">1.4.6.1.1.</span> <span class="nav-text">直接映射</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number">1.4.6.1.2.</span> <span class="nav-text">全相联映射</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number">1.4.6.1.3.</span> <span class="nav-text">组相联映射</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="nav-number">1.4.6.2.</span> <span class="nav-text">替换策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E7%AD%96%E7%95%A5"><span class="nav-number">1.4.6.3.</span> <span class="nav-text">写策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.4.7.</span> <span class="nav-text">虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">指令系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cpu%E7%BB%84%E6%88%90%E5%92%8C%E5%8A%9F%E8%83%BD"><span class="nav-number">1.6.1.</span> <span class="nav-text">CPU组成和功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E5%8A%9F%E8%83%BD"><span class="nav-number">1.6.2.</span> <span class="nav-text">控制器的组成和功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">时序控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E4%BF%A1%E5%8F%B7%E5%8F%91%E7%94%9F%E5%99%A8"><span class="nav-number">1.6.2.1.1.</span> <span class="nav-text">时序信号发生器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="nav-number">1.6.2.1.2.</span> <span class="nav-text">控制方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">1.6.3.</span> <span class="nav-text">微程序控制器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.7.</span> <span class="nav-text">输入输出系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF"><span class="nav-number">1.8.</span> <span class="nav-text">总线</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mortallyn"
+      src="/images/BlogLogo.png">
+  <p class="site-author-name" itemprop="name">mortallyn</p>
+  <div class="site-description" itemprop="description">喜欢打注释的小菜鸡</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/mortal-94" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mortal-94" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mortallyn@gmail.com" title="E-Mail → mailto:mortallyn@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/mortallyning" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;mortallyning" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/huo-zai-dang-xia-61-63" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;huo-zai-dang-xia-61-63" rel="noopener" target="_blank"><i class="fa fa-earth-americas fa-fw"></i>知乎</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/BlogLogo.png">
+      <meta itemprop="name" content="mortallyn">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mortallyn's blog">
+      <meta itemprop="description" content="喜欢打注释的小菜鸡">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计组整理 | mortallyn's blog">
+      <meta itemprop="description" content="计组术语收集">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计组整理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-11 15:36:29" itemprop="dateCreated datePublished" datetime="2022-12-11T15:36:29+08:00">2022-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-12-16 12:36:22" itemprop="dateModified" datetime="2022-12-16T12:36:22+08:00">2022-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cheatSheet/" itemprop="url" rel="index"><span itemprop="name">cheatSheet</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">计组术语收集</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="计组整理">计组整理</h1>
+<p>我认为计算机组成原理大致分为下面这几部分：</p>
+<p><strong><del>一些电路知识</del>、基本组成（概论）、信息编码与数据表示、运算方法和运算器构成、存储系统、指令系统、控制器的操作、输入输出系统、总线。</strong></p>
+<p>PS：本人没学过数电，电路知识就不在这整理了。</p>
+<h2 id="概论">概论</h2>
+<h3 id="计算机系统">计算机系统</h3>
+<p>计算机系统有两个部分： <strong>硬件系统、软件系统</strong> 。</p>
+<h4 id="硬件系统">硬件系统</h4>
+<p>计算机硬件系统是由
+<strong>存储器、运算器、控制器、输入设备、输出设备</strong> 组成。</p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>存储器</strong></td>
+<td><strong>用于存放指令和数据</strong></td>
+</tr>
+<tr class="even">
+<td><strong>运算器</strong></td>
+<td><strong>执行加减乘除运算、逻辑运算</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>控制器</strong></td>
+<td><strong>译码分析指令，产生并发生控制信号以保证计算机协调地工作；整个计算机的控制中心</strong></td>
+</tr>
+<tr class="even">
+<td><strong>输入设备</strong></td>
+<td><strong>计算机输入信息的设备</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>输出设备</strong></td>
+<td><strong>将计算机的处理结果转换成人或其他设备可以接收的形式。</strong></td>
+</tr>
+</tbody>
+</table>
+<p>PS：由于运算器和控制器在逻辑关系和电路结构上的联系十分紧密，通常将它们制作在同一芯片上，称之为
+<strong>中央处理器（Central Processing Unit，CPU）</strong> 。</p>
+<h4 id="软件系统">软件系统</h4>
+<p>计算机软件系统可以分为两大类： <strong>系统软件、应用软件</strong>
+。</p>
+<table>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>系统软件</td>
+<td>管理、调度、监视、和维护系统资源的程序；这些系统资源包括硬件资源和软件资源；使系统得到合理的调度，确保高效运行</td>
+</tr>
+<tr class="even">
+<td>应用软件</td>
+<td>用户根据具体任务需求所开发的程序</td>
+</tr>
+</tbody>
+</table>
+<p>常用的系统软件有：
+<strong>操作系统、语言处理程序、数据库管理系统、服务型程序、网络管理软件</strong>
+。 应用软件有很多。</p>
+<table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>系统软件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>操作系统</td>
+<td>协调管理资源、组织运行、提供计算机和用户之间的交互接口；最基本、核心的系统软件。</td>
+</tr>
+<tr class="even">
+<td>语言处理程序</td>
+<td>翻译高级语言编写的程序供计算机执行</td>
+</tr>
+<tr class="odd">
+<td>数据库管理系统</td>
+<td>管理数据库</td>
+</tr>
+<tr class="even">
+<td>服务型程序</td>
+<td>帮助用户使用和维护计算机，提供服务性手段的程序</td>
+</tr>
+<tr class="odd">
+<td>网络管理软件</td>
+<td>主要指网络通信协议和网络操作系统。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="层次结构">层次结构</h4>
+<p>计算机系统的层次结构是指将计算机系统抽象为不同层次的模型，以便了解和研究计算机系统的运作方式。</p>
+<p><img src="/img/计组整理/计算机系统层次结构.png" style="zoom: 50%;"></p>
+<table>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>层次</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>微程序设计级</td>
+<td>完成计算机系统的基本运算和存储功能，包括处理数据、存储数据和进行输入/输出操作。</td>
+</tr>
+<tr class="even">
+<td>机器指令系统级</td>
+<td>提供计算机硬件可以读懂并可直接操纵其工作的二进制信息。软硬分界。</td>
+</tr>
+<tr class="odd">
+<td>操作系统级</td>
+<td>管理硬件资源、支持其他软件，使计算机自动、高效地运行</td>
+</tr>
+<tr class="even">
+<td>语言处理程序及其他系统软件</td>
+<td>翻译高级语言编写的程序供计算机执行、使用户更好地使用计算机</td>
+</tr>
+<tr class="odd">
+<td>应用程序</td>
+<td>完成用户的具体任务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="计算机的性能指标">计算机的性能指标</h3>
+<p>主要讨论计算机硬件的技术指标。</p>
+<p>有如下几个方面：
+<strong>机器字长、存储容量、运算速度、可配置的外围设备、性能价格比、可靠性可维护性及可用性</strong>
+。</p>
+<table>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>指标</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>机器字长</td>
+<td>CPU一次能处理的数据位数。决定了寄存器、运算部件、数据总线的位数。</td>
+</tr>
+<tr class="even">
+<td>存储容量</td>
+<td>主存储器和辅助存储器的容量。</td>
+</tr>
+<tr class="odd">
+<td>运算速度</td>
+<td>目前普遍采用单位时间执行指令的平均条数来衡量。MIPS (Million
+Instruction Per Second)</td>
+</tr>
+<tr class="even">
+<td>可配置的外围设备</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>性能价格比</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>可靠性、可维护性及可用性</td>
+<td>MTBF(Mean Time Between Failure)，MTRF(Mean Time to Repair
+Fault)，MTBF/(MTBF+MTRF)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="计算机系统的分类">计算机系统的分类</h3>
+<h4 id="按结构分">按结构分</h4>
+<ul>
+<li>单指令流单数据流（SISD）结构</li>
+<li>单指令流多数据流（SIMD）结构</li>
+<li>多指令流单数据流（MISD）结构</li>
+<li>多指令多数据流（MIMD）结构</li>
+</ul>
+<h4 id="按用途分">按用途分</h4>
+<ul>
+<li>通用计算机</li>
+<li>专用计算机</li>
+</ul>
+<h4 id="按使用方式分">按使用方式分</h4>
+<ul>
+<li>桌上型计算机</li>
+<li>服务型计算机</li>
+<li>嵌入型计算机</li>
+</ul>
+<h4 id="按规模分">按规模分</h4>
+<ul>
+<li>巨型计算机</li>
+<li>大/中型计算机</li>
+<li>小型计算机</li>
+<li>微型计算机</li>
+</ul>
+<hr>
+<p>随便写两个问题，期末复习看到的。😶‍🌫️</p>
+<blockquote>
+<p>什么是机器字长？它对计算机性能有哪些影响？</p>
+<p>指 CPU
+一次能处理的数据位数。它影响着计算机的运算速度，硬件成本、指令系统功能，数据处理精度等。</p>
+</blockquote>
+<blockquote>
+<p>什么是计算机软、硬件的逻辑等价性？理解软硬件的等价性的意义是什么？</p>
+<p>计算机软件和硬件的逻辑等价性指的是在实现相同的逻辑功能时，软件和硬件的行为是相同的。这意味着，如果一个特定的逻辑功能可以用软件实现，那么它也可以用硬件来实现，反之亦然。</p>
+<p>理解软硬件的等价性的意义在于，它有助于我们在设计计算机系统时，更好地理解软硬件之间的关系，并且更好地利用它们来实现指定的逻辑功能。例如，如果我们知道某个逻辑功能可以用软件实现，那么我们就可以避免使用更复杂、更昂贵的硬件来实现这个功能。</p>
+</blockquote>
+<blockquote>
+<p>什么是固件？举例说明固件在计算机系统中的应用。</p>
+<p>固件是一种用于控制计算机硬件设备的软件。它通常存储在可编程存储器中，例如
+ROM、EPROM 或
+Flash，并且与硬件设备相关联。固件不同于普通的软件，因为它不能被用户直接更改或修改，而且在系统启动时就会被自动加载。</p>
+<p>一个典型的例子是计算机的
+BIOS（基本输入/输出系统）。这是一个固件程序，它在计算机启动时自动加载，并负责执行一些基本的初始化任务，例如检查系统的硬件配置、识别硬盘驱动器和其他设备、加载操作系统等。</p>
+<p>另一个例子是网络设备，例如路由器或交换机。这些设备通常都包含一个固件程序，用于控制设备的硬件功能，并执行网络协议和其他相关任务。固件在这些设备中发挥着重要作用，可以确保设备能够正常工作，并实现指定的网络功能。</p>
+</blockquote>
+<h2 id="信息编码与数据表示">信息编码与数据表示</h2>
+<p>一些预备知识</p>
+<p>机器数，数值数据在计算机中的表示形式。（即01代码</p>
+<p>计算机硬件不区分无符号数据和带符号数据，由程序（指令）来区分。</p>
+<p><strong>BCD 码表</strong> <del>单纯记录一下</del></p>
+<table>
+<thead>
+<tr class="header">
+<th>十进制数</th>
+<th>8421码</th>
+<th>5421码</th>
+<th>2421码</th>
+<th>余3码</th>
+<th>余3循环码</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0000</td>
+<td>0000</td>
+<td>0000</td>
+<td>0011</td>
+<td>0010</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0001</td>
+<td>0001</td>
+<td>0001</td>
+<td>0100</td>
+<td>0110</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0010</td>
+<td>0010</td>
+<td>0010</td>
+<td>0101</td>
+<td>0111</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0011</td>
+<td>0011</td>
+<td>0011</td>
+<td>0110</td>
+<td>0101</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0100</td>
+<td>0100</td>
+<td>0100</td>
+<td>0111</td>
+<td>0100</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0101</td>
+<td>1000</td>
+<td>1011</td>
+<td>1000</td>
+<td>1100</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0110</td>
+<td>1001</td>
+<td>1100</td>
+<td>1001</td>
+<td>1101</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>0111</td>
+<td>1010</td>
+<td>1101</td>
+<td>1010</td>
+<td>1111</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>1000</td>
+<td>1011</td>
+<td>1110</td>
+<td>1011</td>
+<td>1110</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>1001</td>
+<td>1100</td>
+<td>1111</td>
+<td>1100</td>
+<td>1010</td>
+</tr>
+</tbody>
+</table>
+<p>关于这一节可以分成下面这几部分讨论：</p>
+<p><strong>编码方式、定点数、浮点数、非数值数据、效验码。</strong></p>
+<h3 id="编码方式">编码方式</h3>
+<table>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 42%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>编码</th>
+<th>符号位</th>
+<th>数值位</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>真值</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>原码</td>
+<td>正0 负1</td>
+<td>与绝对值相同</td>
+<td>乘除运算</td>
+</tr>
+<tr class="odd">
+<td>补码</td>
+<td>正0 负1</td>
+<td>正数时与绝对值相同；负数时，按位取反，再加1</td>
+<td>一般整型数的表示格式，加减运算，也可用于乘除运算</td>
+</tr>
+<tr class="even">
+<td>反码</td>
+<td>正0 负1</td>
+<td>正数时与绝对值相同；负数时，按位取反</td>
+<td>转换成补码的中间编码</td>
+</tr>
+<tr class="odd">
+<td>移码</td>
+<td>正1 负0</td>
+<td>正数时与绝对值相同；负数时，按位取反，再加1</td>
+<td>用于表示浮点数的阶码部分，一般只表示定点整数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定点数">定点数</h3>
+<p>定点机器数：小数点的位置是固定不变的</p>
+<p>定点机器数又分为两种：<strong>定点小数、定点正数</strong>。一个用来表示
+<strong>纯虚数</strong> ，一个用来表示 <strong>纯整数</strong> 。</p>
+<p><strong>n位定点数分别用n+1位的原码、补码、反码、移码表示范围如下：</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>编码</th>
+<th>整数</th>
+<th>小数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>原码</td>
+<td><span class="math inline">\([-(2^n-1),2^n-1]\)</span></td>
+<td><span class="math inline">\([-(1-2^n),1-2^{-n}]\)</span></td>
+</tr>
+<tr class="even">
+<td>补码</td>
+<td><span class="math inline">\([-2^n,2^n-1]\)</span></td>
+<td><span class="math inline">\([-1,1-2^{-n}]\)</span></td>
+</tr>
+<tr class="odd">
+<td>反码</td>
+<td><span class="math inline">\([-(2^n-1),2^n-1]\)</span></td>
+<td><span class="math inline">\([-(1-2^n),1-2^{-n}]\)</span></td>
+</tr>
+<tr class="even">
+<td>移码</td>
+<td><span class="math inline">\([-2^n,2^n-1]\)</span></td>
+<td>一般只表示定点整数</td>
+</tr>
+</tbody>
+</table>
+<p>直观理解：</p>
+<p><img src="/img/计组整理/各编码表示范围.png" alt="image-20221212093434323" style="zoom:50%;"></p>
+<h3 id="浮点数">浮点数</h3>
+<p><img src="/img/计组整理/浮点数格式.png"></p>
+<p>浮点数 <span class="math inline">\(N=M\times R^E\)</span> 。</p>
+<p>尾数 <span class="math inline">\(M\)</span> 为定点小数；阶码 <span class="math inline">\(E\)</span> 为定点整数；阶码的底 <span class="math inline">\(R\)</span> 一般为2、8或16，隐含规定。</p>
+<h4 id="规格化表示">规格化表示</h4>
+<p>充分利用尾数的二进制数位来表示更多的有效数字，将尾数的绝对值限定在某个范围之内。</p>
+<p><strong>尾数 <span class="math inline">\(M\)</span>
+应满足条件：绝对值最高有效位为1；要留意尾数的编码方式</strong></p>
+<h4 id="ieee-754-标准">IEEE 754 标准</h4>
+<p><img src="/img/计组整理/IEEE754浮点数格式.png"></p>
+<p>PS：要注意这个 最高位隐藏表示。即 <span class="math inline">\(M=1.M_1M_2\cdots M_n\)</span> 。</p>
+<h3 id="非数值数据">非数值数据</h3>
+<p><strong>字符、图像、声音等</strong>
+，在计算机是对其进行二进制编码来表示。</p>
+<p>这里只讨论字符编码。</p>
+<h4 id="ascii码">ASCII码</h4>
+<p>美国标准信息交换码，为国际标准，在全世界通用 。</p>
+<p>总共128个字符，其中有33个是控制字符。</p>
+<p><img src="/img/计组整理/ASCII码对照表.jpg" style="zoom: 67%;"></p>
+<h4 id="汉字编码">汉字编码</h4>
+<p>对于汉字，计算机的处理技术必须解决三个问题：汉字输入、汉字储存与交换、汉字输出，它们分别对应着<strong>汉字输入码、交换码、内码、字形码</strong>的概念。</p>
+<table>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>编码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>输入码</td>
+<td>也称外码，是为了将汉字输入计算机而编制的代码，是代表某一汉字的一串键盘符号</td>
+</tr>
+<tr class="even">
+<td>交换码</td>
+<td>具有不同汉字处理功能的计算机系统之间在交换汉字信息时所使用的代码标准</td>
+</tr>
+<tr class="odd">
+<td>内码</td>
+<td>用于汉字信息的存储、交换、检索等操作的机内代码</td>
+</tr>
+<tr class="even">
+<td>字形码</td>
+<td>将汉字字形经过点阵数字化后形成的一串二进制数，用于汉字的显示和打印</td>
+</tr>
+</tbody>
+</table>
+<p>具体内容就不细讲了。</p>
+<p><img src="/img/计组整理/汉字编码.png" style="zoom:50%;"></p>
+<h3 id="效验码">效验码</h3>
+<p>老师没讲这部分，这里也就不整理了。😅</p>
+<h2 id="运算方法和运算器">运算方法和运算器</h2>
+<p>这里我整理以下内容：
+<strong>机器数的移位、定点数的加减、定点数的乘法、定点运算器的结构、浮点数的加减</strong></p>
+<h3 id="机器数的移位">机器数的移位</h3>
+<table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>移位方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>逻辑移位</td>
+<td>将数据视为无符号数据</td>
+</tr>
+<tr class="even">
+<td>算术移位</td>
+<td>在数值的绝对值上进行放大或缩小，同时，符号位必须要保持不变</td>
+</tr>
+<tr class="odd">
+<td>循环移位</td>
+<td>左移时最高位移入最低位，右移时最低位移入最高位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>补码的算术移位</strong>。</p>
+<table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>移位方式（补码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>算术左移</td>
+<td>符号位不变，高位移出，低位补0。移出的高位若与符号位不同则发生溢出。</td>
+</tr>
+<tr class="even">
+<td>算术右移</td>
+<td>符号位不变，低位移出，高位正数补0，负数补1，即高位补符号位。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>原码的算术移位</strong>。</p>
+<table>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>移位方式（原码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>算术左移</td>
+<td>符号位不变，高位移出，低位补0。移出的高位若是1则发生溢出。</td>
+</tr>
+<tr class="even">
+<td>算术右移</td>
+<td>符号位不变，低位移出，高位补0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定点数的加减">定点数的加减</h3>
+<p><strong>目前计算机普遍采用 <em>补码</em>
+实现定点数的加减运算。</strong> 所以我们来看补码的加减运算。</p>
+<p><img src="/img/计组整理/补码加法.png" style="zoom:50%;">
+<img src="/img/计组整理/补码减法.png" style="zoom:50%;"></p>
+<p>对于 <span class="math inline">\([-Y]_补\)</span></p>
+<p><img src="/img/计组整理/求补.png" style="zoom:50%;"></p>
+<h4 id="溢出判断">溢出判断</h4>
+<p>当运算结果超出机器数的表示范围时，称为溢出。</p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>判断方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>单符号位判断</td>
+<td>综合所有溢出情况表达出溢出信号</td>
+</tr>
+<tr class="even">
+<td>进位判断</td>
+<td>当 最高有效位产生的进位 和 符号位产生的进位不同
+时，加减运算发生了溢出</td>
+</tr>
+<tr class="odd">
+<td>双符号位判断</td>
+<td>操作数采用双符号位补码参加运算，正数的双符号位为00，负数的双符号位为11；当运算结果的两位符号不同时，发生溢出。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="运算器">运算器</h4>
+<p><img src="/img/计组整理/定点数加减运算器.png" style="zoom:50%;"></p>
+<h3 id="定点数的乘法">定点数的乘法</h3>
+<p>定点数的乘法主要从采用原码和补码的方式实现。我这里这讨论<strong>原码</strong>的方式。</p>
+<h4 id="原码乘法步骤">原码乘法步骤</h4>
+<p>这里说的是 <strong>原码一位乘法</strong></p>
+<p>初始化：<span class="math inline">\(X\cdot Y\)</span> ，部分积为0</p>
+<ol type="1">
+<li>符号位单独处理，数据的绝对值参与乘法运算</li>
+<li>若 <span class="math inline">\(Y_i=1\)</span> ，部分积加 <span class="math inline">\(|X|\)</span> ；若 <span class="math inline">\(Y_i=0\)</span> ，部分积加 <span class="math inline">\(0\)</span>
+。累加结果右移一位，产生新的的部分积。</li>
+<li>累计右移 <span class="math inline">\(n\)</span> 次。</li>
+</ol>
+<p>PS：部分积采用保留一位附加符号位的方式，用于暂存累加时出现的溢出位，后续右移时可直接移入数值位。</p>
+<h4 id="阵列乘法器">阵列乘法器</h4>
+<p>下图是 4位乘4位的绝对值阵列乘法器。其中 FA 是全加器。</p>
+<p><img src="/img/计组整理/阵列乘法器结构.png"></p>
+<p>虽然我们没有讲补码的乘法运算。但只要在绝对值阵列乘法器的基础上，添加一个异或门产生积的符号，再让原码数据通过一个
+<strong>补码求绝对值的电路</strong>
+把补码转成绝对值送入绝对值阵列乘法器，算出积的绝对值，再通过一个
+<strong>绝对值求补码的电路</strong>
+把绝对值转回补码形式，最终就得出了积的补码形式。</p>
+<p>其实这两个电路实现是一样的。</p>
+<p><img src="/img/计组整理/求补电路.png"></p>
+<h3 id="定点运算器的结构">定点运算器的结构</h3>
+<h4 id="组成">组成</h4>
+<table>
+<thead>
+<tr class="header">
+<th>部件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>算术逻辑部件 ALU</td>
+<td>核心部件，实现算术运算和逻辑运算</td>
+</tr>
+<tr class="even">
+<td>暂存器</td>
+<td>用来存放参与计算的数据及运算结果</td>
+</tr>
+<tr class="odd">
+<td>通用寄存器堆</td>
+<td>用于存放程序中用到的数据</td>
+</tr>
+<tr class="even">
+<td>标记寄存器</td>
+<td>用于记录运算器上次运算结果的状态</td>
+</tr>
+<tr class="odd">
+<td>内部总线</td>
+<td>用于连接各个部件的信息通道</td>
+</tr>
+</tbody>
+</table>
+<p><strong>标记寄存器5种最基本的运算结果标志</strong></p>
+<table>
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ZF (Zero Flag bit)</td>
+<td>结果为零标志位；运算结果为全0，ZF置1，反之置0。</td>
+</tr>
+<tr class="even">
+<td>CF (Carry Flag bit)</td>
+<td>进位/借位标志位，CF标志只对无符号数运算有意义</td>
+</tr>
+<tr class="odd">
+<td>OF (Overflow Flag bit)</td>
+<td>溢出标志位</td>
+</tr>
+<tr class="even">
+<td>SF (Sign Flag bit)</td>
+<td>符号标志位</td>
+</tr>
+<tr class="odd">
+<td>PF (Parity Flag bit)</td>
+<td>奇偶标志位</td>
+</tr>
+</tbody>
+</table>
+<h4 id="结构">结构</h4>
+<p><img src="/img/计组整理/单总线运算器的结构形式1.png" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/单总线运算器的结构形式2.png" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/双总线运算器的结构形式1.png" alt="image-20221212122505053" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/双总线运算器的结构形式2.png" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/三总线运算器的结构形式.png" style="zoom:50%;"></p>
+<h3 id="浮点数的加减">浮点数的加减</h3>
+<h4 id="运算步骤">运算步骤</h4>
+<ol type="1">
+<li>0 操作数检查</li>
+<li>对阶；小阶向大阶对齐</li>
+<li>尾数相加减</li>
+<li>结果规格化</li>
+<li>舍入</li>
+</ol>
+<h4 id="结构-1">结构</h4>
+<p><img src="/img/计组整理/浮点数运算器结构.png"></p>
+<h2 id="存储系统">存储系统</h2>
+<p>一些基本概念：</p>
+<ul>
+<li>一个二进制位（bit）是构成存储器的最小单位</li>
+<li>字节（8bits）是数据存储的基本单位</li>
+<li>若干个字节组成一个字，一个字所包含的二进制位数称为字长</li>
+<li>存储单元是访问存储器的基本单位；（每台计算机的存储单元大小可能不一样</li>
+<li>存储器芯片的存储容量＝存储单元个数×每存储单元的位数</li>
+<li>单元地址是内存单元的唯一标志</li>
+<li>存储器具有两种基本的访问操作：读和写</li>
+<li>每个存储位元存储一位二进制信息</li>
+</ul>
+<p>这里先说一下地址译码器：</p>
+<p>比如说，你一个存储器里面存着的内容地址编码是n位的，然后我要访存，提供了一个n位的地址码，那么这个地址码会通向地址译码器进行地址译码，转换成一个确定的输出信号（<strong>通常为低电平</strong>）连接到存储芯片的片选端。下面这个视频讲得不错。</p>
+<iframe src="//player.bilibili.com/player.html?aid=644558100&amp;bvid=BV1ZY4y1c7gi&amp;cid=878897875&amp;page=42" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="600">
+</iframe>
+<h3 id="分类">分类</h3>
+<p><img src="/img/计组整理/存储器分类.png" style="zoom: 50%;"></p>
+<table>
+<thead>
+<tr class="header">
+<th>英文名</th>
+<th>中文名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RAM</td>
+<td>随机读写存储器；断电丢失</td>
+</tr>
+<tr class="even">
+<td>ROM</td>
+<td>只读存储器；断电不丢失</td>
+</tr>
+<tr class="odd">
+<td>MROM</td>
+<td>掩模式只读存储器</td>
+</tr>
+<tr class="even">
+<td>PROM</td>
+<td>可编程只读存储器</td>
+</tr>
+<tr class="odd">
+<td>EPROM</td>
+<td>可擦除可编程只读存储器</td>
+</tr>
+<tr class="even">
+<td>E^2PROM</td>
+<td>定可擦除可编程只读存储器</td>
+</tr>
+<tr class="odd">
+<td>SRAM</td>
+<td>静态MOS存储器</td>
+</tr>
+<tr class="even">
+<td>DRAM</td>
+<td>动态MOS存储器</td>
+</tr>
+<tr class="odd">
+<td>Cache</td>
+<td>高速缓冲存储器</td>
+</tr>
+</tbody>
+</table>
+<h3 id="主存的性能指标">主存的性能指标</h3>
+<ul>
+<li>存储容量</li>
+<li>存储速度</li>
+<li>价格</li>
+<li>可靠性</li>
+<li>功耗</li>
+</ul>
+<h3 id="层次结构-1">层次结构</h3>
+<p><img src="/img/计组整理/存储器的层次结构.png" style="zoom:50%;"></p>
+<h3 id="dram的刷新">DRAM的刷新</h3>
+<p>现在的微型计算机中大都采用 DRAM 作为其主存。</p>
+<p>DRAM 采用读出的方式进行刷新。所有的 DRAM 都需要刷新操作。</p>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 85%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>刷新方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>集中式刷新</td>
+<td>在一个刷新周期中，用一段时间对DRAM的所有行进行刷新，期间禁止读写操作，这段时间称为访存死区</td>
+</tr>
+<tr class="even">
+<td>分散式刷新</td>
+<td>把对每一行的数据刷新分散到各个存储周期去</td>
+</tr>
+<tr class="odd">
+<td>异步式刷新</td>
+<td>把对每一行的数据刷新直接分散</td>
+</tr>
+</tbody>
+</table>
+<p>感觉说不清楚，直接贴老师的讲义吧😓</p>
+<p><img src="/img/计组整理/集中式刷新.png" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/分散式刷新.png" style="zoom:50%;"></p>
+<p><img src="/img/计组整理/异步式刷新.png" style="zoom:50%;"></p>
+<h3 id="主存储器与cpu的连接">主存储器与CPU的连接</h3>
+<p>现代微型计算机（PC）的主存储器基本包括两大部分。</p>
+<p>一个是ROM，它存放的是不受电源影响的非易失性存储器，是生产厂家烧写的固定指令和数据。</p>
+<p>一个是RAM，断电数据会丢失，但主存的绝大部分都是由RAM构成，RAM对主存性能起着决定性作用。</p>
+<h4 id="容量扩展">容量扩展</h4>
+<p>有三种：</p>
+<table>
+<thead>
+<tr class="header">
+<th>扩展方式</th>
+<th>例子（SRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>位扩展</td>
+<td>用 2 片 1K×4位 的存储芯片组成 1K×8位的</td>
+</tr>
+<tr class="even">
+<td>字扩展</td>
+<td>用 2 片 1K×8位 的存储芯片组成 2K×8位的</td>
+</tr>
+<tr class="odd">
+<td>字位扩展</td>
+<td>用 8 片 1K×4位 的存储芯片组成 4K×8位的</td>
+</tr>
+</tbody>
+</table>
+<p>计算方式：</p>
+<p>一个存储器的容量假定为 <span class="math inline">\(M\times N\)</span>
+位，若使用 <span class="math inline">\(t\times k\)</span>
+位的芯片，则共需 <span class="math inline">\((M/t)\times (N/k)\)</span>
+片。</p>
+<p>集体扩展的构造这里不细讲了。</p>
+<h4 id="连接">连接</h4>
+<ol type="1">
+<li>根据CPU地址线数目确定地址范围并写出相应的二进制地址码</li>
+<li>确定各区或各类型存储器芯片的数目及扩展方式</li>
+<li>分配地址线</li>
+<li>形成片选信号</li>
+</ol>
+<p>可以通过举例译码检查一下。</p>
+<h3 id="高速缓冲存储器cache">高速缓冲存储器Cache</h3>
+<p>主存速度的提高始终跟不上CPU的发展。据统计，CPU的速度平均每年提高60%，而组成主存的DRAM的速度平均每年只改进7%。由SRAM组成的高速缓冲存储器的运行速度则接近甚至等于CPU的速度。</p>
+<p>提示速度：在CPU和主存之间增加小容量快速的SRAM→Cache。</p>
+<p>理论依据：</p>
+<p><img src="/img/计组整理/Cache理论依据.png" style="zoom:50%;"></p>
+<p>几点说明：</p>
+<ul>
+<li>在相对容量较大而速度较慢的主存与高速处理器之间设置少量但快速的存储器</li>
+<li>CPU的访存操作都是首先访问Cache</li>
+<li>为追求高速，包括管理在内的全部功能由硬件实现</li>
+<li>Cache的内容是主存部分内容的副本，Cache的功能均由硬件实现，对程序员是透明的</li>
+</ul>
+<p>几个概念：</p>
+<ul>
+<li>高速命中(Hit)：在Cache中找到</li>
+<li>高速失效(Miss)、缺失、未命中：在Cache中没找到</li>
+</ul>
+<p><img src="/img/计组整理/Cache概念式.png" style="zoom:50%;"></p>
+<h4 id="地址映射方式">地址映射方式</h4>
+<p>Cache
+的数据块大小称为<strong>行</strong>，主存的数据块大小称为<strong>块</strong>，两者等长。</p>
+<p>利用某种方法或者规则将主存块定位到cache，称为地址映射。</p>
+<p>现设 <span class="math inline">\(i\)</span> 表示主存的块号，<span class="math inline">\(j\)</span> 表示Cache的行号，主存有 <span class="math inline">\(2^m\)</span> 块，Cache 有 <span class="math inline">\(2^c\)</span> 块。</p>
+<p>Cache有 <strong>行地址、标记区、行数据</strong> 。</p>
+<h5 id="直接映射">直接映射</h5>
+<p>一种多对一的映射方式。主存与Cache之间数据块的对于关系： <span class="math inline">\(j=i\ mod\ 2^c\)</span> 。</p>
+<p>这个映射方式中，一个主存地址码可以这样划分：<strong>高位标记、字块地址、块内地址。</strong></p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>区</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>字块地址 <span class="math inline">\(i\)</span></td>
+<td>用来定位到Cache的某行（每个地址码都会定位到Cache的某行</td>
+</tr>
+<tr class="even">
+<td>高位标记</td>
+<td>用来确定当前访问的地址其所在数据块是否在Cache中（若与Cache存的标记相等说明命中</td>
+</tr>
+<tr class="odd">
+<td>块内地址</td>
+<td>用来定位数据块中的某一数据</td>
+</tr>
+</tbody>
+</table>
+<h5 id="全相联映射">全相联映射</h5>
+<p>全相联映像就是让主存中任何一个块均可以映像装入到Cache中任何一个块的位置上。</p>
+<p>这个映射方式中，一个主存地址码可以这样划分：<strong>高位标记、块内地址。</strong></p>
+<table>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>区</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>高位标记</td>
+<td>用来确定当前访问的地址其所在数据块是否在Cache中（若与Cache存的标记相等说明命中</td>
+</tr>
+<tr class="even">
+<td>块内地址</td>
+<td>用来定位数据块中的某一数据</td>
+</tr>
+</tbody>
+</table>
+<h5 id="组相联映射">组相联映射</h5>
+<p>组相联映射是前两种方法的折中方案。它把
+Cache分组，然后组间采取直接映像，而组内采取全相联映像。</p>
+<p>设分成 <span class="math inline">\(2^{c-r}\)</span> 组，每组就有
+<span class="math inline">\(2^r\)</span> 行，有如下关系：<span class="math inline">\(j=(i\ mod\  2^{c-r})\times 2^r+k\)</span> ，其中
+<span class="math inline">\(+k\)</span> 就是组内偏移。</p>
+<p>这个映射方式中，一个主存地址码可以这样划分：<strong>高位标记、组地址、块内地址。</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>区</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>组地址</td>
+<td>用来定位到Cache的某组（每个地址码都会定位到Cache的某组</td>
+</tr>
+<tr class="even">
+<td>高位标记</td>
+<td>用来定位到Cache组内的某行（若与Cache存的标记相等说明命中</td>
+</tr>
+<tr class="odd">
+<td>块内地址</td>
+<td>用来定位数据块中的某一数据</td>
+</tr>
+</tbody>
+</table>
+<h4 id="替换策略">替换策略</h4>
+<p>CPU访问Cache未命中的情况下，会将包括未命中的存储单元所在的整个数据块调入Cache。如果Cache的存储空间已满，则需要替换现有某个数据块。新主存块要进入Cache，决定替换哪个原主存块的方法，称为“替换策略”。</p>
+<p><strong>直接映射，因为是唯一映射，替换唯一的一个Cache行即可。</strong></p>
+<p><strong>全相联和组相联比较复杂，有以下一些替换算法：</strong></p>
+<ul>
+<li>随机替换算法</li>
+<li>先进先出算法</li>
+<li>最近最少使用算法</li>
+</ul>
+<p>算法的具体顾名思义，这里不细讲。</p>
+<h4 id="写策略">写策略</h4>
+<p>CPU写入操作命中Cache的情况下，可能会导致Cache的内容与主存的内容不一致，为避免Cache与主存内容不一致的问题所采用的方法，称为“写策略”。</p>
+<p>常用的有两种：</p>
+<ul>
+<li>写贯穿策略
+<ul>
+<li>CPU写Cache命中：同时写Cache和写主存</li>
+<li>CPU写Cache不命中：直接写主存，有两种做法：写入和不写入Cache</li>
+</ul></li>
+<li>写回策略
+<ul>
+<li>无论CPU写Cache命中还是不命中：只写Cache，不修改主存，仅当此Cache行被换出时，相应的主存内容才被修改</li>
+</ul></li>
+</ul>
+<h3 id="虚拟存储器">虚拟存储器</h3>
+<p>虚拟地址空间：程序员编写程序时所使用的地址空间；（逻辑地址</p>
+<p>不作细讲。</p>
+<h2 id="指令系统">指令系统</h2>
+<p>这部分暂且不整理</p>
+<h2 id="控制器">控制器</h2>
+<p>我们知道，控制器一般和运算器制作在同一芯片上——<strong>中央处理器</strong>是控制计算机自动完成取出指令和执行指令任务的部件。它是计算机的核心部件，通常简称为CPU（Central
+Processing Unit）</p>
+<h3 id="cpu组成和功能">CPU组成和功能</h3>
+<p>CPU具有以下4个基本功能：</p>
+<table>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>功能</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>指令控制</td>
+<td>保证机器按程序规定的顺序取出执行</td>
+</tr>
+<tr class="even">
+<td>操作控制</td>
+<td>CPU产生每条指令所对应的操作信号，并把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行动作</td>
+</tr>
+<tr class="odd">
+<td>时间控制</td>
+<td>对各种操作的执行严格按照时间序列进行</td>
+</tr>
+<tr class="even">
+<td>数据加工</td>
+<td>对数据进行算术运算和逻辑运算处理（运算器的功能</td>
+</tr>
+</tbody>
+</table>
+<p>对于一个CPU来说，它有6个专用寄存器：</p>
+<table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>寄存器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>数据缓冲寄存器（DR）</td>
+<td>暂时存放由内存读出或写入的指令或数据字</td>
+</tr>
+<tr class="even">
+<td>指令寄存器（IR）</td>
+<td>保存当前正在执行的一条指令</td>
+</tr>
+<tr class="odd">
+<td>程序计数器（PC）</td>
+<td>确定下一条指令的地址</td>
+</tr>
+<tr class="even">
+<td>地址寄存器（AR）</td>
+<td>保存当前CPU所访问的内存单元的地址</td>
+</tr>
+<tr class="odd">
+<td>累加寄存器（AC）——运算器</td>
+<td>最常使用的一个通用寄存器</td>
+</tr>
+<tr class="even">
+<td>状态条件寄存器（PSW）——运算器</td>
+<td>保存由算术和逻辑指令的结果建立的各种条件码</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/img/计组整理/CPU结构.png" style="zoom:50%;"></p>
+<h3 id="控制器的组成和功能">控制器的组成和功能</h3>
+<p><strong>控制器的功能是从存储器中取指令、对指令译码、产生控制信号并控制计算机系统各部件有序地执行，从而实现这条指令的功能。</strong></p>
+<p><strong>控制器是由 专用寄存器、指令译码器、操作控制器、时序信号产生器
+组成。</strong></p>
+<p>功能和专用寄存器在上面CPU也讲了。</p>
+<table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>部件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>指令译码器</td>
+<td>对指令的操作码进行译码，以识别该指令所要求的操作</td>
+</tr>
+<tr class="even">
+<td>操作控制器</td>
+<td>根据指令的操作码以及时序信号，产生取出指令和执行这条指令所需的各种操作控制信号</td>
+</tr>
+<tr class="odd">
+<td>时序信号产生器</td>
+<td>负责提供时钟信号和机器周期信号，以规定每个操作的时间</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/img/计组整理/控制器结构.png" style="zoom:50%;"></p>
+<h4 id="时序控制">时序控制</h4>
+<p>先来看看计算机中与时序有关的几个概念：</p>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>周期</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>指令周期</td>
+<td>是指计算机从内存取出一条指令并完成该指令的执行所需要的时间。</td>
+</tr>
+<tr class="even">
+<td>机器周期（CPU周期</td>
+<td>一般指CPU与内存交换一次信息（读或写）所需要的时间。</td>
+</tr>
+<tr class="odd">
+<td>时钟周期（节拍周期</td>
+<td>是指CPU执行一个微操作命令（即控制信号）的最小时间单位，即T周期。</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/img/计组整理/时序系统周期关系.png" style="zoom: 67%;"></p>
+<h5 id="时序信号发生器">时序信号发生器</h5>
+<p>一般都是由
+<strong>时钟源、环形脉冲发生器、节拍脉冲逻辑、启停控制逻辑</strong>
+四个部分组成。</p>
+<p><img src="/img/计组整理/时序信号发生器.png" style="zoom:50%;"></p>
+<h5 id="控制方式">控制方式</h5>
+<p>一条指令有几个机器周期？每个机器周期又有几个节拍？</p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>控制方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>同步控制方式</td>
+<td>以微操作序列最长的指令为标准，确定控制微操作运行的时钟周期数（节拍数）</td>
+</tr>
+<tr class="even">
+<td>异步控制方式</td>
+<td>每条指令需要多少节拍，就产生多少节拍</td>
+</tr>
+<tr class="odd">
+<td>联合控制方式</td>
+<td>把同步控制方式和异步控制方式结合使用的一种方式</td>
+</tr>
+</tbody>
+</table>
+<p>联合控制方式是这样的：大部分指令安排在统一的机器周期内完成，即同步控制；而将较少数特殊指令，或微操作序列过长或过短，或微操作时间难以确定的，采用异步控制来完成。</p>
+<p>现代计算机系统大多采用联合控制方式，其一般设计思想是，在功能部件内部采用同步控制方式，而在功能部件之间采用异步控制方式。</p>
+<h3 id="微程序控制器">微程序控制器</h3>
+<p>用软件来实现控制器的功能。</p>
+<p>一条微指令的格式如下：</p>
+<p><img src="/img/计组整理/微指令格式.png" style="zoom:50%;"></p>
+<p>对于控制字段，其每一位表示一个微命令。</p>
+<p>一个微程序控制器的工作流程如下：</p>
+<p><img src="/img/计组整理/微程序控制器的组成.png"></p>
+<p>这部分还有挺多内容的，但我也不一一罗列了。</p>
+<h2 id="输入输出系统">输入输出系统</h2>
+<p>这部分暂且不整理</p>
+<h2 id="总线">总线</h2>
+<p>这部分暂且不整理</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>mortallyn
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://mortal-94.github.io/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/" title="计组整理">https://mortal-94.github.io/2022/12/11/计组整理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/04/%E5%AF%BB%E6%89%BE%E8%87%AA%E5%B9%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="prev" title="寻找自幂数的优化算法">
+                  <i class="fa fa-chevron-left"></i> 寻找自幂数的优化算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mortallyn</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">30 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  Sometimes your whole life boils down to one insame move.
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("06/15/2022 14:37:20");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://my-waline-6bwvk45fx-mortal-94.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请文明评论呀；尚未成功搭载邮件通知系统，急事可邮我"},"avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
