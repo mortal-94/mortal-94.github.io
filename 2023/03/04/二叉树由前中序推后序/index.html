@@ -22,30 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mortal-94.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="离散数学大一下期末 当时不会的概念 当时考试居然忘了等价关系和等价类这两个概念😓">
+    <meta name="description" content="给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="离散数学大一下期末">
-<meta property="og:url" content="https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/index.html">
+<meta property="og:title" content="二叉树由前中序推后序">
+<meta property="og:url" content="https://mortal-94.github.io/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/index.html">
 <meta property="og:site_name" content="mortallyn&#39;s blog">
-<meta property="og:description" content="离散数学大一下期末 当时不会的概念 当时考试居然忘了等价关系和等价类这两个概念😓">
+<meta property="og:description" content="给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mortal-94.github.io/img/离散数学大一下期末/image-20220623175529969.png">
-<meta property="article:published_time" content="2022-06-23T09:22:01.553Z">
-<meta property="article:modified_time" content="2022-11-28T04:25:41.677Z">
+<meta property="article:published_time" content="2023-03-04T02:31:57.360Z">
+<meta property="article:modified_time" content="2023-03-04T02:59:37.798Z">
 <meta property="article:author" content="mortallyn">
-<meta property="article:tag" content="离散数学">
+<meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mortal-94.github.io/img/离散数学大一下期末/image-20220623175529969.png">
 
 
-<link rel="canonical" href="https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/">
+<link rel="canonical" href="https://mortal-94.github.io/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/","path":"2022/06/23/离散数学大一下期末/","title":"离散数学大一下期末"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/","path":"2023/03/04/二叉树由前中序推后序/","title":"二叉树由前中序推后序"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>离散数学大一下期末 | mortallyn's blog</title>
+<title>二叉树由前中序推后序 | mortallyn's blog</title>
   
 
 
@@ -150,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB"><span class="nav-number">1.</span> <span class="nav-text">离散数学大一下期末</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E6%97%B6%E4%B8%8D%E4%BC%9A%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">当时不会的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E9%A2%98%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">考试题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E8%A7%A3%E7%AD%94"><span class="nav-number">1.3.</span> <span class="nav-text">事后解答</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">二叉树由前中序推后序</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -233,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/">
+    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/BlogLogo.png">
@@ -246,12 +244,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="离散数学大一下期末 | mortallyn's blog">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="二叉树由前中序推后序 | mortallyn's blog">
+      <meta itemprop="description" content="给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          离散数学大一下期末
+          二叉树由前中序推后序
         </h1>
 
         <div class="post-meta-container">
@@ -261,15 +259,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-06-23 17:22:01" itemprop="dateCreated datePublished" datetime="2022-06-23T17:22:01+08:00">2022-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-28 12:25:41" itemprop="dateModified" datetime="2022-11-28T12:25:41+08:00">2022-11-28</time>
+      <time title="创建时间：2023-03-04 10:31:57 / 修改时间：10:59:37" itemprop="dateCreated datePublished" datetime="2023-03-04T10:31:57+08:00">2023-03-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,7 +269,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%80%83%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">大学考试</span></a>
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
         </span>
     </span>
 
@@ -297,8 +289,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" itemprop="commentCount"></span>
+    <a title="waline" href="/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -309,17 +301,18 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>796</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
+            <div class="post-description">给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果</div>
         </div>
       </header>
 
@@ -327,43 +320,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="离散数学大一下期末">离散数学大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了等价关系和等价类这两个概念😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>离散数学第二版 <strong>P131</strong></p>
-<p><strong>定义 7.15</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的关系. 如果 <span class="math inline">\(R\)</span>
-是<strong>自反的、对称的和传递的</strong>, 则称 <span class="math inline">\(R\)</span> 为 <span class="math inline">\(A\)</span> 上的<strong>等价关系</strong>. 设 <span class="math inline">\(R\)</span> 是一个等价关系,若<span class="math inline">\(&lt;x,y&gt;\in R\)</span> ,称 <strong><span class="math inline">\(\symbfit{x}\)</span> 等价于 <span class="math inline">\(\symbfit{y}\)</span></strong> ,记作 <span class="math inline">\(x\sim y\)</span> .</p>
-<p><strong>定义 7.16</strong> 设 <span class="math inline">\(R\)</span>
-为非空集合 <span class="math inline">\(A\)</span> 上的等价关系, <span class="math inline">\(\forall{x}\in A\)</span> ,令 <span class="math display">\[
-[x]_R=\{y\mid y\in A\wedge xRy\}
-\]</span> 称 <span class="math inline">\([x]_R\)</span> 为 <strong><span class="math inline">\(\symbfit{x}\)</span> 关于 <span class="math inline">\(\symbfit{R}\)</span> 的等价类</strong>,简称为
-<span class="math inline">\(x\)</span> 的<strong>等价类</strong>,简记为
-<span class="math inline">\([x]\)</span> 或 <span class="math inline">\(\bar{x}\)</span> .</p>
-<p><strong><span class="math inline">\(A\)</span> 上的等价关系与 <span class="math inline">\(A\)</span> 的划分是一一对应的.</strong></p>
-<p>可以如此定义 <span class="math inline">\(A\)</span> 的等价关系 <span class="math display">\[
-R=\{&lt;x,y&gt;\mid x,y\in A\wedge x与y在划分\pi的同一划分块中\}
-\]</span> <strong>P134页有这样一道例题</strong><img src="/img/离散数学大一下期末/image-20220623175529969.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p><span class="math display">\[
-\begin{gather}
-A=\{a,b,c,d\},其一个划分\pi=\{\{b,c\},\{a,d\}\},\\求该划分对应的A上的等价关系R，和每个A中的元素在R上的等价类
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>根据上面的定义知 <span class="math display">\[
-R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
-\]</span> 故每个<span class="math inline">\(A\)</span>中的元素在<span class="math inline">\(R\)</span>上的等价类如下 <span class="math display">\[
-\begin{align*}
-&amp;[a]_R=\{a,d\}\\
-&amp;[b]_R=\{b,c\}\\
-&amp;[c]_R=\{c,b\}\\
-&amp;[d]_R=\{d,a\}\\
-\end{align*}
-\]</span></p>
+        <h1 id="二叉树由前中序推后序">二叉树由前中序推后序</h1>
+<p>做 <a target="_blank" rel="noopener" href="https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443">https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443</a>
+所得。</p>
+<p>知道了一颗二叉树的前序和中序遍历结果，求其后序遍历。</p>
+<p>该问题的主要点在于二叉树的创建上。理论上来说给定了一颗二叉树的前序和中序遍历结果，就可以确定一棵二叉树了，所以我们可以肯定的一点就是，根据题目所给可以创建一棵二叉树。</p>
+<p>目标转换：<strong>知道了一颗二叉树的前序和中序遍历结果，求该树</strong>。</p>
+<p>现在就寻找前序遍历和后序遍历的特点和关联。</p>
+<p>根据二叉树的性质，对于一棵二叉树，<strong>其前序遍历的第一个元素必然是根节点，而中序遍历中根节点的位置左边为左子树，右边为右子树</strong>。</p>
+<p>因此，我们可以<strong>通过前序遍历确定根节点</strong>，然后在<strong>中序遍历中找到根节点的位置</strong>，从而<strong>确定左右子树的中序遍历结果</strong>。接下来，我们可以根据左右子树的大小，将前序遍历和中序遍历分为左右子树的前序遍历和中序遍历。然后递归地对左右子树进行相同的操作，直到子树中只剩下一个节点。</p>
+<p>最后，我们将得到子树的后序遍历，将左子树的后序遍历和右子树的后序遍历连接起来，再加上根节点，即可得到整棵二叉树的后序遍历。</p>
+<p>就下面这个例子:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">前序 DBACEGF</span><br><span class="line">后序 ABCDEFG</span><br></pre></td></tr></tbody></table></figure>
+<ol type="1">
+<li>首先根据前序遍历确定根节点为 D。</li>
+<li>在后序遍历中找到 D，确定其子树的后序遍历—— 左边为 ABC(3) , 右边为
+EFG(3)</li>
+<li>之后，在前序遍历中确定 D 子树的前序遍历—— 左边3个 BAC, 右边3个
+EGF</li>
+<li>如此一来D左右子树就变成了和D一样的情况——知道了前序和中序遍历结果，创建该树</li>
+</ol>
+<p>源码：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Sample Input</span></span><br><span class="line"><span class="comment">DBACEGF ABCDEFG</span></span><br><span class="line"><span class="comment">BCAD CBAD</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Sample Output</span></span><br><span class="line"><span class="comment">ACBFGED</span></span><br><span class="line"><span class="comment">CDAB*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Definition for a binary tree node.</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TreeNode</span> <span class="comment">// 二叉树结点</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> val;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x, TreeNode *left, TreeNode *right) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(left), <span class="built_in">right</span>(right) {}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归创建二叉树</span></span><br><span class="line"><span class="comment">// str1: 前序遍历结果</span></span><br><span class="line"><span class="comment">// start1: 前序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// str2: 中序遍历结果</span></span><br><span class="line"><span class="comment">// start2: 中序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// len: 二叉树的结点个数</span></span><br><span class="line"><span class="function">TreeNode *<span class="title">create</span><span class="params">(<span class="type">char</span> *str1, <span class="type">int</span> start1, <span class="type">char</span> *str2, <span class="type">int</span> start2, <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (str1[start1] == str2[start2 + i]) <span class="comment">// 找到根结点，i为左子树的结点个数</span></span><br><span class="line">        {</span><br><span class="line">            TreeNode *node = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(str1[start1]);</span><br><span class="line">            node-&gt;left = <span class="built_in">create</span>(str1, start1 + <span class="number">1</span>, str2, start2, i); <span class="comment">// 递归创建左子树</span></span><br><span class="line">            node-&gt;right = <span class="built_in">create</span>(str1, start1 + i + <span class="number">1</span>, str2, start2 + i + <span class="number">1</span>, len - i - <span class="number">1</span>);<span class="comment">// 递归创建右子树, len - i - 1为右子树的结点个数</span></span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 后序遍历二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(TreeNode *node)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">nullptr</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;left);</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;right);</span><br><span class="line">        cout &lt;&lt; node-&gt;val;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">char</span> str[<span class="number">55</span>];</span><br><span class="line">    <span class="keyword">while</span> (cin.<span class="built_in">getline</span>(str, <span class="number">55</span>))</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 计算字符串长度</span></span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (str[len] != <span class="string">'\0'</span>)</span><br><span class="line">            len++;</span><br><span class="line">        TreeNode *root = <span class="built_in">create</span>(str, <span class="number">0</span>, str, len / <span class="number">2</span> + <span class="number">1</span>, len / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">postOrder</span>(root);</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -381,7 +359,7 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://mortal-94.github.io/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" title="离散数学大一下期末">https://mortal-94.github.io/2022/06/23/离散数学大一下期末/</a>
+      <a href="https://mortal-94.github.io/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/" title="二叉树由前中序推后序">https://mortal-94.github.io/2023/03/04/二叉树由前中序推后序/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -390,21 +368,18 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 离散数学</a>
+              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" rel="prev" title="高数大一下期末">
-                  <i class="fa fa-chevron-left"></i> 高数大一下期末
+                <a href="/2022/12/11/%E8%AE%A1%E7%BB%84%E6%95%B4%E7%90%86/" rel="prev" title="计组整理">
+                  <i class="fa fa-chevron-left"></i> 计组整理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" rel="next" title="概率论大一下期末">
-                  概率论大一下期末 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -518,7 +493,7 @@ setInterval("createtime()",250);
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://my-waline-6bwvk45fx-mortal-94.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请文明评论呀；尚未成功搭载邮件通知系统，急事可邮我"},"avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://my-waline-6bwvk45fx-mortal-94.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请文明评论呀；尚未成功搭载邮件通知系统，急事可邮我"},"avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
