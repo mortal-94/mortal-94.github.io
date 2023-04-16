@@ -22,30 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mortal-94.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}},"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="高数大一下期末 当时不会的概念 当时考试居然忘了多元函数求极值这方面的内容😓">
+    <meta name="description" content="经典问题与算法实现的记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高数大一下期末">
-<meta property="og:url" content="https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/index.html">
+<meta property="og:title" content="Prim与Kruskal">
+<meta property="og:url" content="https://mortal-94.github.io/2023/04/12/Prim%E4%B8%8EKruskal/index.html">
 <meta property="og:site_name" content="mortallyn&#39;s blog">
-<meta property="og:description" content="高数大一下期末 当时不会的概念 当时考试居然忘了多元函数求极值这方面的内容😓">
+<meta property="og:description" content="经典问题与算法实现的记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mortal-94.github.io/img/高数大一下期末/image-20220623183102656.png">
-<meta property="article:published_time" content="2022-06-21T03:42:29.547Z">
-<meta property="article:modified_time" content="2022-06-29T08:14:14.552Z">
+<meta property="article:published_time" content="2023-04-12T02:29:40.083Z">
+<meta property="article:modified_time" content="2023-04-16T09:04:15.289Z">
 <meta property="article:author" content="mortallyn">
-<meta property="article:tag" content="高数">
+<meta property="article:tag" content="最小生成树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mortal-94.github.io/img/高数大一下期末/image-20220623183102656.png">
 
 
-<link rel="canonical" href="https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/">
+<link rel="canonical" href="https://mortal-94.github.io/2023/04/12/Prim%E4%B8%8EKruskal/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/","path":"2022/06/21/高数大一下期末/","title":"高数大一下期末"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://mortal-94.github.io/2023/04/12/Prim%E4%B8%8EKruskal/","path":"2023/04/12/Prim与Kruskal/","title":"Prim与Kruskal"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>高数大一下期末 | mortallyn's blog</title>
+<title>Prim与Kruskal | mortallyn's blog</title>
   
 
 
@@ -150,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB"><span class="nav-number">1.</span> <span class="nav-text">高数大一下期末</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E6%97%B6%E4%B8%8D%E4%BC%9A%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">当时不会的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E9%A2%98%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">考试题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E8%A7%A3%E7%AD%94"><span class="nav-number">1.3.</span> <span class="nav-text">事后解答</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#prim%E4%B8%8Ekruskal"><span class="nav-number">1.</span> <span class="nav-text">Prim与Kruskal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">最小生成树问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%AF%81%E6%98%8E%E9%A2%84%E5%A4%87%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">算法证明预备概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prim"><span class="nav-number">1.3.</span> <span class="nav-text">Prim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E"><span class="nav-number">1.3.2.</span> <span class="nav-text">正确性证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81c"><span class="nav-number">1.3.3.</span> <span class="nav-text">代码（C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kruskal"><span class="nav-number">1.4.</span> <span class="nav-text">Kruskal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%A7%E8%AF%81%E6%98%8E-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">正确性证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81c-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">代码（C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -233,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/">
+    <link itemprop="mainEntityOfPage" href="https://mortal-94.github.io/2023/04/12/Prim%E4%B8%8EKruskal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/BlogLogo.png">
@@ -246,12 +244,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="高数大一下期末 | mortallyn's blog">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Prim与Kruskal | mortallyn's blog">
+      <meta itemprop="description" content="经典问题与算法实现的记录">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          高数大一下期末
+          Prim与Kruskal
         </h1>
 
         <div class="post-meta-container">
@@ -262,14 +260,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-06-21 11:42:29" itemprop="dateCreated datePublished" datetime="2022-06-21T11:42:29+08:00">2022-06-21</time>
+      <time title="创建时间：2023-04-12 10:29:40" itemprop="dateCreated datePublished" datetime="2023-04-12T10:29:40+08:00">2023-04-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-29 16:14:14" itemprop="dateModified" datetime="2022-06-29T16:14:14+08:00">2022-06-29</time>
+      <time title="修改时间：2023-04-16 17:04:15" itemprop="dateModified" datetime="2023-04-16T17:04:15+08:00">2023-04-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,7 +275,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%80%83%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">大学考试</span></a>
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
         </span>
     </span>
 
@@ -297,8 +295,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" itemprop="commentCount"></span>
+    <a title="waline" href="/2023/04/12/Prim%E4%B8%8EKruskal/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/04/12/Prim%E4%B8%8EKruskal/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -309,17 +307,18 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>499</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
+            <div class="post-description">经典问题与算法实现的记录</div>
         </div>
       </header>
 
@@ -327,37 +326,125 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
+        <h1 id="prim与kruskal">Prim与Kruskal</h1>
+<p>有一<strong>连通带权图</strong> <span class="math inline">\(G&lt;V,E&gt;\)</span> 。</p>
+<h2 id="最小生成树问题">最小生成树问题</h2>
+<p>生成树（Spanning Tree|ST）： <span class="math inline">\(T=&lt;V,E^*&gt;\)</span> ，其中 <span class="math inline">\(E^*\subseteq E\)</span> ，且 <span class="math inline">\(\forall e\in
+E-E^*，T'=&lt;V,E^*\cup\{e\}&gt;\)</span> ，<span class="math inline">\(T'\)</span> 必有环路。</p>
 <blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
+<p>人话：连通无环路的覆盖所有点的图就是生成树。</p>
 </blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
+<p>最小生成树（Minimum Spanning
+Tree|MST）：权重最小的生成树。——<strong>不唯一</strong></p>
+<h2 id="算法证明预备概念">算法证明预备概念</h2>
+<blockquote>
+<p>不想了解证明的可以只看算法流程。</p>
+</blockquote>
+<p>有趣想法：
+在一个起初为空的边集里,，每次都加入某最小生成树的边，得到的就是该最小生成树。</p>
+<p><del>废话, 我要是早知道这条是最小生成树的边还要你找?</del></p>
+<p>没错，关键就是我怎么知道这条边是否在最小生成树中。</p>
+<p>引入以下概念：</p>
+<ul>
+<li><strong>安全边 Safe Edge</strong>： 假设边集 <span class="math inline">\(A\)</span> 是某最小生成树子集，其加入某边 <span class="math inline">\(e\)</span> 还是该最小生成树的子集，则 <span class="math inline">\(e\)</span> 为 <span class="math inline">\(A\)</span> 安全边。<del>感觉...</del></li>
+<li><strong>割 Cut</strong>： 去掉某些边，将图分成两个部分</li>
+<li><strong>横跨 Cross</strong>： 在割中去掉的那些边，它们都会
+<strong>横跨</strong> 该割。</li>
+<li><strong>轻边 Light Edge</strong>：
+在横跨某割所有的边中，权值最小的边。</li>
+<li><strong>不妨害 Respect</strong>： 如果一个边集 <span class="math inline">\(A\)</span> 没有横跨某个割的边，则称该割
+<strong>不妨害</strong> 边集 <span class="math inline">\(A\)</span>。</li>
+</ul>
+<p>嗯，现在只要我们知道哪条边是 <span class="math inline">\(A\)</span>
+的 <strong>安全边</strong> 就可以接出最小生成树啦。</p>
+<p>这时便来个这样的定理：</p>
+<p><strong>安全边辨识定理：在图 <span class="math inline">\(G\)</span>
+中，假设边集 <span class="math inline">\(A\)</span>
+是某最小生成树子集，任意的 不妨害 <span class="math inline">\(A\)</span>
+的割，横跨其的轻边都是 <span class="math inline">\(A\)</span>
+的安全边。</strong></p>
+<p>非常厉害的定理，我们来证明一下：</p>
+<p>对于一个最小生成树 <span class="math inline">\(T\)</span> 的边子集
+<span class="math inline">\(A\)</span>，有一个 不妨害 它的割 <span class="math inline">\(C\)</span>，且边 <span class="math inline">\(e'=(u,v)\)</span> 是横跨其的轻边。</p>
+<p>若 <span class="math inline">\(e'\)</span> 不是 <span class="math inline">\(A\)</span> 的安全边，即 <span class="math inline">\(e'\)</span> 不属于 <span class="math inline">\(T\)</span>。</p>
+<p>对于 <span class="math inline">\(T\)</span>，有一从 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的路径 <span class="math inline">\(P\)</span> ，而这条路径中，必然会有横跨 <span class="math inline">\(C\)</span> 的边 <span class="math inline">\(e\)</span>，在 <span class="math inline">\(T\)</span> 中，用 <span class="math inline">\(e'\)</span> 取代 <span class="math inline">\(e\)</span>
+不会改变其树的性质（都是横跨边），得到一个新树 <span class="math inline">\(T'\)</span>，而由于 <span class="math inline">\(W(e') \le W(e)\)</span> ，故 <span class="math inline">\(W(T')\le W(T)\)</span>，而 <span class="math inline">\(T\)</span> 是最小生成树，</p>
+<p>故 <span class="math inline">\(W(T')=W(T)\)</span>，即新树 <span class="math inline">\(T'\)</span> 也是最小生成树，即 <span class="math inline">\(e'\)</span> 属于最小生成树 <span class="math inline">\(T'\)</span> ，而边集 <span class="math inline">\(A\)</span> 也是 <span class="math inline">\(T'\)</span> 的边子集（被替换的 <span class="math inline">\(e\)</span> 由于是横跨 <span class="math inline">\(C\)</span> 的边所以不会在 <span class="math inline">\(A\)</span> 中），故 <span class="math inline">\(A\)</span> 加入 <span class="math inline">\(e'\)</span> 后仍是 <span class="math inline">\(T'\)</span> 的边子集。</p>
+<p>综上 <span class="math inline">\(e'\)</span> 为安全边。</p>
+<hr>
+<p>至此，构造最小生成树算法便有了如下的框架：</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line">初始化：空边集 <span class="selector-tag">A</span></span><br><span class="line">每次向 <span class="selector-tag">A</span> 加入其安全边。</span><br></pre></td></tr></tbody></table></figure>
+<p>这是一个贪心策略，Prim算法和Kruskal算法就是实现次贪心策略的算法。</p>
+<h2 id="prim">Prim</h2>
+<p><strong>普里姆算法</strong>（Prim's
+algorithm）是图论中一种寻找最小生成树的贪心算法。</p>
+<h3 id="算法流程">算法流程</h3>
+<p>初始化：<span class="math inline">\(V_{new}=\{x\},E_{new}=\{\}\)</span> ，其中 <span class="math inline">\(x\)</span> 为 <span class="math inline">\(V\)</span> 中的任意一个点。</p>
+<p>循环以下步骤直至 <span class="math inline">\(V_{new}=V\)</span></p>
+<ol type="1">
+<li>选取一个点 <span class="math inline">\(v=\min\limits_{v}\{W(e)|e=(u,v)\and e\in E\and
+u\in V_{new} \and v\in V-V_{new}\}\)</span> ，其中 <span class="math inline">\(W(e)\)</span> 表示边 <span class="math inline">\(e\)</span> 的权重。</li>
+<li>将 <span class="math inline">\(v\)</span> 加入 <span class="math inline">\(V_{new}\)</span> ，<span class="math inline">\((u,v)\)</span> 加入 <span class="math inline">\(E_{new}\)</span> 。</li>
+</ol>
+<p>得到最小生成树 <span class="math inline">\(T=&lt;V_{new},E_{new}&gt;\)</span> 。</p>
+<blockquote>
+<p>人话: 每次选可以接上来的最小边.</p>
+</blockquote>
+<h3 id="正确性证明">正确性证明</h3>
+<p>有了上面的预备概念。我们只要证明循环中步骤1所得到的边 <span class="math inline">\(e\)</span> 是 边集 <span class="math inline">\(E_{new}\)</span> 的安全边即可。</p>
+<p>显然，起初的空集 <span class="math inline">\(E_{new}\)</span>
+肯定是某最小生成树的子集。</p>
+<p><span class="math inline">\(V_{new}和V-V_{new}\)</span>
+已形成了一个割，而它不妨害 <span class="math inline">\(E_{new}\)</span>
+，因为 <span class="math inline">\(E_{new}\)</span> 没有边是连接 <span class="math inline">\(V_{new}和V-V_{new}\)</span> 的。</p>
+<p>而步骤1中每次都是选择横跨 <span class="math inline">\(割&lt;V_{new},V-V_{new}&gt;\)</span>
+的轻边，故所得的边 <span class="math inline">\(e\)</span> 都是 <span class="math inline">\(E_{new}\)</span> 的安全边。</p>
+<p>证毕。</p>
+<h3 id="代码c">代码（C++）</h3>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">待续。。</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="kruskal">Kruskal</h2>
+<p><strong>克鲁斯克尔算法</strong>（Kruskal's
+algorithm）是图论中一种寻找最小生成树的贪心算法。</p>
+<h3 id="算法流程-1">算法流程</h3>
+<p>初始化：<span class="math inline">\(V_{new}=V,E_{new}=\{\}\)</span>
+，每个点自成一个连通分量 <span class="math inline">\(S_i=i,i\in
+V\)</span> 。</p>
+<p>循环以下步骤至 <span class="math inline">\(&lt;V_{new},E_{new}&gt;\)</span>
+所有点都连通：</p>
+<ol type="1">
+<li>选取一条边 <span class="math inline">\(e=\min\limits_{(u,v)}\{W(e)|e=(u,v)\and u,v\in
+V\and S_u\not=S_v\}\)</span> ，其中 <span class="math inline">\(W(e)\)</span> 表示边 <span class="math inline">\(e\)</span> 的权重。</li>
+<li>将 <span class="math inline">\(e\)</span> 加入 <span class="math inline">\(E_{new}\)</span> ，合并对应连通分量。</li>
+</ol>
+<p>得到最小生成树 <span class="math inline">\(T=&lt;V_{new},E_{new}&gt;\)</span> 。</p>
+<blockquote>
+<p>这里对连通分量的操作，可以用并查集实现。</p>
+</blockquote>
+<blockquote>
+<p>人话: 每次都在在剩余的边中选最小的出来, 但要保证不成环.</p>
+</blockquote>
+<h3 id="正确性证明-1">正确性证明</h3>
+<p>有了上面的预备概念。我们只要证明循环中步骤1所得到的边 <span class="math inline">\(e\)</span> 是 边集 <span class="math inline">\(E_{new}\)</span> 的安全边即可。</p>
+<p>起初的空集 <span class="math inline">\(E_{new}\)</span>
+肯定是某最小生成树的子集。</p>
+<p>在循环步骤1中，我们把 <span class="math inline">\(e\)</span>
+所连接的两个连通分量之一 <span class="math inline">\(V'\)</span>
+和图中的剩余顶点 <span class="math inline">\(V-V'\)</span>
+构成一个割。</p>
+<p>显然，该割不妨害 <span class="math inline">\(E_{new}\)</span> ，因为
+<span class="math inline">\(E_{new}\)</span> 中没有从 <span class="math inline">\(V-V'\)</span> 连到 <span class="math inline">\(V'\)</span> 的边。</p>
+<p>而步骤1每次选的又是轻边，故所得的边 <span class="math inline">\(e\)</span> 都是 <span class="math inline">\(E_{new}\)</span> 的安全边。</p>
+<p>证毕。</p>
+<h3 id="代码c-1">代码（C++）</h3>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">待续。。</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="参考">参考</h2>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/普林姆算法">普林姆算法 -
+维基百科</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/克鲁斯克尔演算法">克鲁斯克尔演算法 -
+维基百科</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358654704">啦啦啦：最小生成树（Prim
+与 Kruskal）</a></p>
 
     </div>
 
@@ -375,7 +462,7 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://mortal-94.github.io/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" title="高数大一下期末">https://mortal-94.github.io/2022/06/21/高数大一下期末/</a>
+      <a href="https://mortal-94.github.io/2023/04/12/Prim%E4%B8%8EKruskal/" title="Prim与Kruskal">https://mortal-94.github.io/2023/04/12/Prim与Kruskal/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -384,21 +471,18 @@ f(x,y)=x^2(1+y^2)+3y\ln{y}
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E9%AB%98%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 高数</a>
+              <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 最小生成树</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/20/terminal/" rel="prev" title="terminal">
-                  <i class="fa fa-chevron-left"></i> terminal
+                <a href="/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/" rel="prev" title="二叉树由前中序推后序">
+                  <i class="fa fa-chevron-left"></i> 二叉树由前中序推后序
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/" rel="next" title="离散数学大一下期末">
-                  离散数学大一下期末 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -512,7 +596,7 @@ setInterval("createtime()",250);
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://my-waline-6bwvk45fx-mortal-94.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请文明评论呀；尚未成功搭载邮件通知系统，急事可邮我"},"avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://my-waline-6bwvk45fx-mortal-94.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请文明评论呀；尚未成功搭载邮件通知系统，急事可邮我"},"avatar":null,"meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/04/12/Prim%E4%B8%8EKruskal/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

@@ -1,6 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Prim与Kruskal</title>
+    <url>/2023/04/12/Prim%E4%B8%8EKruskal/</url>
+    <content><![CDATA[<h1 id="prim与kruskal">Prim与Kruskal</h1>
+<p>有一<strong>连通带权图</strong> <span class="math inline">\(G&lt;V,E&gt;\)</span> 。</p>
+<h2 id="最小生成树问题">最小生成树问题</h2>
+<p>生成树（Spanning Tree|ST）： <span class="math inline">\(T=&lt;V,E^*&gt;\)</span> ，其中 <span class="math inline">\(E^*\subseteq E\)</span> ，且 <span class="math inline">\(\forall e\in
+E-E^*，T'=&lt;V,E^*\cup\{e\}&gt;\)</span> ，<span class="math inline">\(T'\)</span> 必有环路。</p>
+<blockquote>
+<p>人话：连通无环路的覆盖所有点的图就是生成树。</p>
+</blockquote>
+<p>最小生成树（Minimum Spanning
+Tree|MST）：权重最小的生成树。——<strong>不唯一</strong></p>
+<h2 id="算法证明预备概念">算法证明预备概念</h2>
+<blockquote>
+<p>不想了解证明的可以只看算法流程。</p>
+</blockquote>
+<p>有趣想法：
+在一个起初为空的边集里,，每次都加入某最小生成树的边，得到的就是该最小生成树。</p>
+<p><del>废话, 我要是早知道这条是最小生成树的边还要你找?</del></p>
+<p>没错，关键就是我怎么知道这条边是否在最小生成树中。</p>
+<p>引入以下概念：</p>
+<ul>
+<li><strong>安全边 Safe Edge</strong>： 假设边集 <span class="math inline">\(A\)</span> 是某最小生成树子集，其加入某边 <span class="math inline">\(e\)</span> 还是该最小生成树的子集，则 <span class="math inline">\(e\)</span> 为 <span class="math inline">\(A\)</span> 安全边。<del>感觉...</del></li>
+<li><strong>割 Cut</strong>： 去掉某些边，将图分成两个部分</li>
+<li><strong>横跨 Cross</strong>： 在割中去掉的那些边，它们都会
+<strong>横跨</strong> 该割。</li>
+<li><strong>轻边 Light Edge</strong>：
+在横跨某割所有的边中，权值最小的边。</li>
+<li><strong>不妨害 Respect</strong>： 如果一个边集 <span class="math inline">\(A\)</span> 没有横跨某个割的边，则称该割
+<strong>不妨害</strong> 边集 <span class="math inline">\(A\)</span>。</li>
+</ul>
+<p>嗯，现在只要我们知道哪条边是 <span class="math inline">\(A\)</span>
+的 <strong>安全边</strong> 就可以接出最小生成树啦。</p>
+<p>这时便来个这样的定理：</p>
+<p><strong>安全边辨识定理：在图 <span class="math inline">\(G\)</span>
+中，假设边集 <span class="math inline">\(A\)</span>
+是某最小生成树子集，任意的 不妨害 <span class="math inline">\(A\)</span>
+的割，横跨其的轻边都是 <span class="math inline">\(A\)</span>
+的安全边。</strong></p>
+<p>非常厉害的定理，我们来证明一下：</p>
+<p>对于一个最小生成树 <span class="math inline">\(T\)</span> 的边子集
+<span class="math inline">\(A\)</span>，有一个 不妨害 它的割 <span class="math inline">\(C\)</span>，且边 <span class="math inline">\(e'=(u,v)\)</span> 是横跨其的轻边。</p>
+<p>若 <span class="math inline">\(e'\)</span> 不是 <span class="math inline">\(A\)</span> 的安全边，即 <span class="math inline">\(e'\)</span> 不属于 <span class="math inline">\(T\)</span>。</p>
+<p>对于 <span class="math inline">\(T\)</span>，有一从 <span class="math inline">\(u\)</span> 到 <span class="math inline">\(v\)</span> 的路径 <span class="math inline">\(P\)</span> ，而这条路径中，必然会有横跨 <span class="math inline">\(C\)</span> 的边 <span class="math inline">\(e\)</span>，在 <span class="math inline">\(T\)</span> 中，用 <span class="math inline">\(e'\)</span> 取代 <span class="math inline">\(e\)</span>
+不会改变其树的性质（都是横跨边），得到一个新树 <span class="math inline">\(T'\)</span>，而由于 <span class="math inline">\(W(e') \le W(e)\)</span> ，故 <span class="math inline">\(W(T')\le W(T)\)</span>，而 <span class="math inline">\(T\)</span> 是最小生成树，</p>
+<p>故 <span class="math inline">\(W(T')=W(T)\)</span>，即新树 <span class="math inline">\(T'\)</span> 也是最小生成树，即 <span class="math inline">\(e'\)</span> 属于最小生成树 <span class="math inline">\(T'\)</span> ，而边集 <span class="math inline">\(A\)</span> 也是 <span class="math inline">\(T'\)</span> 的边子集（被替换的 <span class="math inline">\(e\)</span> 由于是横跨 <span class="math inline">\(C\)</span> 的边所以不会在 <span class="math inline">\(A\)</span> 中），故 <span class="math inline">\(A\)</span> 加入 <span class="math inline">\(e'\)</span> 后仍是 <span class="math inline">\(T'\)</span> 的边子集。</p>
+<p>综上 <span class="math inline">\(e'\)</span> 为安全边。</p>
+<hr>
+<p>至此，构造最小生成树算法便有了如下的框架：</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line">初始化：空边集 <span class="selector-tag">A</span></span><br><span class="line">每次向 <span class="selector-tag">A</span> 加入其安全边。</span><br></pre></td></tr></tbody></table></figure>
+<p>这是一个贪心策略，Prim算法和Kruskal算法就是实现次贪心策略的算法。</p>
+<h2 id="prim">Prim</h2>
+<p><strong>普里姆算法</strong>（Prim's
+algorithm）是图论中一种寻找最小生成树的贪心算法。</p>
+<h3 id="算法流程">算法流程</h3>
+<p>初始化：<span class="math inline">\(V_{new}=\{x\},E_{new}=\{\}\)</span> ，其中 <span class="math inline">\(x\)</span> 为 <span class="math inline">\(V\)</span> 中的任意一个点。</p>
+<p>循环以下步骤直至 <span class="math inline">\(V_{new}=V\)</span></p>
+<ol type="1">
+<li>选取一个点 <span class="math inline">\(v=\min\limits_{v}\{W(e)|e=(u,v)\and e\in E\and
+u\in V_{new} \and v\in V-V_{new}\}\)</span> ，其中 <span class="math inline">\(W(e)\)</span> 表示边 <span class="math inline">\(e\)</span> 的权重。</li>
+<li>将 <span class="math inline">\(v\)</span> 加入 <span class="math inline">\(V_{new}\)</span> ，<span class="math inline">\((u,v)\)</span> 加入 <span class="math inline">\(E_{new}\)</span> 。</li>
+</ol>
+<p>得到最小生成树 <span class="math inline">\(T=&lt;V_{new},E_{new}&gt;\)</span> 。</p>
+<blockquote>
+<p>人话: 每次选可以接上来的最小边.</p>
+</blockquote>
+<h3 id="正确性证明">正确性证明</h3>
+<p>有了上面的预备概念。我们只要证明循环中步骤1所得到的边 <span class="math inline">\(e\)</span> 是 边集 <span class="math inline">\(E_{new}\)</span> 的安全边即可。</p>
+<p>显然，起初的空集 <span class="math inline">\(E_{new}\)</span>
+肯定是某最小生成树的子集。</p>
+<p><span class="math inline">\(V_{new}和V-V_{new}\)</span>
+已形成了一个割，而它不妨害 <span class="math inline">\(E_{new}\)</span>
+，因为 <span class="math inline">\(E_{new}\)</span> 没有边是连接 <span class="math inline">\(V_{new}和V-V_{new}\)</span> 的。</p>
+<p>而步骤1中每次都是选择横跨 <span class="math inline">\(割&lt;V_{new},V-V_{new}&gt;\)</span>
+的轻边，故所得的边 <span class="math inline">\(e\)</span> 都是 <span class="math inline">\(E_{new}\)</span> 的安全边。</p>
+<p>证毕。</p>
+<h3 id="代码c">代码（C++）</h3>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">待续。。</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="kruskal">Kruskal</h2>
+<p><strong>克鲁斯克尔算法</strong>（Kruskal's
+algorithm）是图论中一种寻找最小生成树的贪心算法。</p>
+<h3 id="算法流程-1">算法流程</h3>
+<p>初始化：<span class="math inline">\(V_{new}=V,E_{new}=\{\}\)</span>
+，每个点自成一个连通分量 <span class="math inline">\(S_i=i,i\in
+V\)</span> 。</p>
+<p>循环以下步骤至 <span class="math inline">\(&lt;V_{new},E_{new}&gt;\)</span>
+所有点都连通：</p>
+<ol type="1">
+<li>选取一条边 <span class="math inline">\(e=\min\limits_{(u,v)}\{W(e)|e=(u,v)\and u,v\in
+V\and S_u\not=S_v\}\)</span> ，其中 <span class="math inline">\(W(e)\)</span> 表示边 <span class="math inline">\(e\)</span> 的权重。</li>
+<li>将 <span class="math inline">\(e\)</span> 加入 <span class="math inline">\(E_{new}\)</span> ，合并对应连通分量。</li>
+</ol>
+<p>得到最小生成树 <span class="math inline">\(T=&lt;V_{new},E_{new}&gt;\)</span> 。</p>
+<blockquote>
+<p>这里对连通分量的操作，可以用并查集实现。</p>
+</blockquote>
+<blockquote>
+<p>人话: 每次都在在剩余的边中选最小的出来, 但要保证不成环.</p>
+</blockquote>
+<h3 id="正确性证明-1">正确性证明</h3>
+<p>有了上面的预备概念。我们只要证明循环中步骤1所得到的边 <span class="math inline">\(e\)</span> 是 边集 <span class="math inline">\(E_{new}\)</span> 的安全边即可。</p>
+<p>起初的空集 <span class="math inline">\(E_{new}\)</span>
+肯定是某最小生成树的子集。</p>
+<p>在循环步骤1中，我们把 <span class="math inline">\(e\)</span>
+所连接的两个连通分量之一 <span class="math inline">\(V'\)</span>
+和图中的剩余顶点 <span class="math inline">\(V-V'\)</span>
+构成一个割。</p>
+<p>显然，该割不妨害 <span class="math inline">\(E_{new}\)</span> ，因为
+<span class="math inline">\(E_{new}\)</span> 中没有从 <span class="math inline">\(V-V'\)</span> 连到 <span class="math inline">\(V'\)</span> 的边。</p>
+<p>而步骤1每次选的又是轻边，故所得的边 <span class="math inline">\(e\)</span> 都是 <span class="math inline">\(E_{new}\)</span> 的安全边。</p>
+<p>证毕。</p>
+<h3 id="代码c-1">代码（C++）</h3>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">待续。。</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="参考">参考</h2>
+<p><a href="https://zh.wikipedia.org/wiki/普林姆算法">普林姆算法 -
+维基百科</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/克鲁斯克尔演算法">克鲁斯克尔演算法 -
+维基百科</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/358654704">啦啦啦：最小生成树（Prim
+与 Kruskal）</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>最小生成树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>terminal</title>
+    <url>/2022/06/20/terminal/</url>
+    <content><![CDATA[<h1 id="terminal">Terminal</h1>
+<p>超强终端。</p>
+<p><img src="/img/terminal/image-20220622210445601.png"></p>
+<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
+来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+<span id="more"></span>
+<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
+<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
+<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
+<p>运行以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+</blockquote>
+<p>在提示中输入 <code>Y</code></p>
+<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
+<blockquote>
+<h2 id="总结">总结</h2>
+<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
+<ul>
+<li><code>where.exe 文件搜索字符串</code></li>
+<li><code>gcm 文件搜索字符串 -All</code></li>
+<li><code>get-command 文件搜索字符串 -All</code></li>
+</ul>
+</blockquote>
+<h2 id="conda配置">conda配置</h2>
+<p>参考这篇文章</p>
+<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
+<blockquote>
+<p>PowerShell中输入命令<code>conda init powershell</code></p>
+<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
+</blockquote>
+<p>顺便说下conda配置虚拟环境常用命令</p>
+<p>参考这篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
+<blockquote>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>PowerShell</tag>
+        <tag>终端</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscdoe使用</title>
+    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
+<h2 id="搭载c环境">搭载C++环境</h2>
+<p>参考这个视频</p>
+<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
+<blockquote>
+<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
+<p>主要是不用自己配文件</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
+<p>参考这篇文章</p>
+<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
+<blockquote>
+<p>问题在于 libstdc++ -6.dll
+动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
+<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
+文件，将其放到C:32目录下</p>
+</blockquote>
+<h2 id="gitlens插件">Gitlens插件</h2>
+<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>操作记录</tag>
+        <tag>持续更新</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人工神经网络</title>
+    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
+<p><strong>Artificial Neural Networks, ANN</strong></p>
+<span id="more"></span>
+<h2 id="预备知识">预备知识</h2>
+<h3 id="mp模型">MP模型</h3>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h3 id="感知算法">感知算法</h3>
+<p><img src="/img/人工神经网络/感知算法.png"></p>
+<h3 id="增广向量">增广向量</h3>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h3 id="阶跃函数">阶跃函数</h3>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<blockquote>
+<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
+</blockquote>
+<h3 id="梯度下降算法">梯度下降算法</h3>
+<h3 id="后向传播算法">后向传播算法</h3>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
+<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
+<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>人工神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习术语</title>
+    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
+    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
+<h2 id="支持向量">支持向量</h2>
+<figure>
+<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
+<figcaption aria-hidden="true">支持向量</figcaption>
+</figure>
+<blockquote>
+<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
+</blockquote>
+<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
+- Xinyu Chen的文章 - 知乎</a></p>
+<blockquote>
+<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
+<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
+</blockquote>
+<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
+<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
+<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
+<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
+<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
+<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
+<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
+<blockquote>
+<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
+<em>Hyper Parameters</em></p>
+</blockquote>
+<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
+<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
+<h2 id="混淆矩阵">混淆矩阵</h2>
+<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
+<h2 id="mp模型">MP模型</h2>
+<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
+<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
+<h2 id="增广向量">增广向量</h2>
+<p><img src="/img/人工神经网络/增广向量.png"></p>
+<h2 id="阶跃函数">阶跃函数</h2>
+<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一总结</title>
+    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Codeforces1690D 滑动窗口</title>
     <url>/2022/06/17/Codeforces1690D%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="codeforces1690d-滑动窗口">Codeforces1690D 滑动窗口</h1>
@@ -73,6 +385,92 @@ AC ，可能是我太菜了 <span class="github-emoji" style="display:inline;ver
       </categories>
       <tags>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构和算法的经典问题</title>
+    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
+<h2 id="计算多项式">计算多项式</h2>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
+<blockquote>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
+<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
+</blockquote>
+<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
+实现加乘法</a></p>
+<h2 id="最大子列和问题">最大子列和问题</h2>
+<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
+<h2 id="kmp模式匹配">KMP模式匹配</h2>
+<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">如何更好地理解和掌握
+KMP 算法? - 阮行止的回答 - 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/21923021/answer/281346746">如何更好地理解和掌握
+KMP 算法? - 海纳的回答 - 知乎</a></p>
+<h2 id="线性表">线性表</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
+<h2 id="堆栈">堆栈</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
+<h2 id="队列">队列</h2>
+<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
+<h2 id="树">树</h2>
+<blockquote>
+<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
+<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
+<h3 id="二叉搜索树">二叉搜索树</h3>
+<p>每个节点都不比它左子树的任意元素小，而且不比它的右子树的任意元素大。</p>
+<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
+<h3 id="二叉平衡树">二叉平衡树</h3>
+<p>任意一个节点的左右子树的高度差不能超过1的二叉搜索树</p>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
+<h3 id="堆">堆</h3>
+<p>一种完全二叉树</p>
+<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p>树的带权路径长度最短</p>
+<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
+oi-wiki</a></p>
+<h2 id="图">图</h2>
+<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
+io-wiki</a></p>
+<h3 id="图的遍历">图的遍历</h3>
+<p>深度优先和广度优先搜索算法</p>
+<h3 id="最小生成树">最小生成树</h3>
+<p>Kruskal算法</p>
+<p>Prim算法</p>
+<h3 id="最短路径">最短路径</h3>
+<p>Dijkstra算法</p>
+<p>Floyd算法</p>
+<h3 id="拓扑排序">拓扑排序</h3>
+<h2 id="aov网络和aoe网络">AOV网络和AOE网络</h2>
+<h2 id="寻找自幂数">寻找自幂数</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/570576659">我的知乎文章</a></p>
+<h2 id="ackermann函数">Ackermann函数</h2>
+<figure>
+<img src="/img/数据结构和算法的经典问题/Ackermann函数.png" alt="Ackermann函数">
+<figcaption aria-hidden="true">Ackermann函数</figcaption>
+</figure>
+<h1 id="参考">参考</h1>
+<ul>
+<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
+<li><p>大话数据结构 --程杰</p></li>
+<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
+<li><p>数据结构第三步--殷人昆</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>cheatSheet</category>
+      </categories>
+      <tags>
+        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -176,6 +574,59 @@ e_{ij})\vee(\neg e_{ij}\wedge\neg(H_{1i}\wedge H_{nj}))))
       </tags>
   </entry>
   <entry>
+    <title>python大一下期末</title>
+    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
+<p>没复习，寄😊</p>
+<h2 id="当时不会的题">当时不会的题</h2>
+<ol type="1">
+<li>MindSpore最基础的数据结构</li>
+<li>R语言 （）型</li>
+<li>矩阵 自定义 索引 和 列名</li>
+<li>dataframe数据内连合并 后缀名</li>
+<li>sklearn wine数据 聚类svc 建模</li>
+</ol>
+<span id="more"></span>
+<h2 id="事后解答">事后解答</h2>
+<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
+<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
+<blockquote>
+<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
+</blockquote>
+<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
+<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
+<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
+<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
+<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
+涉及后缀名的添加</h3>
+<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
+<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
+和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
+<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
+<p>外加数据标准化</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大学考试</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>yt-dlp以及you-get使用体验</title>
     <url>/2022/06/20/yt-dlp%E4%BB%A5%E5%8F%8Ayou-get%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<h1 id="yt-dlp以及you-get使用体验">yt-dlp以及you-get使用体验</h1>
@@ -232,56 +683,36 @@ https://www.youtube.com/watch?v=QXeEoD0pB3E&amp;list=PLsyeobzWxl7poL9JTVyndKe62i
       </tags>
   </entry>
   <entry>
-    <title>python大一下期末</title>
-    <url>/2022/06/20/python%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="python大一下期末">python大一下期末</h1>
-<p>没复习，寄😊</p>
-<h2 id="当时不会的题">当时不会的题</h2>
+    <title>二叉树由前中序推后序</title>
+    <url>/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="二叉树由前中序推后序">二叉树由前中序推后序</h1>
+<p>做 <a href="https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443">https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443</a>
+所得。</p>
+<p>知道了一颗二叉树的前序和中序遍历结果，求其后序遍历。</p>
+<p>该问题的主要点在于二叉树的创建上。理论上来说给定了一颗二叉树的前序和中序遍历结果，就可以确定一棵二叉树了，所以我们可以肯定的一点就是，根据题目所给可以创建一棵二叉树。</p>
+<p>目标转换：<strong>知道了一颗二叉树的前序和中序遍历结果，求该树</strong>。</p>
+<p>现在就寻找前序遍历和后序遍历的特点和关联。</p>
+<p>根据二叉树的性质，对于一棵二叉树，<strong>其前序遍历的第一个元素必然是根节点，而中序遍历中根节点的位置左边为左子树，右边为右子树</strong>。</p>
+<p>因此，我们可以<strong>通过前序遍历确定根节点</strong>，然后在<strong>中序遍历中找到根节点的位置</strong>，从而<strong>确定左右子树的中序遍历结果</strong>。接下来，我们可以根据左右子树的大小，将前序遍历和中序遍历分为左右子树的前序遍历和中序遍历。然后递归地对左右子树进行相同的操作，直到子树中只剩下一个节点。</p>
+<p>最后，我们将得到子树的后序遍历，将左子树的后序遍历和右子树的后序遍历连接起来，再加上根节点，即可得到整棵二叉树的后序遍历。</p>
+<p>就下面这个例子:</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">前序 DBACEGF</span><br><span class="line">后序 ABCDEFG</span><br></pre></td></tr></tbody></table></figure>
 <ol type="1">
-<li>MindSpore最基础的数据结构</li>
-<li>R语言 （）型</li>
-<li>矩阵 自定义 索引 和 列名</li>
-<li>dataframe数据内连合并 后缀名</li>
-<li>sklearn wine数据 聚类svc 建模</li>
+<li>首先根据前序遍历确定根节点为 D。</li>
+<li>在后序遍历中找到 D，确定其子树的后序遍历—— 左边为 ABC(3) , 右边为
+EFG(3)</li>
+<li>之后，在前序遍历中确定 D 子树的前序遍历—— 左边3个 BAC, 右边3个
+EGF</li>
+<li>如此一来D左右子树就变成了和D一样的情况——知道了前序和中序遍历结果，创建该树</li>
 </ol>
-<span id="more"></span>
-<h2 id="事后解答">事后解答</h2>
-<h3 id="mindspore最基础的数据结构是什么">MindSpore最基础的数据结构是什么</h3>
-<p>参考 <a href="https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html">https://mindspore.cn/tutorials/zh-CN/master/beginner/tensor.html</a></p>
-<blockquote>
-<p>张量（<a href="https://www.mindspore.cn/docs/zh-CN/master/api_python/mindspore/mindspore.Tensor.html">Tensor</a>）是MindSpore网络运算中的基本数据结构，张量是一种特殊的数据结构，与数组和矩阵非常相似</p>
-</blockquote>
-<h3 id="r语言是什么类型的语言">R语言是什么类型的语言</h3>
-<p>解释型、动态类型 <del>我考试居然写了交互式😅</del></p>
-<h3 id="矩阵自定义-索引和列名-编程题">矩阵自定义 索引和列名 (编程题</h3>
-<p><del>完全没看懂题意，矩阵居然还可以自定义索引和列名的？我直接用pandas的DataFrame了😅</del></p>
-<p>现在事后Google了一下，发现找不到什么矩阵可以自定义索引的列名的，我怀疑就是用pandas的DataFrame做的。</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">matrix = np.random.random(<span class="number">9</span>).reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">newMatrix = pd.DataFrame(data=matrix, index=<span class="built_in">list</span>(<span class="string">'abc'</span>), columns=<span class="built_in">list</span>(<span class="string">'ABC'</span>))</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="built_in">print</span>(newMatrix)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight dns"><table><tbody><tr><td class="code"><pre><span class="line">[[<span class="number">0.45641625</span> <span class="number">0.10475085</span> <span class="number">0.32116009</span>] </span><br><span class="line">[<span class="number">0.48934644</span> <span class="number">0.62110783</span> <span class="number">0.08971943</span>] </span><br><span class="line">[<span class="number">0.02103381</span> <span class="number">0.56598586</span> <span class="number">0.86895797</span>]] </span><br><span class="line">       <span class="keyword">A</span>         B         C </span><br><span class="line">a  <span class="number">0.456416</span>  <span class="number">0.104751</span>  <span class="number">0.321160</span> </span><br><span class="line">b  <span class="number">0.489346</span>  <span class="number">0.621108</span>  <span class="number">0.089719</span> </span><br><span class="line">c  <span class="number">0.021034</span>  <span class="number">0.565986</span>  <span class="number">0.868958</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="dataframe数据内连合并-涉及后缀名的添加">dataframe数据内连合并
-涉及后缀名的添加</h3>
-<p>使用DataFrame 的 merge() 或者 join() 方法。</p>
-<p>参考 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html</a>
-和 <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df1 = pd.DataFrame({<span class="string">'lkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]})</span><br><span class="line">df2 = pd.DataFrame({<span class="string">'rkey'</span>: [<span class="string">'foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>],</span><br><span class="line">                    <span class="string">'value'</span>: [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]})</span><br><span class="line"></span><br><span class="line">df3 = df1.merge(df2, left_on=<span class="string">'lkey'</span>, right_on=<span class="string">'rkey'</span>,</span><br><span class="line">          suffixes=(<span class="string">'_left'</span>, <span class="string">'_right'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<figure class="highlight apache"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attribute">lkey</span>  value_left rkey  value_right</span><br><span class="line"><span class="attribute">0</span>  foo           <span class="number">1</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">1</span>  foo           <span class="number">1</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">2</span>  foo           <span class="number">5</span>  foo            <span class="number">5</span></span><br><span class="line"><span class="attribute">3</span>  foo           <span class="number">5</span>  foo            <span class="number">8</span></span><br><span class="line"><span class="attribute">4</span>  bar           <span class="number">2</span>  bar            <span class="number">6</span></span><br><span class="line"><span class="attribute">5</span>  baz           <span class="number">3</span>  baz            <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="sklearn建模-wine数据-聚类svc">sklearn建模 wine数据 聚类svc</h3>
-<p>参考这个项目 <a href="https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook">https://www.kaggle.com/code/annatshngryan/svc-on-wine-dataset-gridsearch-for-parameters/notebook</a></p>
-<p>外加数据标准化</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">data = load_wine()</span><br><span class="line"><span class="comment"># print(data['data'])           # 数据</span></span><br><span class="line"><span class="comment"># print(data['target'])         # 标签</span></span><br><span class="line"><span class="comment"># print(data['feature_names'])  # 特征</span></span><br><span class="line"><span class="comment"># print(data['DESCR'])          # 描述</span></span><br><span class="line"><span class="comment"># 区分数据和标签</span></span><br><span class="line">df = pd.DataFrame(data[<span class="string">'data'</span>], columns=data[<span class="string">'feature_names'</span>])</span><br><span class="line">df[<span class="string">'Target'</span>] = data[<span class="string">'target'</span>]</span><br><span class="line">X = df.drop(<span class="string">'Target'</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = df[<span class="string">'Target'</span>]</span><br><span class="line"><span class="comment"># 创建训练集和测试集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># 数据离差标准化</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">std_train = scaler.fit_transform(X_train)</span><br><span class="line">std_test = scaler.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 建模</span></span><br><span class="line">svc = SVC(random_state=<span class="number">42</span>)</span><br><span class="line">svc.fit(std_train, y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">test_predictions = svc.predict(std_test)</span><br><span class="line">train_predictions = svc.predict(std_train)</span><br><span class="line"><span class="comment"># 打印分类报告</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Train:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_train, train_predictions))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Test:"</span>)</span><br><span class="line"><span class="built_in">print</span>(classification_report(y_test, test_predictions))</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p><img src="/img/python大一下期末/image-20220623224638626.png"></p>
-</blockquote>
+<p>源码：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Sample Input</span></span><br><span class="line"><span class="comment">DBACEGF ABCDEFG</span></span><br><span class="line"><span class="comment">BCAD CBAD</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Sample Output</span></span><br><span class="line"><span class="comment">ACBFGED</span></span><br><span class="line"><span class="comment">CDAB*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Definition for a binary tree node.</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TreeNode</span> <span class="comment">// 二叉树结点</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> val;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x, TreeNode *left, TreeNode *right) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(left), <span class="built_in">right</span>(right) {}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归创建二叉树</span></span><br><span class="line"><span class="comment">// str1: 前序遍历结果</span></span><br><span class="line"><span class="comment">// start1: 前序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// str2: 中序遍历结果</span></span><br><span class="line"><span class="comment">// start2: 中序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// len: 二叉树的结点个数</span></span><br><span class="line"><span class="function">TreeNode *<span class="title">create</span><span class="params">(<span class="type">char</span> *str1, <span class="type">int</span> start1, <span class="type">char</span> *str2, <span class="type">int</span> start2, <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (str1[start1] == str2[start2 + i]) <span class="comment">// 找到根结点，i为左子树的结点个数</span></span><br><span class="line">        {</span><br><span class="line">            TreeNode *node = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(str1[start1]);</span><br><span class="line">            node-&gt;left = <span class="built_in">create</span>(str1, start1 + <span class="number">1</span>, str2, start2, i); <span class="comment">// 递归创建左子树</span></span><br><span class="line">            node-&gt;right = <span class="built_in">create</span>(str1, start1 + i + <span class="number">1</span>, str2, start2 + i + <span class="number">1</span>, len - i - <span class="number">1</span>);<span class="comment">// 递归创建右子树, len - i - 1为右子树的结点个数</span></span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 后序遍历二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(TreeNode *node)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">nullptr</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;left);</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;right);</span><br><span class="line">        cout &lt;&lt; node-&gt;val;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">char</span> str[<span class="number">55</span>];</span><br><span class="line">    <span class="keyword">while</span> (cin.<span class="built_in">getline</span>(str, <span class="number">55</span>))</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 计算字符串长度</span></span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (str[len] != <span class="string">'\0'</span>)</span><br><span class="line">            len++;</span><br><span class="line">        TreeNode *root = <span class="built_in">create</span>(str, <span class="number">0</span>, str, len / <span class="number">2</span> + <span class="number">1</span>, len / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">postOrder</span>(root);</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 ]]></content>
       <categories>
-        <category>大学考试</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -800,48 +1231,6 @@ R=\{&lt;b,c&gt;,&lt;c,b&gt;,&lt;a,d&gt;,&lt;d,a&gt;\}\cup I_A
       </categories>
       <tags>
         <tag>离散数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高数大一下期末</title>
-    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
-    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
-<h2 id="当时不会的概念">当时不会的概念</h2>
-<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
-<span id="more"></span>
-<blockquote>
-<p>高等数学下(北大版)<strong>P90</strong></p>
-<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
-</blockquote>
-<h2 id="考试题目">考试题目</h2>
-<p>求极值 <span class="math display">\[
-\begin{gather}
-f(x,y)=x^2(1+y^2)+3y\ln{y}
-\end{gather}
-\]</span></p>
-<h2 id="事后解答">事后解答</h2>
-<p>先求驻点, 令 <span class="math display">\[
-\begin{gather}
-\begin{cases}
-    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
-    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
-\end{cases}
-\end{gather}
-\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
-<span class="math display">\[
-\begin{align*}
-&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
-&amp;B=f''_{xy}(0,e^{-1})=0,\\
-&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
-\end{align*}
-\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
-且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
-]]></content>
-      <categories>
-        <category>大学考试</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
       </tags>
   </entry>
   <entry>
@@ -2022,304 +2411,45 @@ Processing Unit）</p>
       </categories>
   </entry>
   <entry>
-    <title>terminal</title>
-    <url>/2022/06/20/terminal/</url>
-    <content><![CDATA[<h1 id="terminal">Terminal</h1>
-<p>超强终端。</p>
-<p><img src="/img/terminal/image-20220622210445601.png"></p>
-<p>我打算用其替代 <strong>cmd</strong> 和 <strong>Bash</strong>
-来使用（主要是命令高亮看起来舒服而且可以DIY。不过尚未知有何不妥之处（也上网查过了它们之间的区别，没看懂😂。</p>
+    <title>高数大一下期末</title>
+    <url>/2022/06/21/%E9%AB%98%E6%95%B0%E5%A4%A7%E4%B8%80%E4%B8%8B%E6%9C%9F%E6%9C%AB/</url>
+    <content><![CDATA[<h1 id="高数大一下期末">高数大一下期末</h1>
+<h2 id="当时不会的概念">当时不会的概念</h2>
+<p><del>当时考试居然忘了多元函数求极值这方面的内容😓</del></p>
 <span id="more"></span>
-<h2 id="powershell-运行-hexo-命令">PowerShell 运行 hexo 命令</h2>
-<p>搜索并用管理员权限打开 <code>Windows PowerShell</code></p>
-<p><img src="/img/terminal/QQ截图20220621204203.png"></p>
-<p>运行以下命令：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> UNRESTRICTED</span><br></pre></td></tr></tbody></table></figure>
 <blockquote>
-<p>这是 解除对有安全隐患脚本的运行限制 的意思</p>
+<p>高等数学下(北大版)<strong>P90</strong></p>
+<p><img src="/img/高数大一下期末/image-20220623183102656.png"></p>
 </blockquote>
-<p>在提示中输入 <code>Y</code></p>
-<h2 id="powershell-使用where命令">PowerShell 使用where命令</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/mighty13/article/details/119880762">https://blog.csdn.net/mighty13/article/details/119880762</a></p>
-<blockquote>
-<h2 id="总结">总结</h2>
-<p>在<code>PowerShell</code>中使用类似<code>where</code>命令的查找文件功能的方法有三种：</p>
-<ul>
-<li><code>where.exe 文件搜索字符串</code></li>
-<li><code>gcm 文件搜索字符串 -All</code></li>
-<li><code>get-command 文件搜索字符串 -All</code></li>
-</ul>
-</blockquote>
-<h2 id="conda配置">conda配置</h2>
-<p>参考这篇文章</p>
-<p><a href="https://www.cnblogs.com/dereen/p/ps_conda_env.html">https://www.cnblogs.com/dereen/p/ps_conda_env.html</a></p>
-<blockquote>
-<p>PowerShell中输入命令<code>conda init powershell</code></p>
-<p>以后就可以直接在PowerShell里使用 canda activate env_name 了</p>
-</blockquote>
-<p>顺便说下conda配置虚拟环境常用命令</p>
-<p>参考这篇文章</p>
-<p><a href="https://zhuanlan.zhihu.com/p/94744929">https://zhuanlan.zhihu.com/p/94744929</a></p>
-<blockquote>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">创建</span><br><span class="line">conda create <span class="literal">-n</span> your_env_name python=x.x </span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">conda env list</span><br><span class="line"></span><br><span class="line">激活</span><br><span class="line">conda activate your_env_name</span><br><span class="line"></span><br><span class="line">查看安装的包</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line">删除</span><br><span class="line">conda remove <span class="literal">-n</span> your_env_name <span class="literal">--all</span></span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
+<h2 id="考试题目">考试题目</h2>
+<p>求极值 <span class="math display">\[
+\begin{gather}
+f(x,y)=x^2(1+y^2)+3y\ln{y}
+\end{gather}
+\]</span></p>
+<h2 id="事后解答">事后解答</h2>
+<p>先求驻点, 令 <span class="math display">\[
+\begin{gather}
+\begin{cases}
+    \cfrac{\partial f}{\partial x}=2x(1+y^2)=0, \\
+    \cfrac{\partial f}{\partial y}=2x^2y+3\ln y+3=0 \\
+\end{cases}
+\end{gather}
+\]</span> 得驻点 <span class="math inline">\((0,\ e^{-1})\)</span> ,又有
+<span class="math display">\[
+\begin{align*}
+&amp;A=f''_{xx}(0,e^{-1})=2+2e^{-2},\\
+&amp;B=f''_{xy}(0,e^{-1})=0,\\
+&amp;C=f''_{yy}(0,e^{-1})=3e^{-1}
+\end{align*}
+\]</span> 观察 <span class="math inline">\(AC-B^2\)</span> 显然大于零,
+且 <span class="math inline">\(A&gt;0\)</span> , 故原函数在点 <span class="math inline">\((0,e^{-1})\)</span> 处取得极小值.</p>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>大学考试</category>
       </categories>
       <tags>
-        <tag>操作记录</tag>
-        <tag>PowerShell</tag>
-        <tag>终端</tag>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscdoe使用</title>
-    <url>/2022/06/20/vscode%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="vscdoe使用">vscdoe使用</h1>
-<h2 id="搭载c环境">搭载C++环境</h2>
-<p>参考这个视频</p>
-<p><a href="https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV1Cu411y7vT?spm_id_from=333.788.top_right_bar_window_history.content.click</a></p>
-<blockquote>
-<p>把C++插件退回以前的版本(1.8.4)进行操作</p>
-<p>主要是不用自己配文件</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="vscode无法运行和调试使用了部分stl库的程序">vscode无法运行和调试使用了部分stl库的程序</h2>
-<p>参考这篇文章</p>
-<p><a href="https://blog.csdn.net/qq_43700779/article/details/121891677">https://blog.csdn.net/qq_43700779/article/details/121891677</a></p>
-<blockquote>
-<p>问题在于 libstdc++ -6.dll
-动态库在环境变量中存在多个，操作系统运行C/C++程序的时候不知道该用哪个库文件</p>
-<p>在 /Mingw/bin 目录下，找到 libstdc++ -6.dll
-文件，将其放到C:32目录下</p>
-</blockquote>
-<h2 id="gitlens插件">Gitlens插件</h2>
-<p><a href="https://www.jianshu.com/p/95a1a06ac0fb">简书文章</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>操作记录</tag>
-        <tag>持续更新</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二叉树由前中序推后序</title>
-    <url>/2023/03/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%8E%A8%E5%90%8E%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="二叉树由前中序推后序">二叉树由前中序推后序</h1>
-<p>做 <a href="https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443">https://zoj.pintia.cn/problem-sets/91827364500/problems/91827365443</a>
-所得。</p>
-<p>知道了一颗二叉树的前序和中序遍历结果，求其后序遍历。</p>
-<p>该问题的主要点在于二叉树的创建上。理论上来说给定了一颗二叉树的前序和中序遍历结果，就可以确定一棵二叉树了，所以我们可以肯定的一点就是，根据题目所给可以创建一棵二叉树。</p>
-<p>目标转换：<strong>知道了一颗二叉树的前序和中序遍历结果，求该树</strong>。</p>
-<p>现在就寻找前序遍历和后序遍历的特点和关联。</p>
-<p>根据二叉树的性质，对于一棵二叉树，<strong>其前序遍历的第一个元素必然是根节点，而中序遍历中根节点的位置左边为左子树，右边为右子树</strong>。</p>
-<p>因此，我们可以<strong>通过前序遍历确定根节点</strong>，然后在<strong>中序遍历中找到根节点的位置</strong>，从而<strong>确定左右子树的中序遍历结果</strong>。接下来，我们可以根据左右子树的大小，将前序遍历和中序遍历分为左右子树的前序遍历和中序遍历。然后递归地对左右子树进行相同的操作，直到子树中只剩下一个节点。</p>
-<p>最后，我们将得到子树的后序遍历，将左子树的后序遍历和右子树的后序遍历连接起来，再加上根节点，即可得到整棵二叉树的后序遍历。</p>
-<p>就下面这个例子:</p>
-<figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">前序 DBACEGF</span><br><span class="line">后序 ABCDEFG</span><br></pre></td></tr></tbody></table></figure>
-<ol type="1">
-<li>首先根据前序遍历确定根节点为 D。</li>
-<li>在后序遍历中找到 D，确定其子树的后序遍历—— 左边为 ABC(3) , 右边为
-EFG(3)</li>
-<li>之后，在前序遍历中确定 D 子树的前序遍历—— 左边3个 BAC, 右边3个
-EGF</li>
-<li>如此一来D左右子树就变成了和D一样的情况——知道了前序和中序遍历结果，创建该树</li>
-</ol>
-<p>源码：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 给你一棵二叉树的前序和中序的遍历结果，输出它的后序遍历结果</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Sample Input</span></span><br><span class="line"><span class="comment">DBACEGF ABCDEFG</span></span><br><span class="line"><span class="comment">BCAD CBAD</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Sample Output</span></span><br><span class="line"><span class="comment">ACBFGED</span></span><br><span class="line"><span class="comment">CDAB*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">// Definition for a binary tree node.</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TreeNode</span> <span class="comment">// 二叉树结点</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> val;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) {}</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="type">char</span> x, TreeNode *left, TreeNode *right) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(left), <span class="built_in">right</span>(right) {}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 递归创建二叉树</span></span><br><span class="line"><span class="comment">// str1: 前序遍历结果</span></span><br><span class="line"><span class="comment">// start1: 前序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// str2: 中序遍历结果</span></span><br><span class="line"><span class="comment">// start2: 中序遍历结果的起始位置</span></span><br><span class="line"><span class="comment">// len: 二叉树的结点个数</span></span><br><span class="line"><span class="function">TreeNode *<span class="title">create</span><span class="params">(<span class="type">char</span> *str1, <span class="type">int</span> start1, <span class="type">char</span> *str2, <span class="type">int</span> start2, <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (str1[start1] == str2[start2 + i]) <span class="comment">// 找到根结点，i为左子树的结点个数</span></span><br><span class="line">        {</span><br><span class="line">            TreeNode *node = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(str1[start1]);</span><br><span class="line">            node-&gt;left = <span class="built_in">create</span>(str1, start1 + <span class="number">1</span>, str2, start2, i); <span class="comment">// 递归创建左子树</span></span><br><span class="line">            node-&gt;right = <span class="built_in">create</span>(str1, start1 + i + <span class="number">1</span>, str2, start2 + i + <span class="number">1</span>, len - i - <span class="number">1</span>);<span class="comment">// 递归创建右子树, len - i - 1为右子树的结点个数</span></span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 后序遍历二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(TreeNode *node)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">nullptr</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;left);</span><br><span class="line">        <span class="built_in">postOrder</span>(node-&gt;right);</span><br><span class="line">        cout &lt;&lt; node-&gt;val;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">char</span> str[<span class="number">55</span>];</span><br><span class="line">    <span class="keyword">while</span> (cin.<span class="built_in">getline</span>(str, <span class="number">55</span>))</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 计算字符串长度</span></span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (str[len] != <span class="string">'\0'</span>)</span><br><span class="line">            len++;</span><br><span class="line">        TreeNode *root = <span class="built_in">create</span>(str, <span class="number">0</span>, str, len / <span class="number">2</span> + <span class="number">1</span>, len / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">postOrder</span>(root);</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人工神经网络</title>
-    <url>/2022/07/30/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h1 id="人工神经网络">人工神经网络</h1>
-<p><strong>Artificial Neural Networks, ANN</strong></p>
-<span id="more"></span>
-<h2 id="预备知识">预备知识</h2>
-<h3 id="mp模型">MP模型</h3>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h3 id="感知算法">感知算法</h3>
-<p><img src="/img/人工神经网络/感知算法.png"></p>
-<h3 id="增广向量">增广向量</h3>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h3 id="阶跃函数">阶跃函数</h3>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
-<blockquote>
-<p>❗❗❗注意：如果非线性函数采用阶跃函数，那么三层神经网络可以模拟任意的非线性函数。未深入理解原理</p>
-</blockquote>
-<h3 id="梯度下降算法">梯度下降算法</h3>
-<h3 id="后向传播算法">后向传播算法</h3>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程-MOCC</a></p>
-<p><a href="https://github.com/Fafa-DL/2021-ZJU-Machine-Learning">课程仓库-GitHub</a></p>
-<p><a href="https://github.com/VipaiLab/machine-learning-course">偶然发现的一个有关该课程的代码仓库-GitHub</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>人工神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大一总结</title>
-    <url>/2022/07/06/%E5%A4%A7%E4%B8%80%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="大一总结">大一总结</h1>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>数据结构和算法的经典问题</title>
-    <url>/2022/07/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="数据结构和算法的经典问题">数据结构和算法的经典问题</h1>
-<h2 id="斐波那契数列">斐波那契数列</h2>
-<p><a href="https://www.zhihu.com/question/28062458/answer/39763094">知乎回答</a></p>
-<h2 id="计算多项式">计算多项式</h2>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/polynomial.cpp">我仓库里的简单版代码</a></p>
-<blockquote>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213843249.png"></p>
-<p><img src="/img/数据结构和算法的经典问题/image-20220706213752481.png"></p>
-</blockquote>
-<p><a href="https://www.writebug.com/git/OWI0NjQ5Mjlj/Polynomial_Calculator">别人项目里的高级版</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/113356941">知乎文章
-实现加乘法</a></p>
-<h2 id="最大子列和问题">最大子列和问题</h2>
-<p><a href="(https://github.com/mortal-94/mortal-to-immortal/blob/main/ZJU_DataStructure/MaxSubSum.cpp)">我仓库里的简单版代码</a></p>
-<h2 id="kmp模式匹配">KMP模式匹配</h2>
-<p><a href="https://baike.baidu.com/item/kmp%E7%AE%97%E6%B3%95/10951804">百度百科</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/1032665486">如何更好地理解和掌握
-KMP 算法? - 阮行止的回答 - 知乎</a></p>
-<p><a href="https://www.zhihu.com/question/21923021/answer/281346746">如何更好地理解和掌握
-KMP 算法? - 海纳的回答 - 知乎</a></p>
-<h2 id="线性表">线性表</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/121823910">知乎文章-线性表的操作实现</a></p>
-<h2 id="堆栈">堆栈</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/87976622">知乎文章-堆栈的定义和基本操作C++实现</a></p>
-<h2 id="队列">队列</h2>
-<p><a href="https://blog.csdn.net/forwardyzk/article/details/53771544">CSND文章-队列的定义及其基本操作实现</a></p>
-<h2 id="树">树</h2>
-<blockquote>
-<p>关于树的高度和深度定义貌似模糊，不确定 0 和 1 哪个做起点</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/45dd59940323">简书文章-树的定义和表示</a></p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p><a href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.md">二叉树数的前中后遍历统一迭代-代码随想录</a></p>
-<p><a href="https://github.com/mortal-94/mortal-to-immortal/blob/main/leetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%95%B0%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%EF%BC%88%E8%AE%B0%E8%BF%99%E4%B8%AA%E5%A5%BD%E4%BA%86%E5%90%A7%EF%BC%89.cpp">二叉树数的前中后遍历统一迭代-自己仓库仿制的代码</a></p>
-<h3 id="二叉搜索树">二叉搜索树</h3>
-<p>每个节点都不比它左子树的任意元素小，而且不比它的右子树的任意元素大。</p>
-<p><a href="https://www.cnblogs.com/vamei/archive/2013/03/17/2962290.html">二叉搜索树-博客园文章</a></p>
-<h3 id="二叉平衡树">二叉平衡树</h3>
-<p>任意一个节点的左右子树的高度差不能超过1的二叉搜索树</p>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11352071.html">二叉平衡树-博客园文章</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1419168">二叉平衡树-腾讯云文章</a></p>
-<h3 id="堆">堆</h3>
-<p>一种完全二叉树</p>
-<p><a href="https://www.cnblogs.com/hello-shf/p/11393655.html">堆的实现-博客园文章</a></p>
-<h3 id="哈夫曼树">哈夫曼树</h3>
-<p>树的带权路径长度最短</p>
-<p><a href="https://oi-wiki.org/ds/huffman-tree/">霍夫曼树-
-oi-wiki</a></p>
-<h2 id="图">图</h2>
-<p><a href="https://oi-wiki.org/graph/concept/">图的概念-
-io-wiki</a></p>
-<h3 id="图的遍历">图的遍历</h3>
-<p>深度优先和广度优先搜索算法</p>
-<h3 id="最小生成树">最小生成树</h3>
-<p>Kruskal算法</p>
-<p>Prim算法</p>
-<h3 id="最短路径">最短路径</h3>
-<p>Dijkstra算法</p>
-<p>Floyd算法</p>
-<h3 id="拓扑排序">拓扑排序</h3>
-<h2 id="aov网络和aoe网络">AOV网络和AOE网络</h2>
-<h2 id="寻找自幂数">寻找自幂数</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/570576659">我的知乎文章</a></p>
-<h2 id="ackermann函数">Ackermann函数</h2>
-<figure>
-<img src="/img/数据结构和算法的经典问题/Ackermann函数.png" alt="Ackermann函数">
-<figcaption aria-hidden="true">Ackermann函数</figcaption>
-</figure>
-<h1 id="参考">参考</h1>
-<ul>
-<li><p><a href="https://www.icourse163.org/course/ZJU-93001">浙大数据结构课程</a></p></li>
-<li><p>大话数据结构 --程杰</p></li>
-<li><p><a href="https://oi-wiki.org/">OI Wiki</a></p></li>
-<li><p>数据结构第三步--殷人昆</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习术语</title>
-    <url>/2022/07/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/</url>
-    <content><![CDATA[<h1 id="机器学习术语">机器学习术语</h1>
-<h2 id="支持向量">支持向量</h2>
-<figure>
-<img src="/img/机器学习术语/image-20220708232620831.png" alt="支持向量">
-<figcaption aria-hidden="true">支持向量</figcaption>
-</figure>
-<blockquote>
-<p>2号线平移，第一次碰到的样本，其对应的特征向量即为支持向量</p>
-</blockquote>
-<h2 id="正定矩阵和半正定矩阵">「正定矩阵」和「半正定矩阵」</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/44860862">浅谈「正定矩阵」和「半正定矩阵」
-- Xinyu Chen的文章 - 知乎</a></p>
-<blockquote>
-<p><img src="/img/机器学习术语/image-20220709100102226.png"></p>
-<p><img src="/img/机器学习术语/image-20220709100311403.png"></p>
-</blockquote>
-<h2 id="核函数-kernel-function">核函数 <em>Kernel function</em></h2>
-<p><span class="math inline">\(K(X_1,X_2)=\varphi(X_1)^T\varphi(X_2)\)</span></p>
-<p><span class="math inline">\(\varphi(X)\)</span> 是 <span class="math inline">\(X\)</span> 向另一维度的映射。</p>
-<h2 id="原问题和对偶问题">原问题和对偶问题</h2>
-<p><img src="/img/机器学习术语/image-20220710114922767.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115030254.png"></p>
-<p><img src="/img/机器学习术语/image-20220710115036717.png"></p>
-<h2 id="超参数-hyper-parameters">超参数 <em>Hyper Parameters</em></h2>
-<blockquote>
-<p><strong>人为事先设定</strong>的参数叫做算法的<strong>超参数</strong>
-<em>Hyper Parameters</em></p>
-</blockquote>
-<h2 id="低维映射到高维变线性可分的前提定理">低维映射到高维变线性可分的前提定理</h2>
-<p><img src="/img/机器学习术语/image-20220709080017756.png"></p>
-<h2 id="混淆矩阵">混淆矩阵</h2>
-<p><img src="/img/机器学习术语/image-20220723165405302.png"></p>
-<h2 id="mp模型">MP模型</h2>
-<p><a href="https://www.jianshu.com/p/0bc883e2c0d4">简书文章</a></p>
-<p><img src="/img/机器学习术语/image-20220729095843567.png"></p>
-<h2 id="增广向量">增广向量</h2>
-<p><img src="/img/人工神经网络/增广向量.png"></p>
-<h2 id="阶跃函数">阶跃函数</h2>
-<p><img src="/img/机器学习术语/image-20220729130143747.png"></p>
-<h1 id="参考">参考</h1>
-<p><a href="https://www.icourse163.org/learn/ZJU-1206573810">浙大机器学习课程</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>cheatSheet</category>
-      </categories>
-      <tags>
-        <tag>持续更新</tag>
+        <tag>高数</tag>
       </tags>
   </entry>
 </search>
